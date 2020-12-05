@@ -30,6 +30,7 @@ namespace valYOU
         private void Formazas()
         {
             btnClear.Text = "\uE711";
+            btnEnter.Text = "\uE73E";
         }
     }
 }

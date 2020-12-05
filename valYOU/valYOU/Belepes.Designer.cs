@@ -46,6 +46,8 @@ namespace valYOU
             this.btnClear = new valYOU.Entities.RoundButton();
             this.btnZero = new valYOU.Entities.RoundButton();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnEnter = new valYOU.Entities.RoundButton();
             this.SuspendLayout();
             // 
             // label1
@@ -316,7 +318,6 @@ namespace valYOU
             this.btnClear.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.btnClear.Size = new System.Drawing.Size(462, 75);
             this.btnClear.TabIndex = 14;
-            this.btnClear.Text = "X";
             this.btnClear.TextColor = System.Drawing.Color.White;
             this.btnClear.UseVisualStyleBackColor = false;
             // 
@@ -346,19 +347,52 @@ namespace valYOU
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(50, 272);
+            this.label5.Location = new System.Drawing.Point(128, 271);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 31);
+            this.label5.Size = new System.Drawing.Size(149, 47);
             this.label5.TabIndex = 15;
-            this.label5.Text = "PIN-kód:";
+            this.label5.Text = "PIN-kód";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.Location = new System.Drawing.Point(121, 322);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(163, 37);
+            this.textBox1.TabIndex = 16;
+            this.textBox1.UseSystemPasswordChar = true;
+            // 
+            // btnEnter
+            // 
+            this.btnEnter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnEnter.BackColor = System.Drawing.Color.Transparent;
+            this.btnEnter.BorderColor = System.Drawing.Color.SpringGreen;
+            this.btnEnter.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnEnter.FlatAppearance.BorderSize = 0;
+            this.btnEnter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEnter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnter.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(121, 365);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.OnHoverBorderColor = System.Drawing.Color.SpringGreen;
+            this.btnEnter.OnHoverButtonColor = System.Drawing.Color.SpringGreen;
+            this.btnEnter.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnEnter.Size = new System.Drawing.Size(163, 50);
+            this.btnEnter.TabIndex = 17;
+            this.btnEnter.TextColor = System.Drawing.Color.White;
+            this.btnEnter.UseVisualStyleBackColor = false;
             // 
             // Belepes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(984, 711);
+            this.Controls.Add(this.btnEnter);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnZero);
@@ -401,5 +435,7 @@ namespace valYOU
         private Entities.RoundButton btnClear;
         private Entities.RoundButton btnZero;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
+        private Entities.RoundButton btnEnter;
     }
 }
