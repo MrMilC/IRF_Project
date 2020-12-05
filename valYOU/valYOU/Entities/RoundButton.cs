@@ -17,7 +17,6 @@ namespace valYOU.Entities
         private Color _textColor = Color.White;
         private Color _onHoverTextColor = Color.DimGray;
 
-
         private bool _isHovering;
         private int _borderThickness = 6;
         private int _borderThicknessByTwo = 3;

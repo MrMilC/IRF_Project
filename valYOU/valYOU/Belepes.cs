@@ -21,7 +21,8 @@ namespace valYOU
 
         private void Belepes_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Biztos ki szeretne lépni?", "Megerősítés", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Biztos ki szeretne lépni?", "Megerősítés",
+                MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -80,7 +81,7 @@ namespace valYOU
         {
             MessageBox.Show("Köszöntjük a valYOU applikáció 0.1-es verziójában!");
             
-            using (Fomenu fm=new Fomenu())
+            using (Fomenu fm = new Fomenu())
             {
                 fm.ShowDialog();
             }

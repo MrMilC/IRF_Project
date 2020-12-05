@@ -81,6 +81,9 @@
     <EmbeddedResource Include="Belepes.resx">
       <DependentUpon>Belepes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fomenu.resx">
+      <DependentUpon>Fomenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
