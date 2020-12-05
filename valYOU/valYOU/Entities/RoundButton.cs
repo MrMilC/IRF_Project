@@ -51,7 +51,7 @@ namespace valYOU.Entities
             brush.Dispose();
             brush = new SolidBrush(_isHovering ? _onHoverButtonColor : _buttonColor);
 
-            //Belső rész/a gomb maga
+            //Belső rész, a gomb maga
             g.FillEllipse(brush, _borderThicknessByTwo, _borderThicknessByTwo, Height - _borderThickness,
                 Height - _borderThickness);
             g.FillEllipse(brush, (Width - Height) + _borderThicknessByTwo, _borderThicknessByTwo,
