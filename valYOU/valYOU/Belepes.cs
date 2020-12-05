@@ -16,5 +16,13 @@ namespace valYOU
         {
             InitializeComponent();
         }
+
+        private void Belepes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Biztos ki szeretne lépni?", "Megerősítés", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
