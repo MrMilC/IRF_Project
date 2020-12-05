@@ -10,12 +10,13 @@ namespace valYOU.Entities
 {
     public class RoundButton: Button
     {
-        private Color _borderColor = Color.Silver;
-        private Color _onHoverBorderColor = Color.Gray;
-        private Color _buttonColor = Color.Red;
-        private Color _onHoverButtonColor = Color.Yellow;
+        private Color _borderColor = Color.Orange;
+        private Color _onHoverBorderColor = Color.Orange;
+        private Color _buttonColor = Color.FromArgb(11, 29, 36);
+        private Color _onHoverButtonColor = Color.Orange;
         private Color _textColor = Color.White;
-        private Color _onHoverTextColor = Color.Gray;
+        private Color _onHoverTextColor = Color.DimGray;
+
 
         private bool _isHovering;
         private int _borderThickness = 6;

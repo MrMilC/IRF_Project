@@ -167,11 +167,12 @@ namespace valYOU
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.OnHoverBorderColor = System.Drawing.Color.SpringGreen;
             this.btnEnter.OnHoverButtonColor = System.Drawing.Color.SpringGreen;
-            this.btnEnter.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnEnter.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnEnter.Size = new System.Drawing.Size(163, 50);
             this.btnEnter.TabIndex = 17;
             this.btnEnter.TextColor = System.Drawing.Color.White;
             this.btnEnter.UseVisualStyleBackColor = false;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // btnClear
             // 
@@ -188,7 +189,7 @@ namespace valYOU
             this.btnClear.Name = "btnClear";
             this.btnClear.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnClear.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnClear.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnClear.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnClear.Size = new System.Drawing.Size(462, 75);
             this.btnClear.TabIndex = 14;
             this.btnClear.TextColor = System.Drawing.Color.White;
@@ -210,7 +211,7 @@ namespace valYOU
             this.btnZero.Name = "btnZero";
             this.btnZero.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnZero.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnZero.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnZero.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnZero.Size = new System.Drawing.Size(150, 75);
             this.btnZero.TabIndex = 13;
             this.btnZero.Text = "0";
@@ -233,7 +234,7 @@ namespace valYOU
             this.btnNine.Name = "btnNine";
             this.btnNine.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnNine.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnNine.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnNine.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnNine.Size = new System.Drawing.Size(150, 75);
             this.btnNine.TabIndex = 12;
             this.btnNine.Text = "9";
@@ -256,7 +257,7 @@ namespace valYOU
             this.btnEight.Name = "btnEight";
             this.btnEight.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnEight.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnEight.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnEight.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnEight.Size = new System.Drawing.Size(150, 75);
             this.btnEight.TabIndex = 11;
             this.btnEight.Text = "8";
@@ -279,7 +280,7 @@ namespace valYOU
             this.btnSeven.Name = "btnSeven";
             this.btnSeven.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnSeven.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnSeven.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnSeven.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnSeven.Size = new System.Drawing.Size(150, 75);
             this.btnSeven.TabIndex = 10;
             this.btnSeven.Text = "7";
@@ -302,7 +303,7 @@ namespace valYOU
             this.btnSix.Name = "btnSix";
             this.btnSix.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnSix.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnSix.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnSix.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnSix.Size = new System.Drawing.Size(150, 75);
             this.btnSix.TabIndex = 9;
             this.btnSix.Text = "6";
@@ -325,7 +326,7 @@ namespace valYOU
             this.btnFive.Name = "btnFive";
             this.btnFive.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnFive.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnFive.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnFive.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnFive.Size = new System.Drawing.Size(150, 75);
             this.btnFive.TabIndex = 8;
             this.btnFive.Text = "5";
@@ -348,7 +349,7 @@ namespace valYOU
             this.btnFour.Name = "btnFour";
             this.btnFour.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnFour.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnFour.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnFour.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnFour.Size = new System.Drawing.Size(150, 75);
             this.btnFour.TabIndex = 7;
             this.btnFour.Text = "4";
@@ -371,7 +372,7 @@ namespace valYOU
             this.btnThree.Name = "btnThree";
             this.btnThree.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnThree.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnThree.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnThree.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnThree.Size = new System.Drawing.Size(150, 75);
             this.btnThree.TabIndex = 6;
             this.btnThree.Text = "3";
@@ -394,7 +395,7 @@ namespace valYOU
             this.btnTwo.Name = "btnTwo";
             this.btnTwo.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnTwo.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnTwo.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnTwo.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnTwo.Size = new System.Drawing.Size(150, 75);
             this.btnTwo.TabIndex = 5;
             this.btnTwo.Text = "2";
@@ -417,7 +418,7 @@ namespace valYOU
             this.btnOne.Name = "btnOne";
             this.btnOne.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnOne.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnOne.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnOne.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnOne.Size = new System.Drawing.Size(150, 75);
             this.btnOne.TabIndex = 3;
             this.btnOne.Text = "1";

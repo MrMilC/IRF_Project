@@ -75,5 +75,15 @@ namespace valYOU
                 tbPIN.UseSystemPasswordChar = true;
             }
         }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Köszöntjük a valYOU applikáció 0.1-es verziójában!");
+            
+            using (Fomenu fm=new Fomenu())
+            {
+                fm.ShowDialog();
+            }
+        }
     }
 }
