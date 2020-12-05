@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace valYOU
 {
-    public partial class Form1 : Form
+    public partial class Belepes : Form
     {
-        public Form1()
+        public Belepes()
         {
             InitializeComponent();
         }
