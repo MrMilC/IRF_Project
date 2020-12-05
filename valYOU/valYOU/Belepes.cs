@@ -31,6 +31,44 @@ namespace valYOU
         {
             btnClear.Text = "\uE711";
             btnEnter.Text = "\uE73E";
+            labelEye.Text = "\uE7B3";
+            tbPIN.MaxLength = 8;
+        }
+
+        Control ActiveControl;
+        private void btnOne_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            ActiveControl.Focus();
+            SendKeys.Send(btn.Text);
+        }
+
+        private void tbPIN_Enter(object sender, EventArgs e)
+        {
+            ActiveControl = (Control)sender;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbPIN.Clear();
+        }
+
+        private void Belepes_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = tbPIN;
+        }
+
+        private void cbVisible_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbVisible.Checked==true)
+            {
+                tbPIN.UseSystemPasswordChar = false;
+            }
+
+            else
+            {
+                tbPIN.UseSystemPasswordChar = true;
+            }
         }
     }
 }
