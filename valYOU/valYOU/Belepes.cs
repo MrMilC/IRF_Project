@@ -51,6 +51,11 @@ namespace valYOU
         private void btnClear_Click(object sender, EventArgs e)
         {
             tbPIN.Clear();
+
+            if (cbVisible is CheckBox)
+            {
+                ((CheckBox)cbVisible).Checked = false;
+            }
         }
 
         private void Belepes_Load(object sender, EventArgs e)

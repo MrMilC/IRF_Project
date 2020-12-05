@@ -144,11 +144,11 @@ namespace valYOU
             // 
             this.labelEye.AutoSize = true;
             this.labelEye.BackColor = System.Drawing.Color.Transparent;
-            this.labelEye.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEye.Font = new System.Drawing.Font("Segoe MDL2 Assets", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEye.ForeColor = System.Drawing.Color.White;
-            this.labelEye.Location = new System.Drawing.Point(311, 323);
+            this.labelEye.Location = new System.Drawing.Point(307, 320);
             this.labelEye.Name = "labelEye";
-            this.labelEye.Size = new System.Drawing.Size(46, 27);
+            this.labelEye.Size = new System.Drawing.Size(68, 40);
             this.labelEye.TabIndex = 19;
             this.labelEye.Text = "Eye";
             // 
