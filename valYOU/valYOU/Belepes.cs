@@ -33,6 +33,7 @@ namespace valYOU
             btnClear.Text = "\uE711";
             btnEnter.Text = "\uE73E";
             labelEye.Text = "\uE7B3";
+            btnFastLogin.Text = "\uF3B1";
             tbPIN.MaxLength = 8;
         }
 
@@ -84,6 +85,26 @@ namespace valYOU
             using (Fomenu fm = new Fomenu())
             {
                 fm.ShowDialog();
+            }
+        }
+
+        private void btnFastLogin_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Köszöntjük a valYOU applikáció 0.1-es verziójában!");
+
+            using (Fomenu fm = new Fomenu())
+            {
+                fm.ShowDialog();
+            }
+        }
+
+        private void tbPIN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

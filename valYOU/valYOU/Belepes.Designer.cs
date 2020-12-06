@@ -50,6 +50,8 @@ namespace valYOU
             this.btnThree = new valYOU.Entities.RoundButton();
             this.btnTwo = new valYOU.Entities.RoundButton();
             this.btnOne = new valYOU.Entities.RoundButton();
+            this.btnFastLogin = new valYOU.Entities.RoundButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -96,13 +98,13 @@ namespace valYOU
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(105, 125);
+            this.label4.Location = new System.Drawing.Point(158, 125);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(774, 47);
+            this.label4.Size = new System.Drawing.Size(668, 31);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Kérjük adja meg a fiókjához tartozó PIN-kódot";
+            this.label4.Text = "Kérjük adja meg a fiókjához tartozó 8 számjegyű PIN-kódot";
             // 
             // label5
             // 
@@ -126,6 +128,7 @@ namespace valYOU
             this.tbPIN.TabIndex = 16;
             this.tbPIN.UseSystemPasswordChar = true;
             this.tbPIN.Enter += new System.EventHandler(this.tbPIN_Enter);
+            this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPIN_KeyPress);
             // 
             // cbVisible
             // 
@@ -426,11 +429,47 @@ namespace valYOU
             this.btnOne.UseVisualStyleBackColor = false;
             this.btnOne.Click += new System.EventHandler(this.btnOne_Click);
             // 
+            // btnFastLogin
+            // 
+            this.btnFastLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFastLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnFastLogin.BorderColor = System.Drawing.Color.Aqua;
+            this.btnFastLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnFastLogin.FlatAppearance.BorderSize = 0;
+            this.btnFastLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnFastLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnFastLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFastLogin.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFastLogin.Location = new System.Drawing.Point(148, 582);
+            this.btnFastLogin.Name = "btnFastLogin";
+            this.btnFastLogin.OnHoverBorderColor = System.Drawing.Color.Aqua;
+            this.btnFastLogin.OnHoverButtonColor = System.Drawing.Color.Aqua;
+            this.btnFastLogin.OnHoverTextColor = System.Drawing.Color.DimGray;
+            this.btnFastLogin.Size = new System.Drawing.Size(100, 75);
+            this.btnFastLogin.TabIndex = 20;
+            this.btnFastLogin.TextColor = System.Drawing.Color.White;
+            this.btnFastLogin.UseVisualStyleBackColor = false;
+            this.btnFastLogin.Click += new System.EventHandler(this.btnFastLogin_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(142, 548);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(114, 31);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "FastLogin";
+            // 
             // Belepes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(984, 711);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnFastLogin);
             this.Controls.Add(this.labelEye);
             this.Controls.Add(this.cbVisible);
             this.Controls.Add(this.btnEnter);
@@ -482,5 +521,7 @@ namespace valYOU
         private Entities.RoundButton btnEnter;
         private System.Windows.Forms.CheckBox cbVisible;
         private System.Windows.Forms.Label labelEye;
+        private Entities.RoundButton btnFastLogin;
+        private System.Windows.Forms.Label label6;
     }
 }
