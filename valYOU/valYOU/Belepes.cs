@@ -16,7 +16,7 @@ namespace valYOU
         {
             InitializeComponent();
 
-            Formazas();
+            BelepesFormazas();
         }
 
         private void Belepes_FormClosing(object sender, FormClosingEventArgs e)
@@ -28,7 +28,7 @@ namespace valYOU
             }
         }
 
-        private void Formazas()
+        private void BelepesFormazas()
         {
             btnClear.Text = "\uE711";
             btnEnter.Text = "\uE73E";

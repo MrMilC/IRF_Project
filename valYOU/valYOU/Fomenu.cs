@@ -15,6 +15,30 @@ namespace valYOU
         public Fomenu()
         {
             InitializeComponent();
+
+            FomenuFormazas();
+        }
+
+        private void FomenuFormazas()
+        {
+            labelDown.Text = "\uE70D";
+            labelUp.Text = "\uE70E";
+        }
+
+        private void btnRates_Click(object sender, EventArgs e)
+        {
+            using (Arfolyamok af = new Arfolyamok())
+            {
+                af.ShowDialog();
+            }
+        }
+
+        private void btnRegistration_Click(object sender, EventArgs e)
+        {
+            using (Regisztracio reg=new Regisztracio())
+            {
+                reg.ShowDialog();
+            }
         }
     }
 }
