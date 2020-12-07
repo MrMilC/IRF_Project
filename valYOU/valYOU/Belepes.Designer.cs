@@ -202,12 +202,12 @@ namespace valYOU
             this.btnEnter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Location = new System.Drawing.Point(121, 365);
+            this.btnEnter.Location = new System.Drawing.Point(148, 365);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.OnHoverBorderColor = System.Drawing.Color.SpringGreen;
             this.btnEnter.OnHoverButtonColor = System.Drawing.Color.SpringGreen;
             this.btnEnter.OnHoverTextColor = System.Drawing.Color.DimGray;
-            this.btnEnter.Size = new System.Drawing.Size(163, 50);
+            this.btnEnter.Size = new System.Drawing.Size(100, 75);
             this.btnEnter.TabIndex = 17;
             this.btnEnter.TextColor = System.Drawing.Color.White;
             this.btnEnter.UseVisualStyleBackColor = false;

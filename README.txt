@@ -1,1 +1,3 @@
-valYOU - funckiók
+- valYOU -
+
+Tervezett funkciók
