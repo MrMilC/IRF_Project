@@ -21,8 +21,10 @@ namespace valYOU
 
         private void FomenuFormazas()
         {
-            labelDown.Text = "\uE70D";
-            labelUp.Text = "\uE70E";
+            labelUp1.Text = "\uE70E";
+            labelUp2.Text = "\uE70E";
+            labelDown1.Text = "\uE70D";
+            labelDown2.Text = "\uE70D";
         }
 
         private void btnRates_Click(object sender, EventArgs e)
@@ -43,22 +45,26 @@ namespace valYOU
 
         private void btnRates_MouseEnter(object sender, EventArgs e)
         {
-            labelUp.Visible = true;
+            labelUp1.Visible = true;
+            labelDown1.Visible = true;
         }
 
         private void btnRates_MouseLeave(object sender, EventArgs e)
         {
-            labelUp.Visible = false;
+            labelUp1.Visible = false;
+            labelDown1.Visible = false;
         }
 
         private void btnRegistration_MouseEnter(object sender, EventArgs e)
         {
-            labelDown.Visible = true;
+            labelUp2.Visible = true;
+            labelDown2.Visible = true;
         }
 
         private void btnRegistration_MouseLeave(object sender, EventArgs e)
         {
-            labelDown.Visible = false;
+            labelUp2.Visible = false;
+            labelDown2.Visible = false;
         }
     }
 }

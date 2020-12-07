@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -118,6 +119,30 @@ namespace valYOU
             {
                 e.Handled = true;
             }
+        }
+
+        private void tbPIN_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(@"(^0-9{8,}$)");
+
+            if (regex.IsMatch(tbPIN.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbPIN.Text))
+                    tbPIN.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbPIN.BackColor = Color.MediumVioletRed;
+            }
+        }
+
+        private void tbPIN_TextChanged(object sender, EventArgs e)
+        {
+            this.Validate();
         }
     }
 }

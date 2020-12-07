@@ -38,6 +38,8 @@ namespace valYOU
             this.tbPIN = new System.Windows.Forms.TextBox();
             this.cbVisible = new System.Windows.Forms.CheckBox();
             this.labelEye = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnFastLogin = new valYOU.Entities.RoundButton();
             this.btnEnter = new valYOU.Entities.RoundButton();
             this.btnClear = new valYOU.Entities.RoundButton();
             this.btnZero = new valYOU.Entities.RoundButton();
@@ -50,8 +52,6 @@ namespace valYOU
             this.btnThree = new valYOU.Entities.RoundButton();
             this.btnTwo = new valYOU.Entities.RoundButton();
             this.btnOne = new valYOU.Entities.RoundButton();
-            this.btnFastLogin = new valYOU.Entities.RoundButton();
-            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -127,8 +127,10 @@ namespace valYOU
             this.tbPIN.Size = new System.Drawing.Size(163, 37);
             this.tbPIN.TabIndex = 16;
             this.tbPIN.UseSystemPasswordChar = true;
+            this.tbPIN.TextChanged += new System.EventHandler(this.tbPIN_TextChanged);
             this.tbPIN.Enter += new System.EventHandler(this.tbPIN_Enter);
             this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPIN_KeyPress);
+            this.tbPIN.Validating += new System.ComponentModel.CancelEventHandler(this.tbPIN_Validating);
             // 
             // cbVisible
             // 
@@ -154,6 +156,40 @@ namespace valYOU
             this.labelEye.Size = new System.Drawing.Size(68, 40);
             this.labelEye.TabIndex = 19;
             this.labelEye.Text = "Eye";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(142, 548);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(114, 31);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "FastLogin";
+            // 
+            // btnFastLogin
+            // 
+            this.btnFastLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFastLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnFastLogin.BorderColor = System.Drawing.Color.Aqua;
+            this.btnFastLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnFastLogin.FlatAppearance.BorderSize = 0;
+            this.btnFastLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnFastLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnFastLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFastLogin.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFastLogin.Location = new System.Drawing.Point(148, 582);
+            this.btnFastLogin.Name = "btnFastLogin";
+            this.btnFastLogin.OnHoverBorderColor = System.Drawing.Color.Aqua;
+            this.btnFastLogin.OnHoverButtonColor = System.Drawing.Color.Aqua;
+            this.btnFastLogin.OnHoverTextColor = System.Drawing.Color.DimGray;
+            this.btnFastLogin.Size = new System.Drawing.Size(100, 75);
+            this.btnFastLogin.TabIndex = 20;
+            this.btnFastLogin.TextColor = System.Drawing.Color.White;
+            this.btnFastLogin.UseVisualStyleBackColor = false;
+            this.btnFastLogin.Click += new System.EventHandler(this.btnFastLogin_Click);
             // 
             // btnEnter
             // 
@@ -428,40 +464,6 @@ namespace valYOU
             this.btnOne.TextColor = System.Drawing.Color.White;
             this.btnOne.UseVisualStyleBackColor = false;
             this.btnOne.Click += new System.EventHandler(this.btnOne_Click);
-            // 
-            // btnFastLogin
-            // 
-            this.btnFastLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnFastLogin.BackColor = System.Drawing.Color.Transparent;
-            this.btnFastLogin.BorderColor = System.Drawing.Color.Aqua;
-            this.btnFastLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.btnFastLogin.FlatAppearance.BorderSize = 0;
-            this.btnFastLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnFastLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnFastLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFastLogin.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFastLogin.Location = new System.Drawing.Point(148, 582);
-            this.btnFastLogin.Name = "btnFastLogin";
-            this.btnFastLogin.OnHoverBorderColor = System.Drawing.Color.Aqua;
-            this.btnFastLogin.OnHoverButtonColor = System.Drawing.Color.Aqua;
-            this.btnFastLogin.OnHoverTextColor = System.Drawing.Color.DimGray;
-            this.btnFastLogin.Size = new System.Drawing.Size(100, 75);
-            this.btnFastLogin.TabIndex = 20;
-            this.btnFastLogin.TextColor = System.Drawing.Color.White;
-            this.btnFastLogin.UseVisualStyleBackColor = false;
-            this.btnFastLogin.Click += new System.EventHandler(this.btnFastLogin_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(142, 548);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 31);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "FastLogin";
             // 
             // Belepes
             // 
