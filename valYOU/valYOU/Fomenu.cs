@@ -40,5 +40,25 @@ namespace valYOU
                 reg.ShowDialog();
             }
         }
+
+        private void btnRates_MouseEnter(object sender, EventArgs e)
+        {
+            labelUp.Visible = true;
+        }
+
+        private void btnRates_MouseLeave(object sender, EventArgs e)
+        {
+            labelUp.Visible = false;
+        }
+
+        private void btnRegistration_MouseEnter(object sender, EventArgs e)
+        {
+            labelDown.Visible = true;
+        }
+
+        private void btnRegistration_MouseLeave(object sender, EventArgs e)
+        {
+            labelDown.Visible = false;
+        }
     }
 }
