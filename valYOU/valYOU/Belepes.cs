@@ -80,12 +80,24 @@ namespace valYOU
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Köszöntjük a valYOU applikáció 0.1-es verziójában!");
-            
-            using (Fomenu fm = new Fomenu())
+            if (String.IsNullOrWhiteSpace(tbPIN.Text))
+                MessageBox.Show("Kérjük adja meg a PIN-kódot!");
+
+            else if (tbPIN.TextLength != 8)
+                MessageBox.Show("A PIN-kód nem 8 számjegyű!");
+
+            else if (tbPIN.Text != "41831295")
+                MessageBox.Show("Helytelen PIN-kód!");
+
+            else
             {
-                fm.ShowDialog();
-            }
+                MessageBox.Show("Köszöntjük a valYOU applikáció 0.1-es verziójában!");
+
+                using (Fomenu fm = new Fomenu())
+                {
+                    fm.ShowDialog();
+                }
+            }              
         }
 
         private void btnFastLogin_Click(object sender, EventArgs e)
