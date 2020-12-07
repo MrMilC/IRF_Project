@@ -36,6 +36,7 @@ namespace valYOU
             labelEye.Text = "\uE7B3";
             btnFastLogin.Text = "\uF3B1";
             tbPIN.MaxLength = 8;
+            tbPIN.TextAlign = HorizontalAlignment.Center;
         }
 
         Control ActiveControl;
@@ -87,7 +88,7 @@ namespace valYOU
             else if (tbPIN.TextLength != 8)
                 MessageBox.Show("A PIN-kód nem 8 számjegyű!");
 
-            else if (tbPIN.Text != "41831295")
+            else if (tbPIN.Text != "91827364")
                 MessageBox.Show("Helytelen PIN-kód!");
 
             else
@@ -123,7 +124,7 @@ namespace valYOU
 
         private void tbPIN_Validating(object sender, CancelEventArgs e)
         {
-            Regex regex = new Regex(@"(^0-9{8,}$)");
+            Regex regex = new Regex(@"[0-9]{8}");
 
             if (regex.IsMatch(tbPIN.Text))
             {
@@ -136,7 +137,7 @@ namespace valYOU
             else
             {
                 e.Cancel = false;
-                tbPIN.BackColor = Color.MediumVioletRed;
+                tbPIN.BackColor = Color.Tomato;
             }
         }
 

@@ -100,11 +100,11 @@ namespace valYOU
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(158, 125);
+            this.label4.Location = new System.Drawing.Point(129, 125);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(668, 31);
+            this.label4.Size = new System.Drawing.Size(726, 31);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Kérjük adja meg a fiókjához tartozó 8 számjegyű PIN-kódot";
+            this.label4.Text = "Kérjük adja meg a teszteléshez szükséges 8 számjegyű PIN-kódot";
             // 
             // label5
             // 
