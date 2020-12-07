@@ -24,6 +24,7 @@ A zöld pipa gombbal tovább lehet lépni a Főmenübe, amennyiben a tesztelésh
 A TextBox kezdetben fehér színű, viszont a számok megadása közben halvány pirosra vált, ezzel jelezve, hogy nem felel meg a továbbhaladási kritériumoknak. Halvány piros marad, amíg nincs meg a 8 számjegy és fehérré válik, ha megvan (8 számjegy a maximálisan megengedett). Ez azonban nem jelzi a számsorozat helyességét, csak a fentebb található első két kritérium meglétét.
 A gyorsabb teszteléshez a bal alsó sarokban lévő FastLogin gombra is rá lehet kattintani a Főmenübe való gyors navigáláshoz a gyorsabb tesztelés érdekében.
 A jobb felső sarokban lévő X-szel ki lehet lépni a programból a felugró ablak megerősítését követően.
+A helyes kód megadását követően a Főmenü jelenik meg.
 
 
 
@@ -48,4 +49,4 @@ Felhasználó regisztrálása (név, email, jelszó, telefonszám, stb.) Regex s
 DGW adatainak mentése és kiválasztott egyed törlése
 Mentés csv fájlba
 Timer: 2 perc tétlenséget követően az eddig megadott új regisztrációs adatok törlése (1 perc tétlenség után figyelmeztetés)
-Unit teszt a regisztrációs TextBoxnál
+Unit teszt a regisztrációs TextBoxoknál
