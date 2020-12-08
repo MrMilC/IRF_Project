@@ -38,6 +38,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +62,11 @@
     </Compile>
     <Compile Include="Belepes.Designer.cs">
       <DependentUpon>Belepes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MNBArfolyamServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Entities\RoundButton.cs">
       <SubType>Component</SubType>
@@ -93,6 +100,50 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\MNBArfolyamServiceReference\arfolyamok.wsdl" />
+    <None Include="Connected Services\MNBArfolyamServiceReference\arfolyamok.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\arfolyamok1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\MNBArfolyamServiceSoapImpl.wsdl" />
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetCurrenciesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetCurrenciesResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetCurrencyUnitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetCurrencyUnitsResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetCurrentExchangeRatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetCurrentExchangeRatesResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetDateIntervalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetDateIntervalResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetExchangeRatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetExchangeRatesResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetInfoResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,8 +157,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MNBArfolyamServiceReference\arfolyamok.disco" />
+    <None Include="Connected Services\MNBArfolyamServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\MNBArfolyamServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\MNBArfolyamServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Images\1151444.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -117,6 +177,9 @@
     <Content Include="valYOU_Icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MNBArfolyamServiceReference\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

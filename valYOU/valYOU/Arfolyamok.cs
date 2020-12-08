@@ -15,6 +15,13 @@ namespace valYOU
         public Arfolyamok()
         {
             InitializeComponent();
+
+            WebService();
+        }
+
+        private void WebService()
+        {
+
         }
     }
 }
