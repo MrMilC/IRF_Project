@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Rate.cs" />
     <Compile Include="Entities\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -85,6 +87,9 @@
     <Compile Include="Regisztracio.Designer.cs">
       <DependentUpon>Regisztracio.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Arfolyamok.resx">
+      <DependentUpon>Arfolyamok.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Belepes.resx">
       <DependentUpon>Belepes.cs</DependentUpon>
     </EmbeddedResource>
