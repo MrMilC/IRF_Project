@@ -39,10 +39,11 @@ namespace valYOU
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.cbCurrency = new System.Windows.Forms.ComboBox();
             this.labelRightArrow = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PNG = new System.Windows.Forms.Label();
             this.btnIntoPNG = new valYOU.Entities.RoundButton();
             this.btnIntoExcel = new valYOU.Entities.RoundButton();
+            this.btnIntoPDF = new valYOU.Entities.RoundButton();
+            this.btnIntoWord = new valYOU.Entities.RoundButton();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRates)).BeginInit();
             this.SuspendLayout();
@@ -50,10 +51,10 @@ namespace valYOU
             // dgwRates
             // 
             this.dgwRates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwRates.Location = new System.Drawing.Point(10, 50);
+            this.dgwRates.Location = new System.Drawing.Point(12, 50);
             this.dgwRates.Name = "dgwRates";
             this.dgwRates.RowHeadersWidth = 51;
-            this.dgwRates.Size = new System.Drawing.Size(446, 321);
+            this.dgwRates.Size = new System.Drawing.Size(480, 450);
             this.dgwRates.TabIndex = 0;
             // 
             // chartRates
@@ -62,13 +63,13 @@ namespace valYOU
             this.chartRates.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRates.Legends.Add(legend1);
-            this.chartRates.Location = new System.Drawing.Point(462, 50);
+            this.chartRates.Location = new System.Drawing.Point(492, 50);
             this.chartRates.Name = "chartRates";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartRates.Series.Add(series1);
-            this.chartRates.Size = new System.Drawing.Size(398, 321);
+            this.chartRates.Size = new System.Drawing.Size(480, 450);
             this.chartRates.TabIndex = 1;
             this.chartRates.Text = "chart1";
             // 
@@ -85,7 +86,7 @@ namespace valYOU
             // dtpTo
             // 
             this.dtpTo.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpTo.Location = new System.Drawing.Point(256, 13);
+            this.dtpTo.Location = new System.Drawing.Point(292, 13);
             this.dtpTo.Margin = new System.Windows.Forms.Padding(2);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(200, 22);
@@ -96,7 +97,7 @@ namespace valYOU
             // 
             this.cbCurrency.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCurrency.FormattingEnabled = true;
-            this.cbCurrency.Location = new System.Drawing.Point(462, 13);
+            this.cbCurrency.Location = new System.Drawing.Point(688, 13);
             this.cbCurrency.Name = "cbCurrency";
             this.cbCurrency.Size = new System.Drawing.Size(60, 23);
             this.cbCurrency.TabIndex = 6;
@@ -108,35 +109,11 @@ namespace valYOU
             this.labelRightArrow.BackColor = System.Drawing.Color.Transparent;
             this.labelRightArrow.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRightArrow.ForeColor = System.Drawing.Color.Orange;
-            this.labelRightArrow.Location = new System.Drawing.Point(214, 11);
+            this.labelRightArrow.Location = new System.Drawing.Point(234, 11);
             this.labelRightArrow.Name = "labelRightArrow";
             this.labelRightArrow.Size = new System.Drawing.Size(56, 27);
             this.labelRightArrow.TabIndex = 20;
             this.labelRightArrow.Text = "Right";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Orange;
-            this.label1.Location = new System.Drawing.Point(886, 162);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 31);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Excel";
-            // 
-            // PNG
-            // 
-            this.PNG.AutoSize = true;
-            this.PNG.BackColor = System.Drawing.Color.Transparent;
-            this.PNG.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PNG.ForeColor = System.Drawing.Color.Orange;
-            this.PNG.Location = new System.Drawing.Point(886, 312);
-            this.PNG.Name = "PNG";
-            this.PNG.Size = new System.Drawing.Size(67, 31);
-            this.PNG.TabIndex = 23;
-            this.PNG.Text = "PNG";
             // 
             // btnIntoPNG
             // 
@@ -147,14 +124,15 @@ namespace valYOU
             this.btnIntoPNG.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPNG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIntoPNG.Font = new System.Drawing.Font("Segoe MDL2 Assets", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIntoPNG.Location = new System.Drawing.Point(883, 233);
+            this.btnIntoPNG.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIntoPNG.Location = new System.Drawing.Point(541, 513);
             this.btnIntoPNG.Name = "btnIntoPNG";
             this.btnIntoPNG.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnIntoPNG.OnHoverButtonColor = System.Drawing.Color.Orange;
             this.btnIntoPNG.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnIntoPNG.Size = new System.Drawing.Size(75, 75);
             this.btnIntoPNG.TabIndex = 22;
+            this.btnIntoPNG.Text = "PNG";
             this.btnIntoPNG.TextColor = System.Drawing.Color.White;
             this.btnIntoPNG.UseVisualStyleBackColor = false;
             this.btnIntoPNG.Click += new System.EventHandler(this.btnIntoPNG_Click);
@@ -162,22 +140,78 @@ namespace valYOU
             // btnIntoExcel
             // 
             this.btnIntoExcel.BackColor = System.Drawing.Color.Transparent;
-            this.btnIntoExcel.BorderColor = System.Drawing.Color.Orange;
+            this.btnIntoExcel.BorderColor = System.Drawing.Color.SpringGreen;
             this.btnIntoExcel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.btnIntoExcel.FlatAppearance.BorderSize = 0;
             this.btnIntoExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnIntoExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIntoExcel.Font = new System.Drawing.Font("Segoe MDL2 Assets", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIntoExcel.Location = new System.Drawing.Point(883, 83);
+            this.btnIntoExcel.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIntoExcel.Location = new System.Drawing.Point(195, 513);
             this.btnIntoExcel.Name = "btnIntoExcel";
-            this.btnIntoExcel.OnHoverBorderColor = System.Drawing.Color.Orange;
-            this.btnIntoExcel.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.btnIntoExcel.OnHoverBorderColor = System.Drawing.Color.SpringGreen;
+            this.btnIntoExcel.OnHoverButtonColor = System.Drawing.Color.SpringGreen;
             this.btnIntoExcel.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btnIntoExcel.Size = new System.Drawing.Size(75, 75);
             this.btnIntoExcel.TabIndex = 4;
+            this.btnIntoExcel.Text = "Excel";
             this.btnIntoExcel.TextColor = System.Drawing.Color.White;
             this.btnIntoExcel.UseVisualStyleBackColor = false;
+            // 
+            // btnIntoPDF
+            // 
+            this.btnIntoPDF.BackColor = System.Drawing.Color.Transparent;
+            this.btnIntoPDF.BorderColor = System.Drawing.Color.Firebrick;
+            this.btnIntoPDF.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnIntoPDF.FlatAppearance.BorderSize = 0;
+            this.btnIntoPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIntoPDF.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIntoPDF.Location = new System.Drawing.Point(622, 513);
+            this.btnIntoPDF.Name = "btnIntoPDF";
+            this.btnIntoPDF.OnHoverBorderColor = System.Drawing.Color.Firebrick;
+            this.btnIntoPDF.OnHoverButtonColor = System.Drawing.Color.Firebrick;
+            this.btnIntoPDF.OnHoverTextColor = System.Drawing.Color.DimGray;
+            this.btnIntoPDF.Size = new System.Drawing.Size(75, 75);
+            this.btnIntoPDF.TabIndex = 24;
+            this.btnIntoPDF.Text = "PDF";
+            this.btnIntoPDF.TextColor = System.Drawing.Color.White;
+            this.btnIntoPDF.UseVisualStyleBackColor = false;
+            // 
+            // btnIntoWord
+            // 
+            this.btnIntoWord.BackColor = System.Drawing.Color.Transparent;
+            this.btnIntoWord.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btnIntoWord.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnIntoWord.FlatAppearance.BorderSize = 0;
+            this.btnIntoWord.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoWord.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIntoWord.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIntoWord.Location = new System.Drawing.Point(703, 513);
+            this.btnIntoWord.Name = "btnIntoWord";
+            this.btnIntoWord.OnHoverBorderColor = System.Drawing.Color.SteelBlue;
+            this.btnIntoWord.OnHoverButtonColor = System.Drawing.Color.SteelBlue;
+            this.btnIntoWord.OnHoverTextColor = System.Drawing.Color.DimGray;
+            this.btnIntoWord.Size = new System.Drawing.Size(75, 75);
+            this.btnIntoWord.TabIndex = 25;
+            this.btnIntoWord.Text = "Word";
+            this.btnIntoWord.TextColor = System.Drawing.Color.White;
+            this.btnIntoWord.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(266, 610);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(253, 31);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Írd át légy oly kedves";
             // 
             // Arfolyamok
             // 
@@ -185,9 +219,10 @@ namespace valYOU
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(984, 711);
-            this.Controls.Add(this.PNG);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnIntoWord);
+            this.Controls.Add(this.btnIntoPDF);
             this.Controls.Add(this.btnIntoPNG);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelRightArrow);
             this.Controls.Add(this.cbCurrency);
             this.Controls.Add(this.btnIntoExcel);
@@ -213,8 +248,9 @@ namespace valYOU
         private Entities.RoundButton btnIntoExcel;
         private System.Windows.Forms.ComboBox cbCurrency;
         private System.Windows.Forms.Label labelRightArrow;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label PNG;
         private Entities.RoundButton btnIntoPNG;
+        private Entities.RoundButton btnIntoPDF;
+        private Entities.RoundButton btnIntoWord;
+        private System.Windows.Forms.Label label4;
     }
 }

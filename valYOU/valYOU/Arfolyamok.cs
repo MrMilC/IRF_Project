@@ -59,10 +59,7 @@ namespace valYOU
 
         private void ArfolyamokFormazas()
         {
-            btnIntoExcel.Text = "\uE9F9";
-            btnIntoPNG.Text = "\uE9D9";
             labelRightArrow.Text = "\uE970";
-
             dtpFrom.Value = new DateTime(2020, 01, 01);
             dtpTo.Value = new DateTime(2020, 01, 31);
             cbCurrency.SelectedItem = "EUR";
