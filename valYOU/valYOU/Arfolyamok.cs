@@ -55,6 +55,8 @@ namespace valYOU
 
             dgwRates.DataSource = Rates;
             RateDiagram();
+
+            Calculations();
         }
 
         private void ArfolyamokFormazas()
@@ -63,6 +65,7 @@ namespace valYOU
             dtpFrom.Value = new DateTime(2020, 01, 01);
             dtpTo.Value = new DateTime(2020, 01, 31);
             cbCurrency.SelectedItem = "EUR";
+            dgwRates.AllowUserToAddRows = false;
         }
 
         private string WebService()
@@ -125,6 +128,47 @@ namespace valYOU
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+        private void Calculations()
+        {
+            try
+            {
+                var minValue = (from DataGridViewRow row in dgwRates.Rows
+                                where row.Cells[2].FormattedValue.ToString() != string.Empty
+                                select Convert.ToDecimal(row.Cells[2].FormattedValue)).Min();
+                labelMin.Text = minValue.ToString() + " HUF";
+
+                var avgValue = (from DataGridViewRow row in dgwRates.Rows
+                                where row.Cells[2].FormattedValue.ToString() != string.Empty
+                                select Convert.ToDecimal(row.Cells[2].FormattedValue)).Average();
+                labelAvg.Text = Math.Round(avgValue, 2).ToString() + " HUF";
+
+                var maxValue = (from DataGridViewRow row in dgwRates.Rows
+                                where row.Cells[2].FormattedValue.ToString() != string.Empty
+                                select Convert.ToDecimal(row.Cells[2].FormattedValue)).Max();
+                labelMax.Text = maxValue.ToString() + " HUF";
+
+                foreach (DataGridViewRow row in dgwRates.Rows)
+                {
+                    if (Convert.ToDecimal(row.Cells[2].Value) == minValue)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Lime;
+                    }
+                    else if (Convert.ToDecimal(row.Cells[2].Value) == maxValue)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("A kezdő dátum nem lehet kisebb, mint a záró dátum!");
+                labelMin.Text = "N/A";
+                labelAvg.Text = "N/A";
+                labelMax.Text = "N/A";
+            }
         }
 
         private void cbCurrency_SelectedIndexChanged(object sender, EventArgs e)
