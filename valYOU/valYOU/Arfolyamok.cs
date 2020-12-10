@@ -11,6 +11,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using valYOU.Entities;
 using valYOU.MNBArfolyamServiceReference;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace valYOU
 {
@@ -135,20 +137,17 @@ namespace valYOU
         {
             try
             {
-                var minValue = (from DataGridViewRow row in dgwRates.Rows
-                                where row.Cells[2].FormattedValue.ToString() != string.Empty
-                                select Convert.ToDecimal(row.Cells[2].FormattedValue)).Min();
-                labelMin.Text = minValue.ToString() + " HUF";
+                var values = from DataGridViewRow row in dgwRates.Rows
+                             where row.Cells[2].FormattedValue.ToString() != string.Empty
+                             select Convert.ToDecimal(row.Cells[2].FormattedValue);
 
-                var avgValue = (from DataGridViewRow row in dgwRates.Rows
-                                where row.Cells[2].FormattedValue.ToString() != string.Empty
-                                select Convert.ToDecimal(row.Cells[2].FormattedValue)).Average();
+                var minValue = values.Min();
+                var avgValue = values.Average();
+                var maxValue = values.Max();
+
+                labelMin.Text = Math.Round(minValue, 2).ToString() + " HUF";
                 labelAvg.Text = Math.Round(avgValue, 2).ToString() + " HUF";
-
-                var maxValue = (from DataGridViewRow row in dgwRates.Rows
-                                where row.Cells[2].FormattedValue.ToString() != string.Empty
-                                select Convert.ToDecimal(row.Cells[2].FormattedValue)).Max();
-                labelMax.Text = maxValue.ToString() + " HUF";
+                labelMax.Text = Math.Round(maxValue, 2).ToString() + " HUF";
 
                 foreach (DataGridViewRow row in dgwRates.Rows)
                 {
@@ -193,16 +192,29 @@ namespace valYOU
             DataRefresh();
         }
 
-        private void btnIntoPNG_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog dlg = new SaveFileDialog();
-            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                this.chartRates.SaveImage(dlg.FileName+".png", ChartImageFormat.Png);
-        }
-
         private void Arfolyamok_Load(object sender, EventArgs e)
         {
             Calculations();
+        }
+
+        private void btnIntoPNG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIntoExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIntoPDF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIntoWord_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

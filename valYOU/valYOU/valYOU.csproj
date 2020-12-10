@@ -36,6 +36,72 @@
     <ApplicationIcon>valYOU_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.Chart.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Chart.Base.18.3.0.53\lib\net46\Syncfusion.Chart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Chart.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Chart.Windows.18.3.0.53\lib\net46\Syncfusion.Chart.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.18.3.0.53\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIO.WinForms.18.3.0.53\lib\net46\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Base.18.3.0.53\lib\net46\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Grouping.Windows.18.3.0.53\lib\net46\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Windows.18.3.0.53\lib\net46\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Gridconverter.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.GridExport.WinForms.18.3.0.53\lib\net46\Syncfusion.Gridconverter.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.GridHelperClasses.Windows.18.3.0.53\lib\net46\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grouping.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grouping.Base.18.3.0.53\lib\net46\Syncfusion.Grouping.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.18.3.0.53\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Linq.Base.18.3.0.53\lib\net46\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.OfficeChart.Base.18.3.0.53\lib\net46\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.WinForms.18.3.0.53\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.PivotAnalysis.Base.18.3.0.53\lib\net46\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.PivotTable.WinForms.18.3.0.53\lib\net46\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Base.18.3.0.53\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Windows.18.3.0.53\lib\net46\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SpellChecker.Base.18.3.0.53\lib\net46\Syncfusion.SpellChecker.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Base.18.3.0.53\lib\net46\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Windows.18.3.0.53\lib\net46\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.XlsIO.WinForms.18.3.0.53\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -149,6 +215,7 @@
     <None Include="Connected Services\MNBArfolyamServiceReference\valYOU.MNBArfolyamServiceReference.GetInfoResponseBody.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -185,6 +252,35 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\MNBArfolyamServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
