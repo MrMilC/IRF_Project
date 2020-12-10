@@ -29,6 +29,7 @@ namespace valYOU
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -49,17 +50,20 @@ namespace valYOU
             this.labelMin = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelAvg = new System.Windows.Forms.Label();
+            this.ErrorProv = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRates)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProv)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwRates
             // 
             this.dgwRates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwRates.Location = new System.Drawing.Point(12, 50);
+            this.dgwRates.Location = new System.Drawing.Point(11, 168);
             this.dgwRates.Name = "dgwRates";
             this.dgwRates.RowHeadersWidth = 51;
-            this.dgwRates.Size = new System.Drawing.Size(480, 450);
+            this.dgwRates.Size = new System.Drawing.Size(480, 480);
             this.dgwRates.TabIndex = 0;
             // 
             // chartRates
@@ -68,20 +72,20 @@ namespace valYOU
             this.chartRates.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRates.Legends.Add(legend1);
-            this.chartRates.Location = new System.Drawing.Point(492, 50);
+            this.chartRates.Location = new System.Drawing.Point(497, 168);
             this.chartRates.Name = "chartRates";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartRates.Series.Add(series1);
-            this.chartRates.Size = new System.Drawing.Size(480, 450);
+            this.chartRates.Size = new System.Drawing.Size(480, 480);
             this.chartRates.TabIndex = 1;
             this.chartRates.Text = "chart1";
             // 
             // dtpFrom
             // 
             this.dtpFrom.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpFrom.Location = new System.Drawing.Point(10, 13);
+            this.dtpFrom.Location = new System.Drawing.Point(11, 11);
             this.dtpFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(200, 22);
@@ -91,7 +95,7 @@ namespace valYOU
             // dtpTo
             // 
             this.dtpTo.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpTo.Location = new System.Drawing.Point(292, 13);
+            this.dtpTo.Location = new System.Drawing.Point(293, 9);
             this.dtpTo.Margin = new System.Windows.Forms.Padding(2);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(200, 22);
@@ -102,7 +106,7 @@ namespace valYOU
             // 
             this.cbCurrency.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCurrency.FormattingEnabled = true;
-            this.cbCurrency.Location = new System.Drawing.Point(688, 13);
+            this.cbCurrency.Location = new System.Drawing.Point(12, 51);
             this.cbCurrency.Name = "cbCurrency";
             this.cbCurrency.Size = new System.Drawing.Size(60, 23);
             this.cbCurrency.TabIndex = 6;
@@ -114,7 +118,7 @@ namespace valYOU
             this.labelRightArrow.BackColor = System.Drawing.Color.Transparent;
             this.labelRightArrow.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRightArrow.ForeColor = System.Drawing.Color.Orange;
-            this.labelRightArrow.Location = new System.Drawing.Point(234, 11);
+            this.labelRightArrow.Location = new System.Drawing.Point(235, 9);
             this.labelRightArrow.Name = "labelRightArrow";
             this.labelRightArrow.Size = new System.Drawing.Size(56, 27);
             this.labelRightArrow.TabIndex = 20;
@@ -129,7 +133,7 @@ namespace valYOU
             this.labelMax.BackColor = System.Drawing.Color.Transparent;
             this.labelMax.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelMax.ForeColor = System.Drawing.Color.Red;
-            this.labelMax.Location = new System.Drawing.Point(149, 587);
+            this.labelMax.Location = new System.Drawing.Point(227, 125);
             this.labelMax.Name = "labelMax";
             this.labelMax.Size = new System.Drawing.Size(46, 23);
             this.labelMax.TabIndex = 26;
@@ -144,7 +148,7 @@ namespace valYOU
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 587);
+            this.label1.Location = new System.Drawing.Point(90, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 23);
             this.label1.TabIndex = 27;
@@ -160,7 +164,7 @@ namespace valYOU
             this.btnIntoWord.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoWord.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoWord.Location = new System.Drawing.Point(783, 513);
+            this.btnIntoWord.Location = new System.Drawing.Point(800, 59);
             this.btnIntoWord.Name = "btnIntoWord";
             this.btnIntoWord.OnHoverBorderColor = System.Drawing.Color.SteelBlue;
             this.btnIntoWord.OnHoverButtonColor = System.Drawing.Color.SteelBlue;
@@ -181,7 +185,7 @@ namespace valYOU
             this.btnIntoPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoPDF.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIntoPDF.Location = new System.Drawing.Point(688, 513);
+            this.btnIntoPDF.Location = new System.Drawing.Point(705, 59);
             this.btnIntoPDF.Name = "btnIntoPDF";
             this.btnIntoPDF.OnHoverBorderColor = System.Drawing.Color.Firebrick;
             this.btnIntoPDF.OnHoverButtonColor = System.Drawing.Color.Firebrick;
@@ -202,7 +206,7 @@ namespace valYOU
             this.btnIntoPNG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoPNG.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIntoPNG.Location = new System.Drawing.Point(591, 513);
+            this.btnIntoPNG.Location = new System.Drawing.Point(608, 59);
             this.btnIntoPNG.Name = "btnIntoPNG";
             this.btnIntoPNG.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnIntoPNG.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -224,7 +228,7 @@ namespace valYOU
             this.btnIntoExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoExcel.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoExcel.Location = new System.Drawing.Point(292, 521);
+            this.btnIntoExcel.Location = new System.Drawing.Point(378, 59);
             this.btnIntoExcel.Name = "btnIntoExcel";
             this.btnIntoExcel.OnHoverBorderColor = System.Drawing.Color.LimeGreen;
             this.btnIntoExcel.OnHoverButtonColor = System.Drawing.Color.LimeGreen;
@@ -244,7 +248,7 @@ namespace valYOU
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 513);
+            this.label2.Location = new System.Drawing.Point(90, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 23);
             this.label2.TabIndex = 28;
@@ -259,7 +263,7 @@ namespace valYOU
             this.labelMin.BackColor = System.Drawing.Color.Transparent;
             this.labelMin.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelMin.ForeColor = System.Drawing.Color.Lime;
-            this.labelMin.Location = new System.Drawing.Point(149, 513);
+            this.labelMin.Location = new System.Drawing.Point(227, 51);
             this.labelMin.Name = "labelMin";
             this.labelMin.Size = new System.Drawing.Size(38, 23);
             this.labelMin.TabIndex = 29;
@@ -274,7 +278,7 @@ namespace valYOU
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 550);
+            this.label3.Location = new System.Drawing.Point(90, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 23);
             this.label3.TabIndex = 30;
@@ -289,18 +293,38 @@ namespace valYOU
             this.labelAvg.BackColor = System.Drawing.Color.Transparent;
             this.labelAvg.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelAvg.ForeColor = System.Drawing.Color.Aqua;
-            this.labelAvg.Location = new System.Drawing.Point(149, 550);
+            this.labelAvg.Location = new System.Drawing.Point(227, 88);
             this.labelAvg.Name = "labelAvg";
             this.labelAvg.Size = new System.Drawing.Size(42, 23);
             this.labelAvg.TabIndex = 31;
             this.labelAvg.Text = "Avg";
+            // 
+            // ErrorProv
+            // 
+            this.ErrorProv.ContainerControl = this;
+            // 
+            // labelError
+            // 
+            this.labelError.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelError.AutoSize = true;
+            this.labelError.BackColor = System.Drawing.Color.Transparent;
+            this.labelError.Font = new System.Drawing.Font("Segoe MDL2 Assets", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.White;
+            this.labelError.Location = new System.Drawing.Point(12, 103);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(38, 40);
+            this.labelError.TabIndex = 32;
+            this.labelError.Text = "A";
             // 
             // Arfolyamok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(984, 711);
+            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.labelAvg);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelMin);
@@ -319,8 +343,10 @@ namespace valYOU
             this.Controls.Add(this.dgwRates);
             this.Name = "Arfolyamok";
             this.Text = "Arfolyamok";
+            this.Load += new System.EventHandler(this.Arfolyamok_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRates)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +370,7 @@ namespace valYOU
         private System.Windows.Forms.Label labelMin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelAvg;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.ErrorProvider ErrorProv;
     }
 }

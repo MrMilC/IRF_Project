@@ -62,6 +62,7 @@ namespace valYOU
         private void ArfolyamokFormazas()
         {
             labelRightArrow.Text = "\uE970";
+            labelError.Text = "\uE713";
             dtpFrom.Value = new DateTime(2020, 01, 01);
             dtpTo.Value = new DateTime(2020, 01, 31);
             cbCurrency.SelectedItem = "EUR";
@@ -159,12 +160,21 @@ namespace valYOU
                     {
                         row.DefaultCellStyle.BackColor = Color.Red;
                     }
+                    if (dgwRates.Rows.Count==1 || Convert.ToDecimal(row.Cells[2].Value) == 0)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
                 }
             }
 
             catch (Exception)
             {
-                MessageBox.Show("A kezdő dátum nem lehet kisebb, mint a záró dátum!");
+                if (dtpFrom.Value > dtpTo.Value)
+                    ErrorProv.SetError(labelError, "A kezdő dátum nem lehet a záró dátumnál későbbi időpont!");
+
+                else if (dgwRates.Rows.Count == 0)
+                    ErrorProv.SetError(labelError, "Az adott szűrési feltételek mellett nem léteznek adatok!");
+
                 labelMin.Text = "N/A";
                 labelAvg.Text = "N/A";
                 labelMax.Text = "N/A";
@@ -173,11 +183,13 @@ namespace valYOU
 
         private void cbCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ErrorProv.Clear();
             DataRefresh();
         }
 
         private void dtpFrom_ValueChanged(object sender, EventArgs e)
         {
+            ErrorProv.Clear();
             DataRefresh();
         }
 
@@ -186,6 +198,11 @@ namespace valYOU
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 this.chartRates.SaveImage(dlg.FileName+".png", ChartImageFormat.Png);
+        }
+
+        private void Arfolyamok_Load(object sender, EventArgs e)
+        {
+            Calculations();
         }
     }
 }
