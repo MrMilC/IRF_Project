@@ -21,7 +21,7 @@ PIN-kód: 91827364
 Az indítást követően első lépésként meg kell adni a további teszteléshez és használathoz szükséges 8 számjegyű PIN-kódot a jobb oldalt látható számozott gombokkal (ezzel az alapvető PIN-kód beírás is tesztelhető, amit leginkább a felhasználók fognak használni).
 Gombnyomásra kerül be az adott gombon található szám a bal oldali TextBoxba, amely "elrejti" a benne lévő számokat (betűket nem enged beírni). A TextBox mellett található CheckBox segítségével láthatóvá lehet tenni az eddigi számokat, ha esetleg bizonytalan a bevitel. Az alsó "X" gombbal kitörölhető a TextBox teljes tartalma, továbbá ha a láthatósági CheckBox be van pipálva, akkor azt eltávolítja.
 A zöld pipa gombbal tovább lehet lépni a Főmenübe, amennyiben a teszteléshez szánt/helyes kódot adtuk meg. Nem fog tovább engedni, ha: üres a TextBox, nincs meg a 8 számjegy, vagy helytelen a kód.
-A TextBox kezdetben fehér színű, viszont a számok megadása közben halvány pirosra vált, ezzel jelezve, hogy nem felel meg a továbbhaladási kritériumoknak. Halvány piros marad, amíg nincs meg a 8 számjegy és fehérré válik, ha megvan (8 számjegy a maximálisan megengedett). Ez azonban nem jelzi a számsorozat helyességét, csak a fentebb található első két kritérium meglétét.
+A TextBox kezdetben fehér színű, viszont a számok megadása közben halvány pirosra vált, ezzel jelezve, hogy nem felel meg a továbbhaladási kritériumoknak. Halvány piros marad, amíg nincs meg a 8 számjegy és fehérré válik, ha megvan (8 számjegy a maximálisan megengedett). Ez azonban nem jelzi a számsorozat helyességét, csak a fentebb található első két hibánál jelezi (üres a TextBox, nincs meg a 8 számjegy).
 A gyorsabb teszteléshez a bal alsó sarokban lévő FastLogin gombra is rá lehet kattintani a Főmenübe való gyors navigáláshoz a gyorsabb tesztelés érdekében.
 A jobb felső sarokban lévő X-szel ki lehet lépni a programból a felugró ablak megerősítését követően.
 A helyes kód megadását követően a Főmenü jelenik meg.
@@ -37,7 +37,7 @@ Ez a Form kizárólag a másik két fő menüponthoz való elnavigálást valós
 - Arfolyamok.cs (work in progress) -
 
 Az MNB webszolgáltatás beolvasása.
-A fent kiválsztott pénznem árfolyamainak megjelenítése az első DataGridView-n, jobb oldalt Charton pedig diagram mutatja az árfolyam alakulását.
+A fent kiválsztott pénznem árfolyamainak magyar forintban vett értékének megjelenítése az első DataGridView-n, jobb oldalt Charton pedig diagram mutatja az árfolyam alakulását.
 Ez alatt egy napot kiválasztva válik láthatóvá a webszolgáltatásban lévő összes pénznem árfolyama a második DataGridView-n.
 A két DGW által megjelenített adatokat ki lehet exportálni Excel állományba.
 

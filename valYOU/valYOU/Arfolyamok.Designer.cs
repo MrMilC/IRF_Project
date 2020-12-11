@@ -50,7 +50,7 @@ namespace valYOU
             this.labelError = new System.Windows.Forms.Label();
             this.btnIntoWord = new valYOU.Entities.RoundButton();
             this.btnIntoPDF = new valYOU.Entities.RoundButton();
-            this.btnIntoPNG = new valYOU.Entities.RoundButton();
+            this.btnIntoImage = new valYOU.Entities.RoundButton();
             this.btnIntoExcel = new valYOU.Entities.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRates)).BeginInit();
@@ -277,27 +277,27 @@ namespace valYOU
             this.btnIntoPDF.UseVisualStyleBackColor = false;
             this.btnIntoPDF.Click += new System.EventHandler(this.btnIntoPDF_Click);
             // 
-            // btnIntoPNG
+            // btnIntoImage
             // 
-            this.btnIntoPNG.BackColor = System.Drawing.Color.Transparent;
-            this.btnIntoPNG.BorderColor = System.Drawing.Color.Orange;
-            this.btnIntoPNG.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.btnIntoPNG.FlatAppearance.BorderSize = 0;
-            this.btnIntoPNG.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnIntoPNG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnIntoPNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIntoPNG.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIntoPNG.Location = new System.Drawing.Point(605, 59);
-            this.btnIntoPNG.Name = "btnIntoPNG";
-            this.btnIntoPNG.OnHoverBorderColor = System.Drawing.Color.Orange;
-            this.btnIntoPNG.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnIntoPNG.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnIntoPNG.Size = new System.Drawing.Size(75, 75);
-            this.btnIntoPNG.TabIndex = 22;
-            this.btnIntoPNG.Text = "PNG";
-            this.btnIntoPNG.TextColor = System.Drawing.Color.White;
-            this.btnIntoPNG.UseVisualStyleBackColor = false;
-            this.btnIntoPNG.Click += new System.EventHandler(this.btnIntoPNG_Click);
+            this.btnIntoImage.BackColor = System.Drawing.Color.Transparent;
+            this.btnIntoImage.BorderColor = System.Drawing.Color.Orange;
+            this.btnIntoImage.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnIntoImage.FlatAppearance.BorderSize = 0;
+            this.btnIntoImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIntoImage.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIntoImage.Location = new System.Drawing.Point(605, 59);
+            this.btnIntoImage.Name = "btnIntoImage";
+            this.btnIntoImage.OnHoverBorderColor = System.Drawing.Color.Orange;
+            this.btnIntoImage.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.btnIntoImage.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnIntoImage.Size = new System.Drawing.Size(75, 75);
+            this.btnIntoImage.TabIndex = 22;
+            this.btnIntoImage.Text = "PNG/JPG";
+            this.btnIntoImage.TextColor = System.Drawing.Color.White;
+            this.btnIntoImage.UseVisualStyleBackColor = false;
+            this.btnIntoImage.Click += new System.EventHandler(this.btnIntoImage_Click);
             // 
             // btnIntoExcel
             // 
@@ -336,7 +336,7 @@ namespace valYOU
             this.Controls.Add(this.labelMax);
             this.Controls.Add(this.btnIntoWord);
             this.Controls.Add(this.btnIntoPDF);
-            this.Controls.Add(this.btnIntoPNG);
+            this.Controls.Add(this.btnIntoImage);
             this.Controls.Add(this.labelRightArrow);
             this.Controls.Add(this.cbCurrency);
             this.Controls.Add(this.btnIntoExcel);
@@ -364,7 +364,7 @@ namespace valYOU
         private Entities.RoundButton btnIntoExcel;
         private System.Windows.Forms.ComboBox cbCurrency;
         private System.Windows.Forms.Label labelRightArrow;
-        private Entities.RoundButton btnIntoPNG;
+        private Entities.RoundButton btnIntoImage;
         private Entities.RoundButton btnIntoPDF;
         private Entities.RoundButton btnIntoWord;
         private System.Windows.Forms.Label labelMax;

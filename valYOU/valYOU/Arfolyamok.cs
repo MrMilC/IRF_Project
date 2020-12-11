@@ -13,6 +13,8 @@ using valYOU.Entities;
 using valYOU.MNBArfolyamServiceReference;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
+using Microsoft.Office.Interop.Excel;
+using Syncfusion.XlsIO;
 
 namespace valYOU
 {
@@ -197,11 +199,6 @@ namespace valYOU
             Calculations();
         }
 
-        private void btnIntoPNG_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnIntoExcel_Click(object sender, EventArgs e)
         {
 
@@ -215,6 +212,46 @@ namespace valYOU
         private void btnIntoWord_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnIntoImage_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
+            sfd.Title = "Chart mentése képként";
+            sfd.FileName = ".png";
+
+            DialogResult result = sfd.ShowDialog();
+            sfd.RestoreDirectory = true;
+
+            if (result == DialogResult.OK && sfd.FileName != "")
+            {
+                try
+                {
+                    if (sfd.CheckPathExists)
+                    {
+                        if (sfd.FilterIndex == 2)
+                        {
+                            chartRates.SaveImage(sfd.FileName, ChartImageFormat.Jpeg);
+                            sfd.FileName = ".jpg";
+                        }
+                        else if (sfd.FilterIndex == 1)
+                        {
+                            chartRates.SaveImage(sfd.FileName, ChartImageFormat.Png);
+                            sfd.FileName = ".png";
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("A megadott útvonal nem létezik!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }
