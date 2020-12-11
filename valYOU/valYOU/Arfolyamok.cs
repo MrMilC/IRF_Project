@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using valYOU.Entities;
 using valYOU.MNBArfolyamServiceReference;
-using Excel = Microsoft.Office.Interop.Excel;
-using System.Reflection;
-using Microsoft.Office.Interop.Excel;
-using Syncfusion.XlsIO;
 
 namespace valYOU
 {
@@ -71,6 +67,7 @@ namespace valYOU
             dtpTo.Value = new DateTime(2020, 01, 31);
             cbCurrency.SelectedItem = "EUR";
             dgwRates.AllowUserToAddRows = false;
+            btnIntoImage.Text="PNG \nJPG";
         }
 
         private string WebService()
@@ -168,7 +165,7 @@ namespace valYOU
                 }
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (dtpFrom.Value > dtpTo.Value)
                     ErrorProv.SetError(labelError, "A kezdő dátum nem lehet a záró dátumnál későbbi időpont!");
@@ -206,7 +203,70 @@ namespace valYOU
 
         private void btnIntoPDF_Click(object sender, EventArgs e)
         {
+            if (dgwRates.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = ".pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(dgwRates.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 75;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
+                            foreach (DataGridViewColumn column in dgwRates.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in dgwRates.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hiba: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
+            }
         }
 
         private void btnIntoWord_Click(object sender, EventArgs e)
