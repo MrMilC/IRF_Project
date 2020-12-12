@@ -7,7 +7,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -427,7 +426,6 @@ namespace valYOU
                                 chartRates.SaveImage(sfd.FileName, ChartImageFormat.Png);
                                 sfd.FileName = ".png";
                             }
-
                         }
                         else
                         {

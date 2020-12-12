@@ -243,7 +243,7 @@ namespace valYOU
             this.btnIntoPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoPDF.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoPDF.Location = new System.Drawing.Point(440, 99);
+            this.btnIntoPDF.Location = new System.Drawing.Point(443, 99);
             this.btnIntoPDF.Name = "btnIntoPDF";
             this.btnIntoPDF.OnHoverBorderColor = System.Drawing.Color.Firebrick;
             this.btnIntoPDF.OnHoverButtonColor = System.Drawing.Color.Firebrick;
