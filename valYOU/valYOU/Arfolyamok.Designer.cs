@@ -51,6 +51,7 @@ namespace valYOU
             this.btnIntoPDF = new valYOU.Entities.RoundButton();
             this.btnIntoImage = new valYOU.Entities.RoundButton();
             this.btnIntoExcel = new valYOU.Entities.RoundButton();
+            this.btnIntoCSV = new valYOU.Entities.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv)).BeginInit();
@@ -242,12 +243,12 @@ namespace valYOU
             this.btnIntoPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoPDF.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoPDF.Location = new System.Drawing.Point(426, 67);
+            this.btnIntoPDF.Location = new System.Drawing.Point(440, 99);
             this.btnIntoPDF.Name = "btnIntoPDF";
             this.btnIntoPDF.OnHoverBorderColor = System.Drawing.Color.Firebrick;
             this.btnIntoPDF.OnHoverButtonColor = System.Drawing.Color.Firebrick;
             this.btnIntoPDF.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnIntoPDF.Size = new System.Drawing.Size(65, 65);
+            this.btnIntoPDF.Size = new System.Drawing.Size(50, 50);
             this.btnIntoPDF.TabIndex = 24;
             this.btnIntoPDF.Text = "PDF";
             this.btnIntoPDF.TextColor = System.Drawing.Color.White;
@@ -264,7 +265,7 @@ namespace valYOU
             this.btnIntoImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoImage.Font = new System.Drawing.Font("Tw Cen MT", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoImage.Location = new System.Drawing.Point(836, 71);
+            this.btnIntoImage.Location = new System.Drawing.Point(702, 88);
             this.btnIntoImage.Name = "btnIntoImage";
             this.btnIntoImage.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnIntoImage.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -286,17 +287,39 @@ namespace valYOU
             this.btnIntoExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoExcel.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoExcel.Location = new System.Drawing.Point(355, 69);
+            this.btnIntoExcel.Location = new System.Drawing.Point(384, 99);
             this.btnIntoExcel.Name = "btnIntoExcel";
             this.btnIntoExcel.OnHoverBorderColor = System.Drawing.Color.LimeGreen;
             this.btnIntoExcel.OnHoverButtonColor = System.Drawing.Color.LimeGreen;
             this.btnIntoExcel.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnIntoExcel.Size = new System.Drawing.Size(65, 65);
+            this.btnIntoExcel.Size = new System.Drawing.Size(50, 50);
             this.btnIntoExcel.TabIndex = 4;
             this.btnIntoExcel.Text = "Excel";
             this.btnIntoExcel.TextColor = System.Drawing.Color.White;
             this.btnIntoExcel.UseVisualStyleBackColor = false;
             this.btnIntoExcel.Click += new System.EventHandler(this.btnIntoExcel_Click);
+            // 
+            // btnIntoCSV
+            // 
+            this.btnIntoCSV.BackColor = System.Drawing.Color.Transparent;
+            this.btnIntoCSV.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnIntoCSV.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnIntoCSV.FlatAppearance.BorderSize = 0;
+            this.btnIntoCSV.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoCSV.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIntoCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIntoCSV.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIntoCSV.Location = new System.Drawing.Point(411, 43);
+            this.btnIntoCSV.Name = "btnIntoCSV";
+            this.btnIntoCSV.OnHoverBorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnIntoCSV.OnHoverButtonColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnIntoCSV.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnIntoCSV.Size = new System.Drawing.Size(50, 50);
+            this.btnIntoCSV.TabIndex = 33;
+            this.btnIntoCSV.Text = "CSV";
+            this.btnIntoCSV.TextColor = System.Drawing.Color.White;
+            this.btnIntoCSV.UseVisualStyleBackColor = false;
+            this.btnIntoCSV.Click += new System.EventHandler(this.btnIntoCSV_Click);
             // 
             // Arfolyamok
             // 
@@ -304,6 +327,7 @@ namespace valYOU
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.btnIntoCSV);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.labelAvg);
             this.Controls.Add(this.label3);
@@ -350,5 +374,6 @@ namespace valYOU
         private System.Windows.Forms.Label labelAvg;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.ErrorProvider ErrorProv;
+        private Entities.RoundButton btnIntoCSV;
     }
 }

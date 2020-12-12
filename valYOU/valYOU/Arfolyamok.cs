@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
@@ -166,7 +168,7 @@ namespace valYOU
                 }
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 if (dtpFrom.Value > dtpTo.Value)
                     ErrorProv.SetError(labelError, "A kezdő dátum nem lehet a záró dátumnál későbbi időpont!");
@@ -437,6 +439,76 @@ namespace valYOU
                         MessageBox.Show("Hiba: " + ex.Message);
                     }
                 } 
+            }
+        }
+
+        private void btnIntoCSV_Click(object sender, EventArgs e)
+        {
+            if (dgwRates.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV (*.csv)|*.csv";
+                sfd.Title = "Árfolyam mentése CSV-ként";
+                sfd.FileName = ".csv";
+                sfd.RestoreDirectory = true;
+                bool fileError = false;
+                DialogResult result = sfd.ShowDialog();
+
+                if (result == DialogResult.OK && sfd.FileName != "")
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            if (sfd.CheckPathExists)
+                            {
+                                using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                                {
+                                    sw.WriteLine("Árfolyam "+"|"+cbCurrency.Text+"|");
+                                    sw.WriteLine();
+
+                                    sw.WriteLine("Minimális érték: " + labelMin.Text);
+                                    sw.WriteLine("Átlagos érték: " + labelAvg.Text);
+                                    sw.WriteLine("Maximális érték: " + labelMax.Text);
+                                    sw.WriteLine();
+                                    sw.WriteLine();
+                                    sw.WriteLine();
+
+                                    for (int i = 0; i < dgwRates.Rows.Count; i++)
+                                    {
+                                        sw.WriteLine("Dátum: " + dgwRates.Rows[i].Cells[0].Value.ToString().Substring(0, 13));
+                                        sw.WriteLine("Érték: " + dgwRates.Rows[i].Cells[2].Value.ToString()+" HUF");
+                                        sw.WriteLine();
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("A megadott útvonal nem létezik!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hiba: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
             }
         }
     }

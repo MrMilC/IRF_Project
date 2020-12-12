@@ -177,6 +177,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Regisztracio.resx">
+      <DependentUpon>Regisztracio.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Connected Services\MNBArfolyamServiceReference\arfolyamok.wsdl" />
     <None Include="Connected Services\MNBArfolyamServiceReference\arfolyamok.xsd">
       <SubType>Designer</SubType>
