@@ -1,5 +1,6 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -198,16 +199,15 @@ namespace valYOU
 
         private void btnIntoExcel_Click(object sender, EventArgs e)
         {
-            if (dgwRates.Rows.Count>0)
+            if (dgwRates.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "Excel-munkafüzet|*.xlsx";
                 sfd.Title = "Árfolyam mentése Excel-fájlként";
                 sfd.FileName = ".xlsx";
-
+                sfd.RestoreDirectory = true;
                 bool fileError = false;
                 DialogResult result = sfd.ShowDialog();
-                sfd.RestoreDirectory = true;
 
                 if (result == DialogResult.OK && sfd.FileName != "")
                 {
@@ -223,7 +223,86 @@ namespace valYOU
                             MessageBox.Show("Sikertelen mentés" + ex.Message);
                         }
                     }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            if (sfd.CheckPathExists)
+                            {
+                                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                                _Workbook wb = excel.Workbooks.Add(Type.Missing);
+                                _Worksheet ws = null;
+
+                                ws = wb.Sheets["Munka1"];
+                                ws = wb.ActiveSheet;
+                                ws.Name = "Rates";
+                                ws.Application.ActiveWindow.SplitRow = 1;
+                                ws.Application.ActiveWindow.FreezePanes = true;
+
+                                for (int i = 1; i < dgwRates.Columns.Count + 1; i++)
+                                {
+                                    ws.Cells[1, i] = dgwRates.Columns[i - 1].HeaderText;
+                                    ws.Cells[1, i].Font.NAME = "Arial";
+                                    ws.Cells[1, i].Font.Bold = true;
+                                    ws.Cells[1, i].Font.Size = 12;
+                                    ws.Cells[1, i].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                                    ws.Cells[1, i].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                                    ws.Cells[1, i].Interior.Color = Color.LimeGreen;
+                                    ws.Cells[1, i].Font.Color = Color.White;
+                                    ws.Cells[1, i].EntireColumn.AutoFit();
+                                    ws.Cells[1, i].RowHeight = 30;
+                                    ws.Cells[1, i].BorderAround(XlLineStyle.xlContinuous, XlBorderWeight.xlThick);
+                                }
+
+                                for (int i = 0; i < dgwRates.Rows.Count; i++)
+                                {
+                                    for (int j = 0; j < dgwRates.Columns.Count; j++)
+                                    {
+                                        ws.Cells[i + 2, j + 1] = dgwRates.Rows[i].Cells[j].Value.ToString();
+                                    }
+                                }
+
+                                ws.Columns.AutoFit();
+                                wb.SaveAs(sfd.FileName);
+                                excel.Quit();
+
+                                ReleaseObject(ws);
+                                ReleaseObject(wb);
+                                ReleaseObject(excel);
+                            }
+                            else
+                            {
+                                MessageBox.Show("A megadott útvonal nem létezik!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hiba: " + ex.Message);
+                        }
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
+            }
+        }
+
+        private void ReleaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Kivétel történt az objektum feloldásakor " + ex.Message, "Hiba");
+            }
+            finally
+            {
+                GC.Collect();
             }
         }
 
@@ -235,10 +314,9 @@ namespace valYOU
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
                 sfd.Title = "Árfolyam mentése PDF-ként";
                 sfd.FileName = ".pdf";
-
+                sfd.RestoreDirectory = true;
                 bool fileError = false;
                 DialogResult result = sfd.ShowDialog();
-                sfd.RestoreDirectory = true;
 
                 if (result == DialogResult.OK && sfd.FileName != "")
                 {
@@ -313,10 +391,9 @@ namespace valYOU
             sfd.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
             sfd.Title = "Chart mentése képként";
             sfd.FileName = ".png";
-
+            sfd.RestoreDirectory = true;
             bool fileError = false;
             DialogResult result = sfd.ShowDialog();
-            sfd.RestoreDirectory = true;
 
             if (result == DialogResult.OK && sfd.FileName != "")
             {
