@@ -198,7 +198,33 @@ namespace valYOU
 
         private void btnIntoExcel_Click(object sender, EventArgs e)
         {
+            if (dgwRates.Rows.Count>0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel-munkafüzet|*.xlsx";
+                sfd.Title = "Árfolyam mentése Excel-fájlként";
+                sfd.FileName = ".xlsx";
 
+                bool fileError = false;
+                DialogResult result = sfd.ShowDialog();
+                sfd.RestoreDirectory = true;
+
+                if (result == DialogResult.OK && sfd.FileName != "")
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                        }
+                    }
+                }
+            }
         }
 
         private void btnIntoPDF_Click(object sender, EventArgs e)
@@ -207,9 +233,14 @@ namespace valYOU
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.Title = "Árfolyam mentése PDF-ként";
                 sfd.FileName = ".pdf";
+
                 bool fileError = false;
-                if (sfd.ShowDialog() == DialogResult.OK)
+                DialogResult result = sfd.ShowDialog();
+                sfd.RestoreDirectory = true;
+
+                if (result == DialogResult.OK && sfd.FileName != "")
                 {
                     if (File.Exists(sfd.FileName))
                     {
@@ -227,33 +258,40 @@ namespace valYOU
                     {
                         try
                         {
-                            PdfPTable pdfTable = new PdfPTable(dgwRates.Columns.Count);
-                            pdfTable.DefaultCell.Padding = 3;
-                            pdfTable.WidthPercentage = 75;
-                            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
-
-                            foreach (DataGridViewColumn column in dgwRates.Columns)
+                            if (sfd.CheckPathExists)
                             {
-                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-                                pdfTable.AddCell(cell);
-                            }
+                                PdfPTable pdfTable = new PdfPTable(dgwRates.Columns.Count);
+                                pdfTable.DefaultCell.Padding = 3;
+                                pdfTable.WidthPercentage = 75;
+                                pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
-                            foreach (DataGridViewRow row in dgwRates.Rows)
-                            {
-                                foreach (DataGridViewCell cell in row.Cells)
+                                foreach (DataGridViewColumn column in dgwRates.Columns)
                                 {
-                                    pdfTable.AddCell(cell.Value.ToString());
+                                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                    pdfTable.AddCell(cell);
+                                }
+
+                                foreach (DataGridViewRow row in dgwRates.Rows)
+                                {
+                                    foreach (DataGridViewCell cell in row.Cells)
+                                    {
+                                        pdfTable.AddCell(cell.Value.ToString());
+                                    }
+                                }
+
+                                using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                                {
+                                    Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                    PdfWriter.GetInstance(pdfDoc, stream);
+                                    pdfDoc.Open();
+                                    pdfDoc.Add(pdfTable);
+                                    pdfDoc.Close();
+                                    stream.Close();
                                 }
                             }
-
-                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            else
                             {
-                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
-                                PdfWriter.GetInstance(pdfDoc, stream);
-                                pdfDoc.Open();
-                                pdfDoc.Add(pdfTable);
-                                pdfDoc.Close();
-                                stream.Close();
+                                MessageBox.Show("A megadott útvonal nem létezik!");
                             }
                         }
                         catch (Exception ex)
@@ -269,11 +307,6 @@ namespace valYOU
             }
         }
 
-        private void btnIntoWord_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnIntoImage_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -281,36 +314,52 @@ namespace valYOU
             sfd.Title = "Chart mentése képként";
             sfd.FileName = ".png";
 
+            bool fileError = false;
             DialogResult result = sfd.ShowDialog();
             sfd.RestoreDirectory = true;
 
             if (result == DialogResult.OK && sfd.FileName != "")
             {
-                try
+                if (File.Exists(sfd.FileName))
                 {
-                    if (sfd.CheckPathExists)
+                    try
                     {
-                        if (sfd.FilterIndex == 2)
+                        File.Delete(sfd.FileName);
+                    }
+                    catch (IOException ex)
+                    {
+                        fileError = true;
+                        MessageBox.Show("Sikertelen mentés" + ex.Message);
+                    }
+                }
+                if (!fileError)
+                {
+                    try
+                    {
+                        if (sfd.CheckPathExists)
                         {
-                            chartRates.SaveImage(sfd.FileName, ChartImageFormat.Jpeg);
-                            sfd.FileName = ".jpg";
-                        }
-                        else if (sfd.FilterIndex == 1)
-                        {
-                            chartRates.SaveImage(sfd.FileName, ChartImageFormat.Png);
-                            sfd.FileName = ".png";
-                        }
+                            if (sfd.FilterIndex == 2)
+                            {
+                                chartRates.SaveImage(sfd.FileName, ChartImageFormat.Jpeg);
+                                sfd.FileName = ".jpg";
+                            }
+                            else if (sfd.FilterIndex == 1)
+                            {
+                                chartRates.SaveImage(sfd.FileName, ChartImageFormat.Png);
+                                sfd.FileName = ".png";
+                            }
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("A megadott útvonal nem létezik!");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("A megadott útvonal nem létezik!");
+                        MessageBox.Show("Hiba: " + ex.Message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                } 
             }
         }
     }

@@ -48,7 +48,6 @@ namespace valYOU
             this.labelAvg = new System.Windows.Forms.Label();
             this.ErrorProv = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelError = new System.Windows.Forms.Label();
-            this.btnIntoWord = new valYOU.Entities.RoundButton();
             this.btnIntoPDF = new valYOU.Entities.RoundButton();
             this.btnIntoImage = new valYOU.Entities.RoundButton();
             this.btnIntoExcel = new valYOU.Entities.RoundButton();
@@ -233,28 +232,6 @@ namespace valYOU
             this.labelError.TabIndex = 32;
             this.labelError.Text = "A";
             // 
-            // btnIntoWord
-            // 
-            this.btnIntoWord.BackColor = System.Drawing.Color.Transparent;
-            this.btnIntoWord.BorderColor = System.Drawing.Color.SteelBlue;
-            this.btnIntoWord.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.btnIntoWord.FlatAppearance.BorderSize = 0;
-            this.btnIntoWord.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnIntoWord.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnIntoWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIntoWord.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoWord.Location = new System.Drawing.Point(907, 69);
-            this.btnIntoWord.Name = "btnIntoWord";
-            this.btnIntoWord.OnHoverBorderColor = System.Drawing.Color.SteelBlue;
-            this.btnIntoWord.OnHoverButtonColor = System.Drawing.Color.SteelBlue;
-            this.btnIntoWord.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnIntoWord.Size = new System.Drawing.Size(65, 65);
-            this.btnIntoWord.TabIndex = 25;
-            this.btnIntoWord.Text = "Word";
-            this.btnIntoWord.TextColor = System.Drawing.Color.White;
-            this.btnIntoWord.UseVisualStyleBackColor = false;
-            this.btnIntoWord.Click += new System.EventHandler(this.btnIntoWord_Click);
-            // 
             // btnIntoPDF
             // 
             this.btnIntoPDF.BackColor = System.Drawing.Color.Transparent;
@@ -286,7 +263,7 @@ namespace valYOU
             this.btnIntoImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnIntoImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIntoImage.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIntoImage.Font = new System.Drawing.Font("Tw Cen MT", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIntoImage.Location = new System.Drawing.Point(836, 71);
             this.btnIntoImage.Name = "btnIntoImage";
             this.btnIntoImage.OnHoverBorderColor = System.Drawing.Color.Orange;
@@ -334,7 +311,6 @@ namespace valYOU
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelMax);
-            this.Controls.Add(this.btnIntoWord);
             this.Controls.Add(this.btnIntoPDF);
             this.Controls.Add(this.btnIntoImage);
             this.Controls.Add(this.labelRightArrow);
@@ -366,7 +342,6 @@ namespace valYOU
         private System.Windows.Forms.Label labelRightArrow;
         private Entities.RoundButton btnIntoImage;
         private Entities.RoundButton btnIntoPDF;
-        private Entities.RoundButton btnIntoWord;
         private System.Windows.Forms.Label labelMax;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
