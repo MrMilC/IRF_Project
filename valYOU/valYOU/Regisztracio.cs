@@ -2,14 +2,10 @@
 using iTextSharp.text.pdf;
 using Microsoft.Office.Interop.Excel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using valYOU.Entities;
 
@@ -25,8 +21,6 @@ namespace valYOU
             RegisztracioFormazas();
 
             dgwUsers.DataSource = users;
-
-
         }
 
         private void RegisztracioFormazas()
@@ -49,6 +43,7 @@ namespace valYOU
                 dgwUsers.Columns[i].Width = colw;
             }
         }
+
 
         private void Regisztracio_Load(object sender, EventArgs e)
         {
@@ -422,10 +417,27 @@ namespace valYOU
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgwUsers.SelectedRows)
+            if (dgwUsers.SelectedRows.Count > 0)
             {
-                dgwUsers.Rows.RemoveAt(row.Index);
+                foreach (DataGridViewRow row in dgwUsers.SelectedRows)
+                {
+                    dgwUsers.Rows.RemoveAt(row.Index);
+                }
             }
+            else
+            {
+                MessageBox.Show("A törléshez legalább egy egész sort ki kell jelölni!", "Törlés");
+            }
+        }
+
+        private void timerError_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tbLastName_Enter(object sender, EventArgs e)
+        {
+            ErrorProv2.Clear();
         }
     }
 }

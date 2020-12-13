@@ -47,6 +47,7 @@ namespace valYOU
             this.label9 = new System.Windows.Forms.Label();
             this.ErrorProv2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label10 = new System.Windows.Forms.Label();
+            this.timerError = new System.Windows.Forms.Timer(this.components);
             this.labelError2 = new System.Windows.Forms.Label();
             this.btnTest = new valYOU.Entities.RoundButton();
             this.tbPIN = new valYOU.Entities.RoundTextBox();
@@ -238,6 +239,7 @@ namespace valYOU
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(121, 28);
             this.cbGender.TabIndex = 46;
+            this.cbGender.Enter += new System.EventHandler(this.tbLastName_Enter);
             // 
             // label9
             // 
@@ -274,6 +276,10 @@ namespace valYOU
             this.label10.TabIndex = 57;
             this.label10.Text = "*PIN-kód";
             // 
+            // timerError
+            // 
+            this.timerError.Tick += new System.EventHandler(this.timerError_Tick);
+            // 
             // labelError2
             // 
             this.labelError2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -281,10 +287,10 @@ namespace valYOU
             this.labelError2.BackColor = System.Drawing.Color.Transparent;
             this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelError2.ForeColor = System.Drawing.Color.White;
-            this.labelError2.Location = new System.Drawing.Point(1032, 503);
+            this.labelError2.Location = new System.Drawing.Point(1046, 525);
             this.labelError2.Name = "labelError2";
             this.labelError2.Size = new System.Drawing.Size(26, 27);
-            this.labelError2.TabIndex = 58;
+            this.labelError2.TabIndex = 60;
             this.labelError2.Text = "A";
             // 
             // btnTest
@@ -316,6 +322,7 @@ namespace valYOU
             this.tbPIN.Name = "tbPIN";
             this.tbPIN.Size = new System.Drawing.Size(125, 29);
             this.tbPIN.TabIndex = 56;
+            this.tbPIN.Enter += new System.EventHandler(this.tbLastName_Enter);
             this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             // 
             // btnClear
@@ -412,6 +419,7 @@ namespace valYOU
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(125, 29);
             this.tbPhone.TabIndex = 50;
+            this.tbPhone.Enter += new System.EventHandler(this.tbLastName_Enter);
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             // 
             // btnDelete
@@ -464,6 +472,7 @@ namespace valYOU
             this.tbPassword2.Size = new System.Drawing.Size(175, 29);
             this.tbPassword2.TabIndex = 43;
             this.tbPassword2.UseSystemPasswordChar = true;
+            this.tbPassword2.Enter += new System.EventHandler(this.tbLastName_Enter);
             // 
             // tbPassword
             // 
@@ -473,6 +482,7 @@ namespace valYOU
             this.tbPassword.Size = new System.Drawing.Size(175, 29);
             this.tbPassword.TabIndex = 42;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.Enter += new System.EventHandler(this.tbLastName_Enter);
             // 
             // tbEmail2
             // 
@@ -481,6 +491,7 @@ namespace valYOU
             this.tbEmail2.Name = "tbEmail2";
             this.tbEmail2.Size = new System.Drawing.Size(175, 29);
             this.tbEmail2.TabIndex = 39;
+            this.tbEmail2.Enter += new System.EventHandler(this.tbLastName_Enter);
             // 
             // tbEmail
             // 
@@ -489,6 +500,7 @@ namespace valYOU
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(175, 29);
             this.tbEmail.TabIndex = 38;
+            this.tbEmail.Enter += new System.EventHandler(this.tbLastName_Enter);
             // 
             // tbMiddleName
             // 
@@ -497,6 +509,7 @@ namespace valYOU
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(125, 29);
             this.tbMiddleName.TabIndex = 34;
+            this.tbMiddleName.Enter += new System.EventHandler(this.tbLastName_Enter);
             this.tbMiddleName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
             // 
             // tbFirstName
@@ -506,6 +519,7 @@ namespace valYOU
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(125, 29);
             this.tbFirstName.TabIndex = 30;
+            this.tbFirstName.Enter += new System.EventHandler(this.tbLastName_Enter);
             this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
             // 
             // tbLastName
@@ -515,6 +529,7 @@ namespace valYOU
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(125, 29);
             this.tbLastName.TabIndex = 1;
+            this.tbLastName.Enter += new System.EventHandler(this.tbLastName_Enter);
             this.tbLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
             // 
             // Regisztracio
@@ -523,8 +538,8 @@ namespace valYOU
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1084, 561);
-            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.labelError2);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbPIN);
             this.Controls.Add(this.btnClear);
@@ -597,7 +612,8 @@ namespace valYOU
         private System.Windows.Forms.ErrorProvider ErrorProv2;
         private System.Windows.Forms.Label label10;
         private Entities.RoundTextBox tbPIN;
-        private System.Windows.Forms.Label labelError2;
         private Entities.RoundButton btnTest;
+        private System.Windows.Forms.Timer timerError;
+        private System.Windows.Forms.Label labelError2;
     }
 }
