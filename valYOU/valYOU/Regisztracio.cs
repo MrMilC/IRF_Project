@@ -1,4 +1,6 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -327,7 +329,81 @@ namespace valYOU
 
         private void btnIntoPDF_Click(object sender, EventArgs e)
         {
+            if (dgwUsers.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.Title = "Felhasználók mentése PDF fájlba";
+                sfd.FileName = ".pdf";
+                sfd.RestoreDirectory = true;
+                bool fileError = false;
+                DialogResult result = sfd.ShowDialog();
 
+                if (result == DialogResult.OK && sfd.FileName != "")
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            if (sfd.CheckPathExists)
+                            {
+                                PdfPTable pdfTable = new PdfPTable(dgwUsers.Columns.Count);
+                                pdfTable.DefaultCell.Padding = 3;
+                                pdfTable.WidthPercentage = 100;
+                                pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                                foreach (DataGridViewColumn column in dgwUsers.Columns)
+                                {
+                                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                    pdfTable.AddCell(cell);
+                                }
+
+                                foreach (DataGridViewRow row in dgwUsers.Rows)
+                                {
+                                    foreach (DataGridViewCell cell in row.Cells)
+                                    {
+                                        pdfTable.AddCell(cell.Value.ToString());
+                                    }
+                                }
+
+                                using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                                {
+                                    Document pdfDoc = new Document(PageSize.A3, 10f, 20f, 20f, 10f);
+                                    PdfWriter.GetInstance(pdfDoc, stream);
+                                    pdfDoc.Open();
+                                    pdfDoc.Add(pdfTable);
+                                    pdfDoc.Close();
+                                    stream.Close();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("A megadott útvonal nem létezik!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hiba: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
+            }
         }
 
         private void btnTest_Click(object sender, EventArgs e)
