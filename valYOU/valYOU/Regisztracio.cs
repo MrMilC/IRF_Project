@@ -146,6 +146,45 @@ namespace valYOU
             ErrorProv2.Clear();
         }
 
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            User u = new User()
+            {
+                Nev = "Teszt Elek",
+                Nem = "Férfi",
+                PIN_kod = Convert.ToDecimal("19283746"),
+                Email = "teszt@valyou.hu",
+                Telefonszam = Convert.ToDecimal("305555555"),
+                RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
+            };
+            users.Add(u);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgwUsers.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgwUsers.SelectedRows)
+                {
+                    dgwUsers.Rows.RemoveAt(row.Index);
+                }
+            }
+            else
+            {
+                MessageBox.Show("A törléshez legalább egy egész sort ki kell jelölni!", "Törlés");
+            }
+        }
+
+        private void timerError_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tbLastName_Enter(object sender, EventArgs e)
+        {
+            ErrorProv2.Clear();
+        }
+
         private void btnIntoCSV_Click(object sender, EventArgs e)
         {
             if (dgwUsers.Rows.Count > 0)
@@ -185,12 +224,12 @@ namespace valYOU
 
                                     for (int i = 0; i < dgwUsers.Rows.Count; i++)
                                     {
-                                        sw.WriteLine("Név: "+dgwUsers.Rows[i].Cells[0].Value.ToString());
-                                        sw.WriteLine("Nem: "+dgwUsers.Rows[i].Cells[1].Value.ToString());
-                                        sw.WriteLine("PIN-kód: "+dgwUsers.Rows[i].Cells[2].Value.ToString());
-                                        sw.WriteLine("E-mail cím: "+dgwUsers.Rows[i].Cells[3].Value.ToString());
-                                        sw.WriteLine("Telefonszám: "+dgwUsers.Rows[i].Cells[4].Value.ToString());
-                                        sw.WriteLine("Regisztráció dátuma: "+dgwUsers.Rows[i].Cells[5].Value.ToString());
+                                        sw.WriteLine("Név: " + dgwUsers.Rows[i].Cells[0].Value.ToString());
+                                        sw.WriteLine("Nem: " + dgwUsers.Rows[i].Cells[1].Value.ToString());
+                                        sw.WriteLine("PIN-kód: " + dgwUsers.Rows[i].Cells[2].Value.ToString());
+                                        sw.WriteLine("E-mail cím: " + dgwUsers.Rows[i].Cells[3].Value.ToString());
+                                        sw.WriteLine("Telefonszám: " + dgwUsers.Rows[i].Cells[4].Value.ToString());
+                                        sw.WriteLine("Regisztráció dátuma: " + dgwUsers.Rows[i].Cells[5].Value.ToString());
                                         sw.WriteLine();
                                     }
                                 }
@@ -399,45 +438,6 @@ namespace valYOU
             {
                 MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
             }
-        }
-
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            User u = new User()
-            {
-                Nev = "Teszt Elek",
-                Nem = "Férfi",
-                PIN_kod = Convert.ToDecimal("19283746"),
-                Email = "teszt@valyou.hu",
-                Telefonszam = Convert.ToDecimal("305555555"),
-                RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
-            };
-            users.Add(u);
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dgwUsers.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgwUsers.SelectedRows)
-                {
-                    dgwUsers.Rows.RemoveAt(row.Index);
-                }
-            }
-            else
-            {
-                MessageBox.Show("A törléshez legalább egy egész sort ki kell jelölni!", "Törlés");
-            }
-        }
-
-        private void timerError_Tick(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void tbLastName_Enter(object sender, EventArgs e)
-        {
-            ErrorProv2.Clear();
         }
     }
 }
