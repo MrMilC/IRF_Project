@@ -45,12 +45,16 @@ namespace valYOU
             this.label8 = new System.Windows.Forms.Label();
             this.cbGender = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.ErrorProv2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelError2 = new System.Windows.Forms.Label();
+            this.btnTest = new valYOU.Entities.RoundButton();
+            this.tbPIN = new valYOU.Entities.RoundTextBox();
             this.btnClear = new valYOU.Entities.RoundButton();
             this.btnIntoCSV = new valYOU.Entities.RoundButton();
             this.btnIntoPDF = new valYOU.Entities.RoundButton();
             this.btnIntoExcel = new valYOU.Entities.RoundButton();
             this.tbPhone = new valYOU.Entities.RoundTextBox();
-            this.btnSave = new valYOU.Entities.RoundButton();
             this.btnDelete = new valYOU.Entities.RoundButton();
             this.btnRegister = new valYOU.Entities.RoundButton();
             this.tbPassword2 = new valYOU.Entities.RoundTextBox();
@@ -60,10 +64,6 @@ namespace valYOU
             this.tbMiddleName = new valYOU.Entities.RoundTextBox();
             this.tbFirstName = new valYOU.Entities.RoundTextBox();
             this.tbLastName = new valYOU.Entities.RoundTextBox();
-            this.ErrorProv2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbPIN = new valYOU.Entities.RoundTextBox();
-            this.labelError2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).BeginInit();
             this.SuspendLayout();
@@ -153,9 +153,7 @@ namespace valYOU
             // 
             // labelTime
             // 
-            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTime.AutoSize = true;
             this.labelTime.BackColor = System.Drawing.Color.Transparent;
             this.labelTime.Font = new System.Drawing.Font("Segoe MDL2 Assets", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,9 +166,7 @@ namespace valYOU
             // 
             // labelCountdown
             // 
-            this.labelCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCountdown.AutoSize = true;
             this.labelCountdown.BackColor = System.Drawing.Color.Transparent;
             this.labelCountdown.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -179,7 +175,7 @@ namespace valYOU
             this.labelCountdown.Name = "labelCountdown";
             this.labelCountdown.Size = new System.Drawing.Size(38, 15);
             this.labelCountdown.TabIndex = 37;
-            this.labelCountdown.Text = "03:00";
+            this.labelCountdown.Text = "02:00";
             // 
             // timerReg
             // 
@@ -235,6 +231,7 @@ namespace valYOU
             this.cbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Items.AddRange(new object[] {
+            "-",
             "Férfi",
             "Nő"});
             this.cbGender.Location = new System.Drawing.Point(633, 257);
@@ -256,6 +253,70 @@ namespace valYOU
             this.label9.Size = new System.Drawing.Size(129, 17);
             this.label9.TabIndex = 51;
             this.label9.Text = "*Telefonszám (+36)";
+            // 
+            // ErrorProv2
+            // 
+            this.ErrorProv2.ContainerControl = this;
+            this.ErrorProv2.RightToLeft = true;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.Color.Orange;
+            this.label10.Location = new System.Drawing.Point(891, 229);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 23);
+            this.label10.TabIndex = 57;
+            this.label10.Text = "*PIN-kód";
+            // 
+            // labelError2
+            // 
+            this.labelError2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelError2.AutoSize = true;
+            this.labelError2.BackColor = System.Drawing.Color.Transparent;
+            this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError2.ForeColor = System.Drawing.Color.White;
+            this.labelError2.Location = new System.Drawing.Point(1032, 403);
+            this.labelError2.Name = "labelError2";
+            this.labelError2.Size = new System.Drawing.Size(26, 27);
+            this.labelError2.TabIndex = 58;
+            this.labelError2.Text = "A";
+            // 
+            // btnTest
+            // 
+            this.btnTest.BackColor = System.Drawing.Color.Transparent;
+            this.btnTest.BorderColor = System.Drawing.Color.Orange;
+            this.btnTest.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnTest.FlatAppearance.BorderSize = 0;
+            this.btnTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTest.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnTest.Location = new System.Drawing.Point(842, 384);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.OnHoverBorderColor = System.Drawing.Color.Orange;
+            this.btnTest.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.btnTest.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnTest.Size = new System.Drawing.Size(65, 65);
+            this.btnTest.TabIndex = 59;
+            this.btnTest.Text = "Teszt user";
+            this.btnTest.TextColor = System.Drawing.Color.White;
+            this.btnTest.UseVisualStyleBackColor = false;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // tbPIN
+            // 
+            this.tbPIN.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPIN.Location = new System.Drawing.Point(895, 255);
+            this.tbPIN.Name = "tbPIN";
+            this.tbPIN.Size = new System.Drawing.Size(125, 29);
+            this.tbPIN.TabIndex = 56;
+            this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             // 
             // btnClear
             // 
@@ -288,7 +349,7 @@ namespace valYOU
             this.btnIntoCSV.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoCSV.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoCSV.Location = new System.Drawing.Point(836, 303);
+            this.btnIntoCSV.Location = new System.Drawing.Point(842, 303);
             this.btnIntoCSV.Name = "btnIntoCSV";
             this.btnIntoCSV.OnHoverBorderColor = System.Drawing.Color.DeepSkyBlue;
             this.btnIntoCSV.OnHoverButtonColor = System.Drawing.Color.DeepSkyBlue;
@@ -298,6 +359,7 @@ namespace valYOU
             this.btnIntoCSV.Text = "CSV";
             this.btnIntoCSV.TextColor = System.Drawing.Color.White;
             this.btnIntoCSV.UseVisualStyleBackColor = false;
+            this.btnIntoCSV.Click += new System.EventHandler(this.btnIntoCSV_Click);
             // 
             // btnIntoPDF
             // 
@@ -319,6 +381,7 @@ namespace valYOU
             this.btnIntoPDF.Text = "PDF";
             this.btnIntoPDF.TextColor = System.Drawing.Color.White;
             this.btnIntoPDF.UseVisualStyleBackColor = false;
+            this.btnIntoPDF.Click += new System.EventHandler(this.btnIntoPDF_Click);
             // 
             // btnIntoExcel
             // 
@@ -340,6 +403,7 @@ namespace valYOU
             this.btnIntoExcel.Text = "Excel";
             this.btnIntoExcel.TextColor = System.Drawing.Color.White;
             this.btnIntoExcel.UseVisualStyleBackColor = false;
+            this.btnIntoExcel.Click += new System.EventHandler(this.btnIntoExcel_Click);
             // 
             // tbPhone
             // 
@@ -349,26 +413,6 @@ namespace valYOU
             this.tbPhone.Size = new System.Drawing.Size(125, 29);
             this.tbPhone.TabIndex = 50;
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.BorderColor = System.Drawing.Color.Orange;
-            this.btnSave.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(718, 384);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.OnHoverBorderColor = System.Drawing.Color.Orange;
-            this.btnSave.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnSave.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSave.Size = new System.Drawing.Size(65, 65);
-            this.btnSave.TabIndex = 49;
-            this.btnSave.TextColor = System.Drawing.Color.White;
-            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
@@ -389,6 +433,7 @@ namespace valYOU
             this.btnDelete.TabIndex = 48;
             this.btnDelete.TextColor = System.Drawing.Color.White;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRegister
             // 
@@ -472,56 +517,13 @@ namespace valYOU
             this.tbLastName.TabIndex = 1;
             this.tbLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
             // 
-            // ErrorProv2
-            // 
-            this.ErrorProv2.ContainerControl = this;
-            this.ErrorProv2.RightToLeft = true;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.Orange;
-            this.label10.Location = new System.Drawing.Point(891, 229);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 23);
-            this.label10.TabIndex = 57;
-            this.label10.Text = "*PIN-kód";
-            // 
-            // tbPIN
-            // 
-            this.tbPIN.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPIN.Location = new System.Drawing.Point(895, 255);
-            this.tbPIN.Name = "tbPIN";
-            this.tbPIN.Size = new System.Drawing.Size(125, 29);
-            this.tbPIN.TabIndex = 56;
-            this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
-            // 
-            // labelError2
-            // 
-            this.labelError2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelError2.AutoSize = true;
-            this.labelError2.BackColor = System.Drawing.Color.Transparent;
-            this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError2.ForeColor = System.Drawing.Color.White;
-            this.labelError2.Location = new System.Drawing.Point(1032, 403);
-            this.labelError2.Name = "labelError2";
-            this.labelError2.Size = new System.Drawing.Size(26, 27);
-            this.labelError2.TabIndex = 58;
-            this.labelError2.Text = "A";
-            // 
             // Regisztracio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1084, 461);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.labelError2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbPIN);
@@ -531,7 +533,6 @@ namespace valYOU
             this.Controls.Add(this.btnIntoExcel);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbPhone);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.cbGender);
@@ -587,7 +588,6 @@ namespace valYOU
         private System.Windows.Forms.ComboBox cbGender;
         private Entities.RoundButton btnRegister;
         private Entities.RoundButton btnDelete;
-        private Entities.RoundButton btnSave;
         private System.Windows.Forms.Label label9;
         private Entities.RoundTextBox tbPhone;
         private Entities.RoundButton btnIntoCSV;
@@ -598,5 +598,6 @@ namespace valYOU
         private System.Windows.Forms.Label label10;
         private Entities.RoundTextBox tbPIN;
         private System.Windows.Forms.Label labelError2;
+        private Entities.RoundButton btnTest;
     }
 }
