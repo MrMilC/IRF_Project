@@ -16,7 +16,7 @@ namespace valYOU
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Arfolyamok());
+            Application.Run(new Regisztracio());
         }
     }
 }

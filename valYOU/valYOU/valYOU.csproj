@@ -145,6 +145,10 @@
     <Compile Include="Entities\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\RoundTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Fomenu.cs">
       <SubType>Form</SubType>
     </Compile>
