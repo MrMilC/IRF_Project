@@ -61,6 +61,9 @@ namespace valYOU
             this.tbFirstName = new valYOU.Entities.RoundTextBox();
             this.tbLastName = new valYOU.Entities.RoundTextBox();
             this.ErrorProv2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbPIN = new valYOU.Entities.RoundTextBox();
+            this.labelError2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).BeginInit();
             this.SuspendLayout();
@@ -264,7 +267,7 @@ namespace valYOU
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(992, 235);
+            this.btnClear.Location = new System.Drawing.Point(718, 303);
             this.btnClear.Name = "btnClear";
             this.btnClear.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnClear.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -285,7 +288,7 @@ namespace valYOU
             this.btnIntoCSV.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoCSV.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoCSV.Location = new System.Drawing.Point(825, 383);
+            this.btnIntoCSV.Location = new System.Drawing.Point(836, 303);
             this.btnIntoCSV.Name = "btnIntoCSV";
             this.btnIntoCSV.OnHoverBorderColor = System.Drawing.Color.DeepSkyBlue;
             this.btnIntoCSV.OnHoverButtonColor = System.Drawing.Color.DeepSkyBlue;
@@ -306,7 +309,7 @@ namespace valYOU
             this.btnIntoPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoPDF.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoPDF.Location = new System.Drawing.Point(992, 384);
+            this.btnIntoPDF.Location = new System.Drawing.Point(1003, 304);
             this.btnIntoPDF.Name = "btnIntoPDF";
             this.btnIntoPDF.OnHoverBorderColor = System.Drawing.Color.Firebrick;
             this.btnIntoPDF.OnHoverButtonColor = System.Drawing.Color.Firebrick;
@@ -327,7 +330,7 @@ namespace valYOU
             this.btnIntoExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoExcel.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoExcel.Location = new System.Drawing.Point(912, 383);
+            this.btnIntoExcel.Location = new System.Drawing.Point(923, 303);
             this.btnIntoExcel.Name = "btnIntoExcel";
             this.btnIntoExcel.OnHoverBorderColor = System.Drawing.Color.LimeGreen;
             this.btnIntoExcel.OnHoverButtonColor = System.Drawing.Color.LimeGreen;
@@ -357,7 +360,7 @@ namespace valYOU
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(633, 303);
+            this.btnSave.Location = new System.Drawing.Point(718, 384);
             this.btnSave.Name = "btnSave";
             this.btnSave.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnSave.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -397,7 +400,7 @@ namespace valYOU
             this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(912, 235);
+            this.btnRegister.Location = new System.Drawing.Point(633, 303);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnRegister.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -472,6 +475,46 @@ namespace valYOU
             // ErrorProv2
             // 
             this.ErrorProv2.ContainerControl = this;
+            this.ErrorProv2.RightToLeft = true;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.Color.Orange;
+            this.label10.Location = new System.Drawing.Point(891, 229);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 23);
+            this.label10.TabIndex = 57;
+            this.label10.Text = "*PIN-kód";
+            // 
+            // tbPIN
+            // 
+            this.tbPIN.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPIN.Location = new System.Drawing.Point(895, 255);
+            this.tbPIN.Name = "tbPIN";
+            this.tbPIN.Size = new System.Drawing.Size(125, 29);
+            this.tbPIN.TabIndex = 56;
+            this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
+            // 
+            // labelError2
+            // 
+            this.labelError2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelError2.AutoSize = true;
+            this.labelError2.BackColor = System.Drawing.Color.Transparent;
+            this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError2.ForeColor = System.Drawing.Color.White;
+            this.labelError2.Location = new System.Drawing.Point(1032, 403);
+            this.labelError2.Name = "labelError2";
+            this.labelError2.Size = new System.Drawing.Size(26, 27);
+            this.labelError2.TabIndex = 58;
+            this.labelError2.Text = "A";
             // 
             // Regisztracio
             // 
@@ -479,6 +522,9 @@ namespace valYOU
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1084, 461);
+            this.Controls.Add(this.labelError2);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tbPIN);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnIntoCSV);
             this.Controls.Add(this.btnIntoPDF);
@@ -549,5 +595,8 @@ namespace valYOU
         private Entities.RoundButton btnIntoExcel;
         private Entities.RoundButton btnClear;
         private System.Windows.Forms.ErrorProvider ErrorProv2;
+        private System.Windows.Forms.Label label10;
+        private Entities.RoundTextBox tbPIN;
+        private System.Windows.Forms.Label labelError2;
     }
 }

@@ -20,7 +20,7 @@ namespace valYOU
 
             RegisztracioFormazas();
 
-            dgwUsers.DataSource = users;
+            //dgwUsers.DataSource = users;
         }
 
         private void RegisztracioFormazas()
@@ -30,8 +30,10 @@ namespace valYOU
             btnDelete.Text = "\uE74D";
             btnSave.Text = "\uE74E";
             btnClear.Text = "\uE894";
+            labelError2.Text = "\uE713";
             cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             tbPhone.MaxLength = 9;
+            tbPIN.MaxLength = 8;
             dgwUsers.AllowUserToAddRows = false;
         }
 
@@ -47,7 +49,8 @@ namespace valYOU
 
         private void tbLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true)
+            if (!char.IsControl(e.KeyChar) &&
+                char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -65,17 +68,25 @@ namespace valYOU
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            User u = new User()
+            try
             {
-                Vezeteknev = tbLastName.Text,
-                KozepsoNev = tbMiddleName.Text,
-                Keresztnev = tbFirstName.Text,
-                Nem = cbGender.Text,
-                Email = tbEmail.Text,
-                Telefonszam = Convert.ToDecimal(tbPhone.Text),
-                RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
-            };
-            users.Add(u);
+                User u = new User()
+                {
+                    Vezeteknev = tbLastName.Text,
+                    Kozepso_Nev = tbMiddleName.Text,
+                    Keresztnev = tbFirstName.Text,
+                    Nem = cbGender.Text,
+                    PIN_kod = Convert.ToDecimal(tbPIN.Text),
+                    Email = tbEmail.Text,
+                    Telefonszam = Convert.ToDecimal(tbPhone.Text),
+                    RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
+                };
+                users.Add(u);
+            }
+            catch (Exception)
+            {
+                ErrorProv2.SetError(labelError2, "!Kitöltetlen adatok");
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
