@@ -198,13 +198,31 @@ namespace valYOU
             Calculations();
         }
 
+        private void ReleaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Kivétel történt az objektum feloldásakor " + ex.Message, "Hiba");
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
         private void btnIntoExcel_Click(object sender, EventArgs e)
         {
             if (dgwRates.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "Excel-munkafüzet|*.xlsx";
-                sfd.Title = "Árfolyam mentése Excel-fájlként";
+                sfd.Title = "Árfolyam mentése Excel fájlba";
                 sfd.FileName = ".xlsx";
                 sfd.RestoreDirectory = true;
                 bool fileError = false;
@@ -236,7 +254,7 @@ namespace valYOU
 
                                 ws = wb.Sheets["Munka1"];
                                 ws = wb.ActiveSheet;
-                                ws.Name = "Rates";
+                                ws.Name = "Árfolyamok";
                                 ws.Application.ActiveWindow.SplitRow = 1;
                                 ws.Application.ActiveWindow.FreezePanes = true;
 
@@ -289,31 +307,13 @@ namespace valYOU
             }
         }
 
-        private void ReleaseObject(object obj)
-        {
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
-            }
-            catch (Exception ex)
-            {
-                obj = null;
-                MessageBox.Show("Kivétel történt az objektum feloldásakor " + ex.Message, "Hiba");
-            }
-            finally
-            {
-                GC.Collect();
-            }
-        }
-
         private void btnIntoPDF_Click(object sender, EventArgs e)
         {
             if (dgwRates.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
-                sfd.Title = "Árfolyam mentése PDF-ként";
+                sfd.Title = "Árfolyam mentése PDF fájlba";
                 sfd.FileName = ".pdf";
                 sfd.RestoreDirectory = true;
                 bool fileError = false;
@@ -446,7 +446,7 @@ namespace valYOU
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "CSV (*.csv)|*.csv";
-                sfd.Title = "Árfolyam mentése CSV-ként";
+                sfd.Title = "Árfolyam mentése CSV fájlba";
                 sfd.FileName = ".csv";
                 sfd.RestoreDirectory = true;
                 bool fileError = false;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +32,6 @@ namespace valYOU
             labelTime.Text = "\uE72C";
             btnRegister.Text = "\uE8FA";
             btnDelete.Text = "\uE74D";
-            btnSave.Text = "\uE74E";
             btnClear.Text = "\uE894";
             labelError2.Text = "\uE713";
             btnTest.Text = "Teszt \nuser";
@@ -113,8 +113,8 @@ namespace valYOU
                 func = (controls) =>
                 {
                     foreach (Control control in controls)
-                        if (control is TextBox)
-                            (control as TextBox).Clear();
+                        if (control is System.Windows.Forms.TextBox)
+                            (control as System.Windows.Forms.TextBox).Clear();
                         else if (control is ComboBox)
                             (control as ComboBox).Items.Clear();
                         else
@@ -136,8 +136,8 @@ namespace valYOU
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is TextBox)
-                        (control as TextBox).Clear();
+                    if (control is System.Windows.Forms.TextBox)
+                        (control as System.Windows.Forms.TextBox).Clear();
                     else if (control is ComboBox)
                         cbGender.SelectedItem = null;
                     else
@@ -155,7 +155,7 @@ namespace valYOU
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "CSV (*.csv)|*.csv";
-                sfd.Title = "Felhasználók mentése CSV-ként";
+                sfd.Title = "Felhasználók mentése CSV fájlba";
                 sfd.FileName = ".csv";
                 sfd.RestoreDirectory = true;
                 bool fileError = false;
@@ -216,9 +216,113 @@ namespace valYOU
             }
         }
 
+        private void ReleaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Kivétel történt az objektum feloldásakor " + ex.Message, "Hiba");
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
         private void btnIntoExcel_Click(object sender, EventArgs e)
         {
+            if (dgwUsers.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel-munkafüzet|*.xlsx";
+                sfd.Title = "Felhasználók mentése Excel fájlba";
+                sfd.FileName = ".xlsx";
+                sfd.RestoreDirectory = true;
+                bool fileError = false;
+                DialogResult result = sfd.ShowDialog();
 
+                if (result == DialogResult.OK && sfd.FileName != "")
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            if (sfd.CheckPathExists)
+                            {
+                                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                                _Workbook wb = excel.Workbooks.Add(Type.Missing);
+                                _Worksheet ws = null;
+
+                                ws = wb.Sheets["Munka1"];
+                                ws = wb.ActiveSheet;
+                                ws.Name = "Felhasználók";
+                                ws.Application.ActiveWindow.SplitRow = 1;
+                                ws.Application.ActiveWindow.FreezePanes = true;
+
+                                for (int i = 1; i < dgwUsers.Columns.Count + 1; i++)
+                                {
+                                    ws.Cells[1, i] = dgwUsers.Columns[i - 1].HeaderText;
+                                    ws.Cells[1, i].Font.NAME = "Arial";
+                                    ws.Cells[1, i].Font.Bold = true;
+                                    ws.Cells[1, i].Font.Size = 12;
+                                    ws.Cells[1, i].VerticalAlignment = XlVAlign.xlVAlignCenter;
+                                    ws.Cells[1, i].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                                    ws.Cells[1, i].Interior.Color = Color.LimeGreen;
+                                    ws.Cells[1, i].Font.Color = Color.White;
+                                    ws.Cells[1, i].EntireColumn.AutoFit();
+                                    ws.Cells[1, i].RowHeight = 30;
+                                    ws.Cells[1, i].BorderAround(XlLineStyle.xlContinuous, XlBorderWeight.xlThick);
+                                }
+
+                                for (int i = 0; i < dgwUsers.Rows.Count; i++)
+                                {
+                                    for (int j = 0; j < dgwUsers.Columns.Count; j++)
+                                    {
+                                        ws.Cells[i + 2, j + 1] = dgwUsers.Rows[i].Cells[j].Value.ToString();
+                                    }
+                                }
+
+                                ws.Columns.AutoFit();
+                                wb.SaveAs(sfd.FileName);
+                                excel.Quit();
+
+                                ReleaseObject(ws);
+                                ReleaseObject(wb);
+                                ReleaseObject(excel);
+                            }
+                            else
+                            {
+                                MessageBox.Show("A megadott útvonal nem létezik!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hiba: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
+            }
         }
 
         private void btnIntoPDF_Click(object sender, EventArgs e)
@@ -232,7 +336,7 @@ namespace valYOU
             {
                 Nev = "Teszt Elek",
                 Nem = "Férfi",
-                PIN_kod = Convert.ToDecimal("91827364"),
+                PIN_kod = Convert.ToDecimal("19283746"),
                 Email = "teszt@valyou.hu",
                 Telefonszam = Convert.ToDecimal("305555555"),
                 RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)

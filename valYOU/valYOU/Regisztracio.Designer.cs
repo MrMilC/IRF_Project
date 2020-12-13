@@ -73,7 +73,7 @@ namespace valYOU
             this.dgwUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwUsers.Location = new System.Drawing.Point(12, 12);
             this.dgwUsers.Name = "dgwUsers";
-            this.dgwUsers.Size = new System.Drawing.Size(599, 437);
+            this.dgwUsers.Size = new System.Drawing.Size(599, 537);
             this.dgwUsers.TabIndex = 0;
             // 
             // label2
@@ -281,7 +281,7 @@ namespace valYOU
             this.labelError2.BackColor = System.Drawing.Color.Transparent;
             this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelError2.ForeColor = System.Drawing.Color.White;
-            this.labelError2.Location = new System.Drawing.Point(1032, 403);
+            this.labelError2.Location = new System.Drawing.Point(1032, 503);
             this.labelError2.Name = "labelError2";
             this.labelError2.Size = new System.Drawing.Size(26, 27);
             this.labelError2.TabIndex = 58;
@@ -297,7 +297,7 @@ namespace valYOU
             this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTest.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnTest.Location = new System.Drawing.Point(842, 384);
+            this.btnTest.Location = new System.Drawing.Point(714, 401);
             this.btnTest.Name = "btnTest";
             this.btnTest.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnTest.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -328,7 +328,7 @@ namespace valYOU
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(718, 303);
+            this.btnClear.Location = new System.Drawing.Point(714, 320);
             this.btnClear.Name = "btnClear";
             this.btnClear.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnClear.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -349,7 +349,7 @@ namespace valYOU
             this.btnIntoCSV.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoCSV.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoCSV.Location = new System.Drawing.Point(842, 303);
+            this.btnIntoCSV.Location = new System.Drawing.Point(633, 484);
             this.btnIntoCSV.Name = "btnIntoCSV";
             this.btnIntoCSV.OnHoverBorderColor = System.Drawing.Color.DeepSkyBlue;
             this.btnIntoCSV.OnHoverButtonColor = System.Drawing.Color.DeepSkyBlue;
@@ -371,7 +371,7 @@ namespace valYOU
             this.btnIntoPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoPDF.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoPDF.Location = new System.Drawing.Point(1003, 304);
+            this.btnIntoPDF.Location = new System.Drawing.Point(794, 485);
             this.btnIntoPDF.Name = "btnIntoPDF";
             this.btnIntoPDF.OnHoverBorderColor = System.Drawing.Color.Firebrick;
             this.btnIntoPDF.OnHoverButtonColor = System.Drawing.Color.Firebrick;
@@ -393,7 +393,7 @@ namespace valYOU
             this.btnIntoExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnIntoExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIntoExcel.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIntoExcel.Location = new System.Drawing.Point(923, 303);
+            this.btnIntoExcel.Location = new System.Drawing.Point(714, 484);
             this.btnIntoExcel.Name = "btnIntoExcel";
             this.btnIntoExcel.OnHoverBorderColor = System.Drawing.Color.LimeGreen;
             this.btnIntoExcel.OnHoverButtonColor = System.Drawing.Color.LimeGreen;
@@ -424,7 +424,7 @@ namespace valYOU
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(633, 383);
+            this.btnDelete.Location = new System.Drawing.Point(633, 401);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnDelete.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -445,7 +445,7 @@ namespace valYOU
             this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(633, 303);
+            this.btnRegister.Location = new System.Drawing.Point(633, 320);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.OnHoverBorderColor = System.Drawing.Color.Orange;
             this.btnRegister.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -522,7 +522,7 @@ namespace valYOU
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1084, 461);
+            this.ClientSize = new System.Drawing.Size(1084, 561);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.labelError2);
             this.Controls.Add(this.label10);
