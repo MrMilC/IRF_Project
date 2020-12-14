@@ -26,16 +26,20 @@ namespace valYOU
 
         private void RegisztracioFormazas()
         {
+            dgwUsers.AllowUserToAddRows = false;
             labelTime.Text = "\uE72C";
             btnRegister.Text = "\uE8FA";
             btnDelete.Text = "\uE74D";
             btnClear.Text = "\uE894";
             labelError2.Text = "\uE713";
+            btnInfo.Text = "\uE897";
             btnTest.Text = "Teszt \nuser";
+            cbTermsOfUse.Text = "*Elfogadom a \nfelhasználási feltételeket!";
             cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             tbPhone.MaxLength = 9;
             tbPIN.MaxLength = 8;
-            dgwUsers.AllowUserToAddRows = false;
+            tbPIN.TextAlign = HorizontalAlignment.Center;
+            tbPhone.TextAlign = HorizontalAlignment.Center;
         }
 
         private void tbName_Enter(object sender, EventArgs e)
@@ -64,37 +68,57 @@ namespace valYOU
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            try
+            if (cbTermsOfUse.Checked == false)
             {
-                User u = new User()
-                {
-                    Nev = tbName.Text,
-                    Nem = cbGender.Text,
-                    PIN_kod = Convert.ToDecimal(tbPIN.Text),
-                    Email = tbEmail.Text,
-                    Telefonszam = tbPhone.Text,
-                    RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
-                };
-                users.Add(u);
-                
-                Action<Control.ControlCollection> func = null;
-
-                func = (controls) =>
-                {
-                    foreach (Control control in controls)
-                        if (control is System.Windows.Forms.TextBox)
-                            (control as System.Windows.Forms.TextBox).Clear();
-                        else if (control is ComboBox)
-                            (control as ComboBox).SelectedItem = null;
-                        else
-                            func(control.Controls);
-                };
-
-                func(Controls);
+                ErrorProv2.SetError(labelError2, "!El kell fogadni a felhasználási feltételeket");
             }
-            catch (Exception)
+            else
             {
-                ErrorProv2.SetError(labelError2, "!Kitöltetlen adatok");
+                if (!ValidateEmail(tbEmail.Text)
+                || !ValidatePassword(tbPassword.Text)
+                || !ValidateName(tbName.Text)
+                || !ValidatePIN(Convert.ToDecimal(tbPIN.Text))
+                || !ValidatePhone(tbPhone.Text))
+                {
+                    ErrorProv2.SetError(labelError2, "!Helytelen formátum(ok)\n.A 'kérdőjel' gombnál több információt találhat");
+                }
+                else
+                {
+                    try
+                    {
+                        User u = new User()
+                        {
+                            Nev = tbName.Text,
+                            Nem = cbGender.Text,
+                            PIN_kod = Convert.ToDecimal(tbPIN.Text),
+                            Email = tbEmail.Text,
+                            Telefonszam = tbPhone.Text,
+                            RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
+                        };
+                        users.Add(u);
+
+                        Action<Control.ControlCollection> func = null;
+
+                        func = (controls) =>
+                        {
+                            foreach (Control control in controls)
+                                if (control is System.Windows.Forms.TextBox)
+                                    (control as System.Windows.Forms.TextBox).Clear();
+                                else if (control is ComboBox)
+                                    (control as ComboBox).SelectedItem = null;
+                                else if (control is System.Windows.Forms.CheckBox)
+                                    (control as System.Windows.Forms.CheckBox).Checked = false;
+                                else
+                                    func(control.Controls);
+                        };
+
+                        func(Controls);
+                    }
+                    catch (Exception)
+                    {
+                        ErrorProv2.SetError(labelError2, "!Kitöltetlen adatok");
+                    }
+                }
             }
         }
 
@@ -109,6 +133,8 @@ namespace valYOU
                         (control as System.Windows.Forms.TextBox).Clear();
                     else if (control is ComboBox)
                         (control as ComboBox).SelectedItem = null;
+                    else if (control is System.Windows.Forms.CheckBox)
+                        (control as System.Windows.Forms.CheckBox).Checked = false;
                     else
                         func(control.Controls);
             };
@@ -143,8 +169,17 @@ namespace valYOU
             }
             else
             {
-                MessageBox.Show("A törléshez legalább egy egész sort ki kell jelölni!", "Törlés");
+                MessageBox.Show("A törléshez legalább egy (egész) sort ki kell jelölni!", "Törlés");
             }
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("E-mail cím formátuma: karakterek@karakterek.karakterek\n" +
+                "\nJelszó: Legalább 8 karakter hosszú, csak az angol ABC betűi, számok\nTartalmaznia kell legalább egy kisbetűt, egy nagybetűt és egy számot\n" +
+                "\nNév: Legalább két szó, mindkét szó esetén nagy kezdőbetű, a két szó között szóköz\n" +
+                "\nPIN-kód: Pontosan 8 számjegy\n" +
+                "\nTelefonszám: 20/30/70, majd pontosan 7 számjegy", "Feltételek");
         }
 
         private void btnIntoCSV_Click(object sender, EventArgs e)

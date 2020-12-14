@@ -20,6 +20,16 @@ namespace valYOU
             BelepesFormazas();
         }
 
+        private void BelepesFormazas()
+        {
+            btnClear.Text = "\uE711";
+            btnEnter.Text = "\uE73E";
+            labelEye.Text = "\uE7B3";
+            btnFastLogin.Text = "\uF3B1";
+            tbPIN.MaxLength = 8;
+            tbPIN.TextAlign = HorizontalAlignment.Center;
+        }
+
         private void Belepes_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Biztos ki szeretne lépni?", "Megerősítés",
@@ -29,14 +39,19 @@ namespace valYOU
             }
         }
 
-        private void BelepesFormazas()
+        private void Belepes_Load(object sender, EventArgs e)
         {
-            btnClear.Text = "\uE711";
-            btnEnter.Text = "\uE73E";
-            labelEye.Text = "\uE7B3";
-            btnFastLogin.Text = "\uF3B1";
-            tbPIN.MaxLength = 8;
-            tbPIN.TextAlign = HorizontalAlignment.Center;
+            this.ActiveControl = tbPIN;
+        }
+
+        private void tbPIN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
 
         Control ActiveControl;
@@ -60,11 +75,6 @@ namespace valYOU
             {
                 ((CheckBox)cbVisible).Checked = false;
             }
-        }
-
-        private void Belepes_Load(object sender, EventArgs e)
-        {
-            this.ActiveControl = tbPIN;
         }
 
         private void cbVisible_CheckedChanged(object sender, EventArgs e)
@@ -109,16 +119,6 @@ namespace valYOU
             using (Fomenu fm = new Fomenu())
             {
                 fm.ShowDialog();
-            }
-        }
-
-        private void tbPIN_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
-            {
-                e.Handled = true;
             }
         }
 

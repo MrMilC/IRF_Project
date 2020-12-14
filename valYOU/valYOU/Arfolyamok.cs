@@ -181,6 +181,11 @@ namespace valYOU
             }
         }
 
+        private void Arfolyamok_Load(object sender, EventArgs e)
+        {
+            Calculations();
+        }
+
         private void cbCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProv.Clear();
@@ -193,9 +198,74 @@ namespace valYOU
             DataRefresh();
         }
 
-        private void Arfolyamok_Load(object sender, EventArgs e)
+        private void btnIntoCSV_Click(object sender, EventArgs e)
         {
-            Calculations();
+            if (dgwRates.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV (*.csv)|*.csv";
+                sfd.Title = "Árfolyam mentése CSV fájlba";
+                sfd.FileName = ".csv";
+                sfd.RestoreDirectory = true;
+                bool fileError = false;
+                DialogResult result = sfd.ShowDialog();
+
+                if (result == DialogResult.OK && sfd.FileName != "")
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            if (sfd.CheckPathExists)
+                            {
+                                using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                                {
+                                    sw.WriteLine("Árfolyam " + "|" + cbCurrency.Text + "|");
+                                    sw.WriteLine();
+
+                                    sw.WriteLine("Minimális érték: " + labelMin.Text);
+                                    sw.WriteLine("Átlagos érték: " + labelAvg.Text);
+                                    sw.WriteLine("Maximális érték: " + labelMax.Text);
+                                    sw.WriteLine();
+                                    sw.WriteLine();
+                                    sw.WriteLine();
+
+                                    for (int i = 0; i < dgwRates.Rows.Count; i++)
+                                    {
+                                        sw.WriteLine("Dátum: " + dgwRates.Rows[i].Cells[0].Value.ToString().Substring(0, 13));
+                                        sw.WriteLine("Érték: " + dgwRates.Rows[i].Cells[2].Value.ToString() + " HUF");
+                                        sw.WriteLine();
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("A megadott útvonal nem létezik!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hiba: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
+            }
         }
 
         private void ReleaseObject(object obj)
@@ -437,76 +507,6 @@ namespace valYOU
                         MessageBox.Show("Hiba: " + ex.Message);
                     }
                 } 
-            }
-        }
-
-        private void btnIntoCSV_Click(object sender, EventArgs e)
-        {
-            if (dgwRates.Rows.Count > 0)
-            {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "CSV (*.csv)|*.csv";
-                sfd.Title = "Árfolyam mentése CSV fájlba";
-                sfd.FileName = ".csv";
-                sfd.RestoreDirectory = true;
-                bool fileError = false;
-                DialogResult result = sfd.ShowDialog();
-
-                if (result == DialogResult.OK && sfd.FileName != "")
-                {
-                    if (File.Exists(sfd.FileName))
-                    {
-                        try
-                        {
-                            File.Delete(sfd.FileName);
-                        }
-                        catch (IOException ex)
-                        {
-                            fileError = true;
-                            MessageBox.Show("Sikertelen mentés" + ex.Message);
-                        }
-                    }
-                    if (!fileError)
-                    {
-                        try
-                        {
-                            if (sfd.CheckPathExists)
-                            {
-                                using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
-                                {
-                                    sw.WriteLine("Árfolyam "+"|"+cbCurrency.Text+"|");
-                                    sw.WriteLine();
-
-                                    sw.WriteLine("Minimális érték: " + labelMin.Text);
-                                    sw.WriteLine("Átlagos érték: " + labelAvg.Text);
-                                    sw.WriteLine("Maximális érték: " + labelMax.Text);
-                                    sw.WriteLine();
-                                    sw.WriteLine();
-                                    sw.WriteLine();
-
-                                    for (int i = 0; i < dgwRates.Rows.Count; i++)
-                                    {
-                                        sw.WriteLine("Dátum: " + dgwRates.Rows[i].Cells[0].Value.ToString().Substring(0, 13));
-                                        sw.WriteLine("Érték: " + dgwRates.Rows[i].Cells[2].Value.ToString()+" HUF");
-                                        sw.WriteLine();
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("A megadott útvonal nem létezik!");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Hiba: " + ex.Message);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
             }
         }
     }

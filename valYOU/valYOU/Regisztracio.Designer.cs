@@ -47,6 +47,7 @@ namespace valYOU
             this.label10 = new System.Windows.Forms.Label();
             this.timerError = new System.Windows.Forms.Timer(this.components);
             this.labelError2 = new System.Windows.Forms.Label();
+            this.cbTermsOfUse = new System.Windows.Forms.CheckBox();
             this.btnTest = new valYOU.Entities.RoundButton();
             this.tbPIN = new valYOU.Entities.RoundTextBox();
             this.btnClear = new valYOU.Entities.RoundButton();
@@ -61,6 +62,7 @@ namespace valYOU
             this.tbEmail2 = new valYOU.Entities.RoundTextBox();
             this.tbEmail = new valYOU.Entities.RoundTextBox();
             this.tbName = new valYOU.Entities.RoundTextBox();
+            this.btnInfo = new valYOU.Entities.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).BeginInit();
             this.SuspendLayout();
@@ -243,13 +245,26 @@ namespace valYOU
             this.labelError2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelError2.AutoSize = true;
             this.labelError2.BackColor = System.Drawing.Color.Transparent;
-            this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelError2.ForeColor = System.Drawing.Color.White;
-            this.labelError2.Location = new System.Drawing.Point(1046, 525);
+            this.labelError2.Location = new System.Drawing.Point(1042, 519);
             this.labelError2.Name = "labelError2";
-            this.labelError2.Size = new System.Drawing.Size(26, 27);
+            this.labelError2.Size = new System.Drawing.Size(30, 33);
             this.labelError2.TabIndex = 60;
             this.labelError2.Text = "A";
+            // 
+            // cbTermsOfUse
+            // 
+            this.cbTermsOfUse.AutoSize = true;
+            this.cbTermsOfUse.BackColor = System.Drawing.Color.Transparent;
+            this.cbTermsOfUse.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbTermsOfUse.ForeColor = System.Drawing.Color.Orange;
+            this.cbTermsOfUse.Location = new System.Drawing.Point(845, 306);
+            this.cbTermsOfUse.Name = "cbTermsOfUse";
+            this.cbTermsOfUse.Size = new System.Drawing.Size(179, 23);
+            this.cbTermsOfUse.TabIndex = 61;
+            this.cbTermsOfUse.Text = "*Felhasználási feltételek";
+            this.cbTermsOfUse.UseVisualStyleBackColor = false;
             // 
             // btnTest
             // 
@@ -470,12 +485,35 @@ namespace valYOU
             this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
+            // btnInfo
+            // 
+            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.BorderColor = System.Drawing.Color.Orange;
+            this.btnInfo.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.Location = new System.Drawing.Point(992, 205);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.OnHoverBorderColor = System.Drawing.Color.Orange;
+            this.btnInfo.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.btnInfo.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnInfo.Size = new System.Drawing.Size(65, 65);
+            this.btnInfo.TabIndex = 62;
+            this.btnInfo.TextColor = System.Drawing.Color.White;
+            this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
             // Regisztracio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1084, 561);
+            this.Controls.Add(this.btnInfo);
+            this.Controls.Add(this.cbTermsOfUse);
             this.Controls.Add(this.labelError2);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.label10);
@@ -544,5 +582,7 @@ namespace valYOU
         private Entities.RoundButton btnTest;
         private System.Windows.Forms.Timer timerError;
         private System.Windows.Forms.Label labelError2;
+        private System.Windows.Forms.CheckBox cbTermsOfUse;
+        private Entities.RoundButton btnInfo;
     }
 }
