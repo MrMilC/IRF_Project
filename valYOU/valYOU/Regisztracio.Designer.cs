@@ -45,9 +45,9 @@ namespace valYOU
             this.label9 = new System.Windows.Forms.Label();
             this.ErrorProv2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label10 = new System.Windows.Forms.Label();
-            this.timerError = new System.Windows.Forms.Timer(this.components);
             this.labelError2 = new System.Windows.Forms.Label();
             this.cbTermsOfUse = new System.Windows.Forms.CheckBox();
+            this.btnInfo = new valYOU.Entities.RoundButton();
             this.btnTest = new valYOU.Entities.RoundButton();
             this.tbPIN = new valYOU.Entities.RoundTextBox();
             this.btnClear = new valYOU.Entities.RoundButton();
@@ -62,7 +62,6 @@ namespace valYOU
             this.tbEmail2 = new valYOU.Entities.RoundTextBox();
             this.tbEmail = new valYOU.Entities.RoundTextBox();
             this.tbName = new valYOU.Entities.RoundTextBox();
-            this.btnInfo = new valYOU.Entities.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).BeginInit();
             this.SuspendLayout();
@@ -266,6 +265,27 @@ namespace valYOU
             this.cbTermsOfUse.Text = "*Felhasználási feltételek";
             this.cbTermsOfUse.UseVisualStyleBackColor = false;
             // 
+            // btnInfo
+            // 
+            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.BorderColor = System.Drawing.Color.Orange;
+            this.btnInfo.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.Location = new System.Drawing.Point(992, 205);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.OnHoverBorderColor = System.Drawing.Color.Orange;
+            this.btnInfo.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.btnInfo.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnInfo.Size = new System.Drawing.Size(65, 65);
+            this.btnInfo.TabIndex = 62;
+            this.btnInfo.TextColor = System.Drawing.Color.White;
+            this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
             // btnTest
             // 
             this.btnTest.BackColor = System.Drawing.Color.Transparent;
@@ -295,8 +315,10 @@ namespace valYOU
             this.tbPIN.Name = "tbPIN";
             this.tbPIN.Size = new System.Drawing.Size(125, 29);
             this.tbPIN.TabIndex = 56;
+            this.tbPIN.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbPIN.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
+            this.tbPIN.Validating += new System.ComponentModel.CancelEventHandler(this.tbPIN_Validating);
             // 
             // btnClear
             // 
@@ -392,8 +414,10 @@ namespace valYOU
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(125, 29);
             this.tbPhone.TabIndex = 50;
+            this.tbPhone.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbPhone.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
+            this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhone_Validating);
             // 
             // btnDelete
             // 
@@ -445,7 +469,9 @@ namespace valYOU
             this.tbPassword2.Size = new System.Drawing.Size(175, 29);
             this.tbPassword2.TabIndex = 43;
             this.tbPassword2.UseSystemPasswordChar = true;
+            this.tbPassword2.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbPassword2.Enter += new System.EventHandler(this.tbName_Enter);
+            this.tbPassword2.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword2_Validating);
             // 
             // tbPassword
             // 
@@ -455,7 +481,9 @@ namespace valYOU
             this.tbPassword.Size = new System.Drawing.Size(175, 29);
             this.tbPassword.TabIndex = 42;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbPassword.Enter += new System.EventHandler(this.tbName_Enter);
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
             // 
             // tbEmail2
             // 
@@ -464,7 +492,9 @@ namespace valYOU
             this.tbEmail2.Name = "tbEmail2";
             this.tbEmail2.Size = new System.Drawing.Size(175, 29);
             this.tbEmail2.TabIndex = 39;
+            this.tbEmail2.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbEmail2.Enter += new System.EventHandler(this.tbName_Enter);
+            this.tbEmail2.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail2_Validating);
             // 
             // tbEmail
             // 
@@ -473,7 +503,9 @@ namespace valYOU
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(175, 29);
             this.tbEmail.TabIndex = 38;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbEmail.Enter += new System.EventHandler(this.tbName_Enter);
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
             // tbName
             // 
@@ -482,29 +514,10 @@ namespace valYOU
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(175, 29);
             this.tbName.TabIndex = 1;
+            this.tbName.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.BorderColor = System.Drawing.Color.Orange;
-            this.btnInfo.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.Location = new System.Drawing.Point(992, 205);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.OnHoverBorderColor = System.Drawing.Color.Orange;
-            this.btnInfo.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.btnInfo.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnInfo.Size = new System.Drawing.Size(65, 65);
-            this.btnInfo.TabIndex = 62;
-            this.btnInfo.TextColor = System.Drawing.Color.White;
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.tbName_Validating);
             // 
             // Regisztracio
             // 
@@ -580,7 +593,6 @@ namespace valYOU
         private System.Windows.Forms.Label label10;
         private Entities.RoundTextBox tbPIN;
         private Entities.RoundButton btnTest;
-        private System.Windows.Forms.Timer timerError;
         private System.Windows.Forms.Label labelError2;
         private System.Windows.Forms.CheckBox cbTermsOfUse;
         private Entities.RoundButton btnInfo;

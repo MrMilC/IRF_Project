@@ -42,6 +42,17 @@ namespace valYOU
             tbPhone.TextAlign = HorizontalAlignment.Center;
         }
 
+        private void WhiteControls()
+        {
+            tbEmail.BackColor = Color.White;
+            tbEmail2.BackColor = Color.White;
+            tbPassword.BackColor = Color.White;
+            tbPassword2.BackColor = Color.White;
+            tbName.BackColor = Color.White;
+            tbPIN.BackColor = Color.White;
+            tbPhone.BackColor = Color.White;
+        }
+
         private void tbName_Enter(object sender, EventArgs e)
         {
             ErrorProv2.Clear();
@@ -80,43 +91,52 @@ namespace valYOU
                 || !ValidatePIN(Convert.ToDecimal(tbPIN.Text))
                 || !ValidatePhone(tbPhone.Text))
                 {
-                    ErrorProv2.SetError(labelError2, "!Helytelen formátum(ok)\n.A 'kérdőjel' gombnál több információt találhat");
+                    ErrorProv2.SetError(labelError2, "!Helytelen formátum(ok)\n.A '?' gombra kattintva több információt találhat");
                 }
                 else
                 {
-                    try
+                    if (tbEmail.Text!=tbEmail2.Text || tbPassword.Text!=tbPassword2.Text)
                     {
-                        User u = new User()
-                        {
-                            Nev = tbName.Text,
-                            Nem = cbGender.Text,
-                            PIN_kod = Convert.ToDecimal(tbPIN.Text),
-                            Email = tbEmail.Text,
-                            Telefonszam = tbPhone.Text,
-                            RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
-                        };
-                        users.Add(u);
-
-                        Action<Control.ControlCollection> func = null;
-
-                        func = (controls) =>
-                        {
-                            foreach (Control control in controls)
-                                if (control is System.Windows.Forms.TextBox)
-                                    (control as System.Windows.Forms.TextBox).Clear();
-                                else if (control is ComboBox)
-                                    (control as ComboBox).SelectedItem = null;
-                                else if (control is System.Windows.Forms.CheckBox)
-                                    (control as System.Windows.Forms.CheckBox).Checked = false;
-                                else
-                                    func(control.Controls);
-                        };
-
-                        func(Controls);
+                        ErrorProv2.SetError(labelError2, "!A két e-mail cím és/vagy jelszó nem egyezik meg");
                     }
-                    catch (Exception)
+                    else
                     {
-                        ErrorProv2.SetError(labelError2, "!Kitöltetlen adatok");
+                        try
+                        {
+                            User u = new User()
+                            {
+                                Nev = tbName.Text,
+                                Nem = cbGender.Text,
+                                PIN_kod = Convert.ToDecimal(tbPIN.Text),
+                                Email = tbEmail.Text,
+                                Telefonszam = tbPhone.Text,
+                                RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
+                            };
+                            users.Add(u);
+
+                            Action<Control.ControlCollection> func = null;
+
+                            func = (controls) =>
+                            {
+                                foreach (Control control in controls)
+                                    if (control is System.Windows.Forms.TextBox)
+                                        (control as System.Windows.Forms.TextBox).Clear();
+                                    else if (control is ComboBox)
+                                        (control as ComboBox).SelectedItem = null;
+                                    else if (control is System.Windows.Forms.CheckBox)
+                                        (control as System.Windows.Forms.CheckBox).Checked = false;
+                                    else
+                                        func(control.Controls);
+                            };
+
+                            func(Controls);
+
+                            WhiteControls();
+                        }
+                        catch (Exception)
+                        {
+                            ErrorProv2.SetError(labelError2, "!Kitöltetlen adatok");
+                        }
                     }
                 }
             }
@@ -142,6 +162,8 @@ namespace valYOU
             func(Controls);
 
             ErrorProv2.Clear();
+
+            WhiteControls();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -175,7 +197,7 @@ namespace valYOU
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("E-mail cím formátuma: karakterek@karakterek.karakterek\n" +
+            MessageBox.Show("E-mail cím formátuma: karakterek/számok@karakterek.karakterek\n" +
                 "\nJelszó: Legalább 8 karakter hosszú, csak az angol ABC betűi, számok\nTartalmaznia kell legalább egy kisbetűt, egy nagybetűt és egy számot\n" +
                 "\nNév: Legalább két szó, mindkét szó esetén nagy kezdőbetű, a két szó között szóköz\n" +
                 "\nPIN-kód: Pontosan 8 számjegy\n" +
@@ -470,6 +492,159 @@ namespace valYOU
             return Regex.IsMatch(
                 phone,
                 @"^(20|30|70)[0-9]{3}?[0-9]{4}?$");
+        }
+
+        private void tbEmail_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(
+                @"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+
+            if (regex.IsMatch(tbEmail.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbEmail.Text))
+                    tbEmail.BackColor = Color.LightGreen;
+                else
+                    tbEmail.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbEmail.BackColor = Color.OrangeRed;
+            }
+        }
+
+        private void tbEmail2_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(tbEmail.Text);
+
+            if (regex.IsMatch(tbEmail2.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbEmail2.Text))
+                    tbEmail2.BackColor = Color.LightGreen;
+                else
+                    tbEmail2.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbEmail2.BackColor = Color.OrangeRed;
+            }
+        }
+
+        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
+            
+            if (regex.IsMatch(tbPassword.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbPassword.Text))
+                    tbPassword.BackColor = Color.LightGreen;
+                else
+                    tbPassword.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbPassword.BackColor = Color.OrangeRed;
+            }
+        }
+
+        private void tbPassword2_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(tbPassword.Text);
+
+            if (regex.IsMatch(tbPassword2.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbPassword2.Text))
+                    tbPassword2.BackColor = Color.LightGreen;
+                else
+                    tbPassword2.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbPassword2.BackColor = Color.OrangeRed;
+            }
+        }
+
+        private void tbName_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(@"[A-ZÖÜÓŐÚÉÁŰ]{1}[a-zöüóőúéáű]{1,}[ ]{1}[A-ZÖÜÓŐÚÉÁŰ]{1}[a-zöüóőúéáű]{1,}");
+
+            if (regex.IsMatch(tbName.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbName.Text))
+                    tbName.BackColor = Color.LightGreen;
+                else
+                    tbName.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbName.BackColor = Color.OrangeRed;
+            }
+        }
+
+        private void tbPIN_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(@"[0-9]{8}");
+
+            if (regex.IsMatch(tbPIN.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbPIN.Text))
+                    tbPIN.BackColor = Color.LightGreen;
+                else
+                    tbPIN.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbPIN.BackColor = Color.OrangeRed;
+            }
+        }
+
+        private void tbPhone_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(@"^(20|30|70)[0-9]{3}?[0-9]{4}?$");
+
+            if (regex.IsMatch(tbPhone.Text))
+            {
+                e.Cancel = false;
+
+                if (!String.IsNullOrWhiteSpace(tbPhone.Text))
+                    tbPhone.BackColor = Color.LightGreen;
+                else
+                    tbPhone.BackColor = Color.White;
+            }
+
+            else
+            {
+                e.Cancel = false;
+                tbPhone.BackColor = Color.OrangeRed;
+            }
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+            this.Validate();
         }
     }
 }

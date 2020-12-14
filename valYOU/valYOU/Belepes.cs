@@ -137,7 +137,7 @@ namespace valYOU
             else
             {
                 e.Cancel = false;
-                tbPIN.BackColor = Color.Tomato;
+                tbPIN.BackColor = Color.OrangeRed;
             }
         }
 
