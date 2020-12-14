@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using valYOU.Entities;
 
@@ -35,24 +36,6 @@ namespace valYOU
             tbPhone.MaxLength = 9;
             tbPIN.MaxLength = 8;
             dgwUsers.AllowUserToAddRows = false;
-
-            for (int i = 0; i <= dgwUsers.Columns.Count - 1; i++)
-            {
-                int colw = dgwUsers.Columns[i].Width;
-                dgwUsers.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dgwUsers.Columns[i].Width = colw;
-            }
-        }
-
-
-        private void Regisztracio_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timerReg_Tick(object sender, EventArgs e)
-        {
-            
         }
 
         private void tbLastName_KeyPress(object sender, KeyPressEventArgs e)
@@ -173,11 +156,6 @@ namespace valYOU
             {
                 MessageBox.Show("A törléshez legalább egy egész sort ki kell jelölni!", "Törlés");
             }
-        }
-
-        private void timerError_Tick(object sender, EventArgs e)
-        {
-            
         }
 
         private void tbLastName_Enter(object sender, EventArgs e)
@@ -438,6 +416,20 @@ namespace valYOU
             {
                 MessageBox.Show("Nincsenek exportálható adatok!", "Hiba");
             }
+        }
+
+        public bool ValidateEmail(string email)
+        {
+            return Regex.IsMatch(
+                email,
+                @"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+        }
+
+        public bool ValidatePassword(string password)
+        {
+            return Regex.IsMatch(
+                password,
+                @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
         }
     }
 }

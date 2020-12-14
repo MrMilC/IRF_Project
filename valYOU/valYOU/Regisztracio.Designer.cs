@@ -180,7 +180,6 @@ namespace valYOU
             // 
             // timerReg
             // 
-            this.timerReg.Tick += new System.EventHandler(this.timerReg_Tick);
             // 
             // label6
             // 
@@ -278,7 +277,6 @@ namespace valYOU
             // 
             // timerError
             // 
-            this.timerError.Tick += new System.EventHandler(this.timerError_Tick);
             // 
             // labelError2
             // 
@@ -571,7 +569,6 @@ namespace valYOU
             this.Controls.Add(this.dgwUsers);
             this.Name = "Regisztracio";
             this.Text = "Regisztracio";
-            this.Load += new System.EventHandler(this.Regisztracio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).EndInit();
             this.ResumeLayout(false);
