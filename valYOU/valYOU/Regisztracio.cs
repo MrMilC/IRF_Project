@@ -38,7 +38,12 @@ namespace valYOU
             dgwUsers.AllowUserToAddRows = false;
         }
 
-        private void tbLastName_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbName_Enter(object sender, EventArgs e)
+        {
+            ErrorProv2.Clear();
+        }
+
+        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) &&
                 char.IsNumber(e.KeyChar))
@@ -61,32 +66,16 @@ namespace valYOU
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(tbMiddleName.Text))
+                User u = new User()
                 {
-                    User u = new User()
-                    {
-                        Nev = tbLastName.Text + " " + tbMiddleName.Text + " " + tbFirstName.Text,
-                        Nem = cbGender.Text,
-                        PIN_kod = Convert.ToDecimal(tbPIN.Text),
-                        Email = tbEmail.Text,
-                        Telefonszam = Convert.ToDecimal(tbPhone.Text),
-                        RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
-                    };
-                    users.Add(u);
-                }
-                else
-                {
-                    User u = new User()
-                    {
-                        Nev = tbLastName.Text + " " + tbFirstName.Text,
-                        Nem = cbGender.Text,
-                        PIN_kod = Convert.ToDecimal(tbPIN.Text),
-                        Email = tbEmail.Text,
-                        Telefonszam = Convert.ToDecimal(tbPhone.Text),
-                        RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
-                    };
-                    users.Add(u);
-                }
+                    Nev = tbName.Text,
+                    Nem = cbGender.Text,
+                    PIN_kod = Convert.ToDecimal(tbPIN.Text),
+                    Email = tbEmail.Text,
+                    Telefonszam = Convert.ToDecimal(tbPhone.Text),
+                    RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
+                };
+                users.Add(u);
                 
                 Action<Control.ControlCollection> func = null;
 
@@ -156,11 +145,6 @@ namespace valYOU
             {
                 MessageBox.Show("A törléshez legalább egy egész sort ki kell jelölni!", "Törlés");
             }
-        }
-
-        private void tbLastName_Enter(object sender, EventArgs e)
-        {
-            ErrorProv2.Clear();
         }
 
         private void btnIntoCSV_Click(object sender, EventArgs e)
@@ -430,6 +414,13 @@ namespace valYOU
             return Regex.IsMatch(
                 password,
                 @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
+        }
+
+        public bool ValidateName(string name)
+        {
+            return Regex.IsMatch(
+                name,
+                @"[A-ZÖÜÓŐÚÉÁŰ]{1}[a-zöüóőúéáű]{1,}[ ]{1}[A-ZÖÜÓŐÚÉÁŰ]{1}[a-zöüóőúéáű]{1,}");
         }
     }
 }

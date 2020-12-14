@@ -33,10 +33,8 @@ namespace valYOU
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Regisztracio));
             this.dgwUsers = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
             this.labelCountdown = new System.Windows.Forms.Label();
             this.timerReg = new System.Windows.Forms.Timer(this.components);
@@ -62,9 +60,7 @@ namespace valYOU
             this.tbPassword = new valYOU.Entities.RoundTextBox();
             this.tbEmail2 = new valYOU.Entities.RoundTextBox();
             this.tbEmail = new valYOU.Entities.RoundTextBox();
-            this.tbMiddleName = new valYOU.Entities.RoundTextBox();
-            this.tbFirstName = new valYOU.Entities.RoundTextBox();
-            this.tbLastName = new valYOU.Entities.RoundTextBox();
+            this.tbName = new valYOU.Entities.RoundTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).BeginInit();
             this.SuspendLayout();
@@ -88,24 +84,9 @@ namespace valYOU
             this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(629, 165);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 23);
+            this.label2.Size = new System.Drawing.Size(97, 23);
             this.label2.TabIndex = 29;
-            this.label2.Text = "*Vezetéknév";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.Orange;
-            this.label1.Location = new System.Drawing.Point(891, 165);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 23);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "*Keresztnév";
+            this.label2.Text = "*Teljes név";
             // 
             // label3
             // 
@@ -137,21 +118,6 @@ namespace valYOU
             this.label4.TabIndex = 33;
             this.label4.Text = "*Email ismét";
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.Orange;
-            this.label5.Location = new System.Drawing.Point(760, 165);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 23);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Középső név";
-            // 
             // labelTime
             // 
             this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -177,9 +143,6 @@ namespace valYOU
             this.labelCountdown.Size = new System.Drawing.Size(38, 15);
             this.labelCountdown.TabIndex = 37;
             this.labelCountdown.Text = "02:00";
-            // 
-            // timerReg
-            // 
             // 
             // label6
             // 
@@ -238,7 +201,7 @@ namespace valYOU
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(121, 28);
             this.cbGender.TabIndex = 46;
-            this.cbGender.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.cbGender.Enter += new System.EventHandler(this.tbName_Enter);
             // 
             // label9
             // 
@@ -249,7 +212,7 @@ namespace valYOU
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.ForeColor = System.Drawing.Color.Orange;
-            this.label9.Location = new System.Drawing.Point(761, 235);
+            this.label9.Location = new System.Drawing.Point(842, 237);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(129, 17);
             this.label9.TabIndex = 51;
@@ -269,14 +232,11 @@ namespace valYOU
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.ForeColor = System.Drawing.Color.Orange;
-            this.label10.Location = new System.Drawing.Point(891, 229);
+            this.label10.Location = new System.Drawing.Point(841, 165);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 23);
             this.label10.TabIndex = 57;
             this.label10.Text = "*PIN-kód";
-            // 
-            // timerError
-            // 
             // 
             // labelError2
             // 
@@ -316,11 +276,11 @@ namespace valYOU
             // tbPIN
             // 
             this.tbPIN.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPIN.Location = new System.Drawing.Point(895, 255);
+            this.tbPIN.Location = new System.Drawing.Point(845, 191);
             this.tbPIN.Name = "tbPIN";
             this.tbPIN.Size = new System.Drawing.Size(125, 29);
             this.tbPIN.TabIndex = 56;
-            this.tbPIN.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.tbPIN.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             // 
             // btnClear
@@ -413,11 +373,11 @@ namespace valYOU
             // tbPhone
             // 
             this.tbPhone.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPhone.Location = new System.Drawing.Point(764, 255);
+            this.tbPhone.Location = new System.Drawing.Point(845, 257);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(125, 29);
             this.tbPhone.TabIndex = 50;
-            this.tbPhone.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.tbPhone.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             // 
             // btnDelete
@@ -470,7 +430,7 @@ namespace valYOU
             this.tbPassword2.Size = new System.Drawing.Size(175, 29);
             this.tbPassword2.TabIndex = 43;
             this.tbPassword2.UseSystemPasswordChar = true;
-            this.tbPassword2.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.tbPassword2.Enter += new System.EventHandler(this.tbName_Enter);
             // 
             // tbPassword
             // 
@@ -480,7 +440,7 @@ namespace valYOU
             this.tbPassword.Size = new System.Drawing.Size(175, 29);
             this.tbPassword.TabIndex = 42;
             this.tbPassword.UseSystemPasswordChar = true;
-            this.tbPassword.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.tbPassword.Enter += new System.EventHandler(this.tbName_Enter);
             // 
             // tbEmail2
             // 
@@ -489,7 +449,7 @@ namespace valYOU
             this.tbEmail2.Name = "tbEmail2";
             this.tbEmail2.Size = new System.Drawing.Size(175, 29);
             this.tbEmail2.TabIndex = 39;
-            this.tbEmail2.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.tbEmail2.Enter += new System.EventHandler(this.tbName_Enter);
             // 
             // tbEmail
             // 
@@ -498,37 +458,17 @@ namespace valYOU
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(175, 29);
             this.tbEmail.TabIndex = 38;
-            this.tbEmail.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.tbEmail.Enter += new System.EventHandler(this.tbName_Enter);
             // 
-            // tbMiddleName
+            // tbName
             // 
-            this.tbMiddleName.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbMiddleName.Location = new System.Drawing.Point(764, 191);
-            this.tbMiddleName.Name = "tbMiddleName";
-            this.tbMiddleName.Size = new System.Drawing.Size(125, 29);
-            this.tbMiddleName.TabIndex = 34;
-            this.tbMiddleName.Enter += new System.EventHandler(this.tbLastName_Enter);
-            this.tbMiddleName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
-            // 
-            // tbFirstName
-            // 
-            this.tbFirstName.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbFirstName.Location = new System.Drawing.Point(895, 191);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(125, 29);
-            this.tbFirstName.TabIndex = 30;
-            this.tbFirstName.Enter += new System.EventHandler(this.tbLastName_Enter);
-            this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
-            // 
-            // tbLastName
-            // 
-            this.tbLastName.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbLastName.Location = new System.Drawing.Point(633, 191);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(125, 29);
-            this.tbLastName.TabIndex = 1;
-            this.tbLastName.Enter += new System.EventHandler(this.tbLastName_Enter);
-            this.tbLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
+            this.tbName.Font = new System.Drawing.Font("Tw Cen MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbName.Location = new System.Drawing.Point(633, 191);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(175, 29);
+            this.tbName.TabIndex = 1;
+            this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // Regisztracio
             // 
@@ -558,14 +498,10 @@ namespace valYOU
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.labelCountdown);
             this.Controls.Add(this.labelTime);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbMiddleName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbLastName);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.dgwUsers);
             this.Name = "Regisztracio";
             this.Text = "Regisztracio";
@@ -579,14 +515,10 @@ namespace valYOU
         #endregion
 
         private System.Windows.Forms.DataGridView dgwUsers;
-        private Entities.RoundTextBox tbLastName;
+        private Entities.RoundTextBox tbName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private Entities.RoundTextBox tbFirstName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private Entities.RoundTextBox tbMiddleName;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Label labelCountdown;
         private System.Windows.Forms.Timer timerReg;
