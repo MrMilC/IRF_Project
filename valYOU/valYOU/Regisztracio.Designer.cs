@@ -267,6 +267,7 @@ namespace valYOU
             // 
             // btnInfo
             // 
+            this.btnInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnInfo.BackColor = System.Drawing.Color.Transparent;
             this.btnInfo.BorderColor = System.Drawing.Color.Orange;
             this.btnInfo.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));

@@ -95,8 +95,8 @@ namespace valYOU_UnitTest
             TestCase("405555555", false),
             TestCase("505555555", false),
             TestCase("605555555", false),
-            TestCase("905555555", false),
             TestCase("805555555", false),
+            TestCase("905555555", false),
 
             TestCase("205555555", true),
             TestCase("305555555", true),

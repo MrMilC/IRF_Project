@@ -42,6 +42,16 @@ namespace valYOU
             tbPhone.TextAlign = HorizontalAlignment.Center;
         }
 
+        private void dgwUsersFormazas()
+        {
+            dgwUsers.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgwUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgwUsers.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgwUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgwUsers.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgwUsers.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+        }
+
         private void WhiteControls()
         {
             tbEmail.BackColor = Color.White;
@@ -91,11 +101,12 @@ namespace valYOU
                 || !ValidatePIN(Convert.ToDecimal(tbPIN.Text))
                 || !ValidatePhone(tbPhone.Text))
                 {
-                    ErrorProv2.SetError(labelError2, "!Helytelen formátum(ok)\n.A '?' gombra kattintva több információt találhat");
+                    ErrorProv2.SetError(labelError2, "!Helytelen formátum(ok) / kitöltetlen mezők" +
+                        "\n.A '?' gombra kattintva több információt találhat");
                 }
                 else
                 {
-                    if (tbEmail.Text!=tbEmail2.Text || tbPassword.Text!=tbPassword2.Text)
+                    if (tbEmail.Text != tbEmail2.Text || tbPassword.Text != tbPassword2.Text)
                     {
                         ErrorProv2.SetError(labelError2, "!A két e-mail cím és/vagy jelszó nem egyezik meg");
                     }
@@ -113,6 +124,8 @@ namespace valYOU
                                 RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
                             };
                             users.Add(u);
+
+                            dgwUsersFormazas();
 
                             Action<Control.ControlCollection> func = null;
 
@@ -135,7 +148,7 @@ namespace valYOU
                         }
                         catch (Exception)
                         {
-                            ErrorProv2.SetError(labelError2, "!Kitöltetlen adatok");
+                            ErrorProv2.SetError(labelError2, "!Kitöltetlen mezők");
                         }
                     }
                 }
@@ -178,6 +191,8 @@ namespace valYOU
                 RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
             };
             users.Add(u);
+
+            dgwUsersFormazas();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -188,6 +203,8 @@ namespace valYOU
                 {
                     dgwUsers.Rows.RemoveAt(row.Index);
                 }
+
+                dgwUsersFormazas();
             }
             else
             {
