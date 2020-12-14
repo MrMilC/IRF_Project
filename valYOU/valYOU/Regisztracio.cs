@@ -44,23 +44,46 @@ namespace valYOU
 
         private void dgwUsersFormazas()
         {
-            dgwUsers.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgwUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgwUsers.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgwUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgwUsers.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgwUsers.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            for (int i = 0; i < dgwUsers.Columns.Count; i++)
+            {
+                dgwUsers.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
         }
 
-        private void WhiteControls()
+        private void WhiteTextBoxes()
         {
-            tbEmail.BackColor = Color.White;
-            tbEmail2.BackColor = Color.White;
-            tbPassword.BackColor = Color.White;
-            tbPassword2.BackColor = Color.White;
-            tbName.BackColor = Color.White;
-            tbPIN.BackColor = Color.White;
-            tbPhone.BackColor = Color.White;
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is System.Windows.Forms.TextBox)
+                        (control as System.Windows.Forms.TextBox).BackColor=Color.White;
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+        }
+
+        private void ClearControls()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is System.Windows.Forms.TextBox)
+                        (control as System.Windows.Forms.TextBox).Clear();
+                    else if (control is ComboBox)
+                        (control as ComboBox).SelectedItem = null;
+                    else if (control is System.Windows.Forms.CheckBox)
+                        (control as System.Windows.Forms.CheckBox).Checked = false;
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
 
         private void tbName_Enter(object sender, EventArgs e)
@@ -126,25 +149,8 @@ namespace valYOU
                             users.Add(u);
 
                             dgwUsersFormazas();
-
-                            Action<Control.ControlCollection> func = null;
-
-                            func = (controls) =>
-                            {
-                                foreach (Control control in controls)
-                                    if (control is System.Windows.Forms.TextBox)
-                                        (control as System.Windows.Forms.TextBox).Clear();
-                                    else if (control is ComboBox)
-                                        (control as ComboBox).SelectedItem = null;
-                                    else if (control is System.Windows.Forms.CheckBox)
-                                        (control as System.Windows.Forms.CheckBox).Checked = false;
-                                    else
-                                        func(control.Controls);
-                            };
-
-                            func(Controls);
-
-                            WhiteControls();
+                            ClearControls();
+                            WhiteTextBoxes();
                         }
                         catch (Exception)
                         {
@@ -157,26 +163,9 @@ namespace valYOU
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            Action<Control.ControlCollection> func = null;
-
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is System.Windows.Forms.TextBox)
-                        (control as System.Windows.Forms.TextBox).Clear();
-                    else if (control is ComboBox)
-                        (control as ComboBox).SelectedItem = null;
-                    else if (control is System.Windows.Forms.CheckBox)
-                        (control as System.Windows.Forms.CheckBox).Checked = false;
-                    else
-                        func(control.Controls);
-            };
-
-            func(Controls);
-
             ErrorProv2.Clear();
-
-            WhiteControls();
+            ClearControls();
+            WhiteTextBoxes();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
