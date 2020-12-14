@@ -3,12 +3,16 @@ using iTextSharp.text.pdf;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using valYOU.Entities;
+using Application = System.Windows.Forms.Application;
+using CheckBox = System.Windows.Forms.CheckBox;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace valYOU
 {
@@ -33,6 +37,8 @@ namespace valYOU
             btnClear.Text = "\uE894";
             labelError2.Text = "\uE713";
             btnInfo.Text = "\uE897";
+            labelEye2.Text = "\uE7B3";
+            labelEye3.Text = "\uE7B3";
             btnTest.Text = "Teszt \nuser";
             cbTermsOfUse.Text = "*Elfogadom a \nfelhasználási feltételeket!";
             cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -57,8 +63,8 @@ namespace valYOU
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is System.Windows.Forms.TextBox)
-                        (control as System.Windows.Forms.TextBox).BackColor=Color.White;
+                    if (control is TextBox)
+                        (control as TextBox).BackColor=Color.White;
                     else
                         func(control.Controls);
             };
@@ -73,12 +79,12 @@ namespace valYOU
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is System.Windows.Forms.TextBox)
-                        (control as System.Windows.Forms.TextBox).Clear();
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
                     else if (control is ComboBox)
                         (control as ComboBox).SelectedItem = null;
-                    else if (control is System.Windows.Forms.CheckBox)
-                        (control as System.Windows.Forms.CheckBox).Checked = false;
+                    else if (control is CheckBox)
+                        (control as CheckBox).Checked = false;
                     else
                         func(control.Controls);
             };
@@ -110,6 +116,34 @@ namespace valYOU
             }
         }
 
+        private void cbVisible2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbVisible2.Checked == true)
+            {
+                tbPassword.UseSystemPasswordChar = false;
+                tbPassword2.UseSystemPasswordChar = false;
+            }
+
+            else
+            {
+                tbPassword.UseSystemPasswordChar = true;
+                tbPassword2.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void cbVisible3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbVisible3.Checked == true)
+            {
+                tbPIN.UseSystemPasswordChar = false;
+            }
+
+            else
+            {
+                tbPIN.UseSystemPasswordChar = true;
+            }
+        }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             if (cbTermsOfUse.Checked == false)
@@ -124,8 +158,8 @@ namespace valYOU
                 || !ValidatePIN(Convert.ToDecimal(tbPIN.Text))
                 || !ValidatePhone(tbPhone.Text))
                 {
-                    ErrorProv2.SetError(labelError2, "!Helytelen formátum(ok) / kitöltetlen mezők" +
-                        "\n.A '?' gombra kattintva több információt találhat");
+                    ErrorProv2.SetError(labelError2, "!Helytelen formátum(ok) / kitöltetlen mező(k)" +
+                        "\n.Kattintson a '?' gombra további információkért");
                 }
                 else
                 {
@@ -651,6 +685,11 @@ namespace valYOU
         private void tbEmail_TextChanged(object sender, EventArgs e)
         {
             this.Validate();
+        }
+
+        private void Regisztracio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
