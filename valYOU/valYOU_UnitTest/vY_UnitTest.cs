@@ -44,5 +44,22 @@ namespace valYOU_UnitTest
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [
+            Test,
+            TestCase("Teszt", false),
+            TestCase("TesztElek", false),
+            TestCase("teszt elek", false),
+            TestCase("TESZT ELEK", false),
+            TestCase("Teszt Elek", true)
+        ]
+        public void TestValidateName(string name, bool expectedResult)
+        {
+            var regisztracio = new Regisztracio();
+
+            var actualResult = regisztracio.ValidateName(name);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }

@@ -72,7 +72,7 @@ namespace valYOU
                     Nem = cbGender.Text,
                     PIN_kod = Convert.ToDecimal(tbPIN.Text),
                     Email = tbEmail.Text,
-                    Telefonszam = Convert.ToDecimal(tbPhone.Text),
+                    Telefonszam = tbPhone.Text,
                     RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
                 };
                 users.Add(u);
@@ -85,7 +85,7 @@ namespace valYOU
                         if (control is System.Windows.Forms.TextBox)
                             (control as System.Windows.Forms.TextBox).Clear();
                         else if (control is ComboBox)
-                            (control as ComboBox).Items.Clear();
+                            (control as ComboBox).SelectedItem = null;
                         else
                             func(control.Controls);
                 };
@@ -108,7 +108,7 @@ namespace valYOU
                     if (control is System.Windows.Forms.TextBox)
                         (control as System.Windows.Forms.TextBox).Clear();
                     else if (control is ComboBox)
-                        cbGender.SelectedItem = null;
+                        (control as ComboBox).SelectedItem = null;
                     else
                         func(control.Controls);
             };
@@ -126,7 +126,7 @@ namespace valYOU
                 Nem = "Férfi",
                 PIN_kod = Convert.ToDecimal("19283746"),
                 Email = "teszt@valyou.hu",
-                Telefonszam = Convert.ToDecimal("305555555"),
+                Telefonszam = "305555555",
                 RegisztracioDatuma = Convert.ToDateTime(DateTime.Now)
             };
             users.Add(u);
@@ -421,6 +421,20 @@ namespace valYOU
             return Regex.IsMatch(
                 name,
                 @"[A-ZÖÜÓŐÚÉÁŰ]{1}[a-zöüóőúéáű]{1,}[ ]{1}[A-ZÖÜÓŐÚÉÁŰ]{1}[a-zöüóőúéáű]{1,}");
+        }
+
+        public bool ValidatePIN(decimal PIN)
+        {
+            return Regex.IsMatch(
+                PIN.ToString(),
+                @"[0-9]{8}");
+        }
+
+        public bool ValidatePhone(string phone)
+        {
+            return Regex.IsMatch(
+                phone,
+                @"^(20|30|70)[0-9]{3}?[0-9]{4}?$");
         }
     }
 }

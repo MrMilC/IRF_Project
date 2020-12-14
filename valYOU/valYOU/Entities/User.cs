@@ -12,7 +12,7 @@ namespace valYOU.Entities
         public string Nem { get; set; }
         public decimal PIN_kod { get; set; }
         public string Email { get; set; }
-        public decimal Telefonszam { get; set; }
+        public string Telefonszam { get; set; }
         public DateTime RegisztracioDatuma { get; set; }
     }
 }
