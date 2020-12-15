@@ -183,9 +183,9 @@ namespace valYOU
                             ClearControls();
                             WhiteTextBoxes();
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
-                            ErrorProv2.SetError(labelError2, "!Kitöltetlen mezők");
+                            ErrorProv2.SetError(labelError2, " :Hiba" + ex.Message);
                         }
                     }
                 }
@@ -264,7 +264,7 @@ namespace valYOU
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                            MessageBox.Show("Sikertelen mentés: " + ex.Message);
                         }
                     }
                     if (!fileError)
@@ -318,7 +318,7 @@ namespace valYOU
             catch (Exception ex)
             {
                 obj = null;
-                MessageBox.Show("Kivétel történt az objektum feloldásakor " + ex.Message, "Hiba");
+                MessageBox.Show("Kivétel történt az objektum feloldásakor: " + ex.Message, "Hiba");
             }
             finally
             {
@@ -349,7 +349,7 @@ namespace valYOU
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                            MessageBox.Show("Sikertelen mentés: " + ex.Message);
                         }
                     }
                     if (!fileError)
@@ -440,7 +440,7 @@ namespace valYOU
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                            MessageBox.Show("Sikertelen mentés: " + ex.Message);
                         }
                     }
                     if (!fileError)

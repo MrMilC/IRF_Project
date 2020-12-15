@@ -41,6 +41,7 @@ namespace valYOU
             // 
             // btnDivider
             // 
+            this.btnDivider.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDivider.BackColor = System.Drawing.Color.Orange;
             this.btnDivider.Enabled = false;
             this.btnDivider.FlatAppearance.BorderSize = 0;
@@ -54,6 +55,7 @@ namespace valYOU
             // 
             // labelDown2
             // 
+            this.labelDown2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDown2.AutoSize = true;
             this.labelDown2.BackColor = System.Drawing.Color.Transparent;
             this.labelDown2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,6 +69,7 @@ namespace valYOU
             // 
             // labelUp1
             // 
+            this.labelUp1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUp1.AutoSize = true;
             this.labelUp1.BackColor = System.Drawing.Color.Transparent;
             this.labelUp1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,6 +83,7 @@ namespace valYOU
             // 
             // btnRegistration
             // 
+            this.btnRegistration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRegistration.BackColor = System.Drawing.Color.Transparent;
             this.btnRegistration.BorderColor = System.Drawing.Color.Orange;
             this.btnRegistration.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -104,6 +108,7 @@ namespace valYOU
             // 
             // btnRates
             // 
+            this.btnRates.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRates.BackColor = System.Drawing.Color.Transparent;
             this.btnRates.BorderColor = System.Drawing.Color.Orange;
             this.btnRates.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -128,6 +133,7 @@ namespace valYOU
             // 
             // labelUp2
             // 
+            this.labelUp2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUp2.AutoSize = true;
             this.labelUp2.BackColor = System.Drawing.Color.Transparent;
             this.labelUp2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,6 +147,7 @@ namespace valYOU
             // 
             // labelDown1
             // 
+            this.labelDown1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDown1.AutoSize = true;
             this.labelDown1.BackColor = System.Drawing.Color.Transparent;
             this.labelDown1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

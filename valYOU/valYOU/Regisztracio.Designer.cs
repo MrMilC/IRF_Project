@@ -239,6 +239,7 @@ namespace valYOU
             this.cbTermsOfUse.TabIndex = 61;
             this.cbTermsOfUse.Text = "*Felhasználási feltételek";
             this.cbTermsOfUse.UseVisualStyleBackColor = false;
+            this.cbTermsOfUse.Enter += new System.EventHandler(this.tbName_Enter);
             // 
             // labelEye2
             // 

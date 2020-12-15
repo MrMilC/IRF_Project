@@ -43,7 +43,6 @@ namespace valYOU.Entities
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             Brush brush = new SolidBrush(_isHovering ? _onHoverBorderColor : _borderColor);
 
-            //Keret
             g.FillEllipse(brush, 0, 0, Height, Height);
             g.FillEllipse(brush, Width - Height, 0, Height, Height);
             g.FillRectangle(brush, Height / 2, 0, Width - Height, Height);
@@ -51,7 +50,6 @@ namespace valYOU.Entities
             brush.Dispose();
             brush = new SolidBrush(_isHovering ? _onHoverButtonColor : _buttonColor);
 
-            //Belső rész, a gomb maga
             g.FillEllipse(brush, _borderThicknessByTwo, _borderThicknessByTwo, Height - _borderThickness,
                 Height - _borderThickness);
             g.FillEllipse(brush, (Width - Height) + _borderThicknessByTwo, _borderThicknessByTwo,
@@ -62,7 +60,6 @@ namespace valYOU.Entities
             brush.Dispose();
             brush = new SolidBrush(_isHovering ? _onHoverTextColor : _textColor);
 
-            //Gomb szövege
             SizeF stringSize = g.MeasureString(Text, Font);
             g.DrawString(Text, Font, brush, (Width - stringSize.Width) / 2, (Height - stringSize.Height) / 2);
         }

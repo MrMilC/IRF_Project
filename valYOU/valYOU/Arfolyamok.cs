@@ -221,7 +221,7 @@ namespace valYOU
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                            MessageBox.Show("Sikertelen mentés: " + ex.Message);
                         }
                     }
                     if (!fileError)
@@ -278,7 +278,7 @@ namespace valYOU
             catch (Exception ex)
             {
                 obj = null;
-                MessageBox.Show("Kivétel történt az objektum feloldásakor " + ex.Message, "Hiba");
+                MessageBox.Show("Kivétel történt az objektum feloldásakor: " + ex.Message, "Hiba");
             }
             finally
             {
@@ -309,7 +309,7 @@ namespace valYOU
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                            MessageBox.Show("Sikertelen mentés: " + ex.Message);
                         }
                     }
                     if (!fileError)
@@ -400,7 +400,7 @@ namespace valYOU
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("Sikertelen mentés" + ex.Message);
+                            MessageBox.Show("Sikertelen mentés: " + ex.Message);
                         }
                     }
                     if (!fileError)
@@ -460,7 +460,7 @@ namespace valYOU
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
-            sfd.Title = "Chart mentése képként";
+            sfd.Title = "Diagram mentése képként";
             sfd.FileName = ".png";
             sfd.RestoreDirectory = true;
             bool fileError = false;
@@ -477,7 +477,7 @@ namespace valYOU
                     catch (IOException ex)
                     {
                         fileError = true;
-                        MessageBox.Show("Sikertelen mentés" + ex.Message);
+                        MessageBox.Show("Sikertelen mentés: " + ex.Message);
                     }
                 }
                 if (!fileError)

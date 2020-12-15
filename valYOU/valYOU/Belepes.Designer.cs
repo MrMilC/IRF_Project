@@ -56,7 +56,7 @@ namespace valYOU
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -69,7 +69,7 @@ namespace valYOU
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -82,7 +82,7 @@ namespace valYOU
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -95,7 +95,7 @@ namespace valYOU
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -108,6 +108,7 @@ namespace valYOU
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Tw Cen MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -120,6 +121,7 @@ namespace valYOU
             // 
             // tbPIN
             // 
+            this.tbPIN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPIN.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbPIN.Location = new System.Drawing.Point(121, 322);
             this.tbPIN.MaxLength = 100;
@@ -134,6 +136,7 @@ namespace valYOU
             // 
             // cbVisible
             // 
+            this.cbVisible.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbVisible.AutoSize = true;
             this.cbVisible.BackColor = System.Drawing.Color.Transparent;
             this.cbVisible.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -147,6 +150,7 @@ namespace valYOU
             // 
             // labelEye
             // 
+            this.labelEye.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelEye.AutoSize = true;
             this.labelEye.BackColor = System.Drawing.Color.Transparent;
             this.labelEye.Font = new System.Drawing.Font("Segoe MDL2 Assets", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,6 +163,7 @@ namespace valYOU
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -171,7 +176,7 @@ namespace valYOU
             // 
             // btnFastLogin
             // 
-            this.btnFastLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFastLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnFastLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnFastLogin.BorderColor = System.Drawing.Color.Aqua;
             this.btnFastLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -193,7 +198,7 @@ namespace valYOU
             // 
             // btnEnter
             // 
-            this.btnEnter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnEnter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEnter.BackColor = System.Drawing.Color.Transparent;
             this.btnEnter.BorderColor = System.Drawing.Color.SpringGreen;
             this.btnEnter.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -215,7 +220,7 @@ namespace valYOU
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClear.BackColor = System.Drawing.Color.Transparent;
             this.btnClear.BorderColor = System.Drawing.Color.Orange;
             this.btnClear.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -237,7 +242,7 @@ namespace valYOU
             // 
             // btnZero
             // 
-            this.btnZero.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnZero.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnZero.BackColor = System.Drawing.Color.Transparent;
             this.btnZero.BorderColor = System.Drawing.Color.Orange;
             this.btnZero.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -260,7 +265,7 @@ namespace valYOU
             // 
             // btnNine
             // 
-            this.btnNine.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNine.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNine.BackColor = System.Drawing.Color.Transparent;
             this.btnNine.BorderColor = System.Drawing.Color.Orange;
             this.btnNine.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -283,7 +288,7 @@ namespace valYOU
             // 
             // btnEight
             // 
-            this.btnEight.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnEight.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEight.BackColor = System.Drawing.Color.Transparent;
             this.btnEight.BorderColor = System.Drawing.Color.Orange;
             this.btnEight.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -306,7 +311,7 @@ namespace valYOU
             // 
             // btnSeven
             // 
-            this.btnSeven.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSeven.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSeven.BackColor = System.Drawing.Color.Transparent;
             this.btnSeven.BorderColor = System.Drawing.Color.Orange;
             this.btnSeven.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -329,7 +334,7 @@ namespace valYOU
             // 
             // btnSix
             // 
-            this.btnSix.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSix.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSix.BackColor = System.Drawing.Color.Transparent;
             this.btnSix.BorderColor = System.Drawing.Color.Orange;
             this.btnSix.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -352,7 +357,7 @@ namespace valYOU
             // 
             // btnFive
             // 
-            this.btnFive.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFive.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnFive.BackColor = System.Drawing.Color.Transparent;
             this.btnFive.BorderColor = System.Drawing.Color.Orange;
             this.btnFive.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -375,7 +380,7 @@ namespace valYOU
             // 
             // btnFour
             // 
-            this.btnFour.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFour.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnFour.BackColor = System.Drawing.Color.Transparent;
             this.btnFour.BorderColor = System.Drawing.Color.Orange;
             this.btnFour.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -398,7 +403,7 @@ namespace valYOU
             // 
             // btnThree
             // 
-            this.btnThree.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnThree.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThree.BackColor = System.Drawing.Color.Transparent;
             this.btnThree.BorderColor = System.Drawing.Color.Orange;
             this.btnThree.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -421,7 +426,7 @@ namespace valYOU
             // 
             // btnTwo
             // 
-            this.btnTwo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTwo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTwo.BackColor = System.Drawing.Color.Transparent;
             this.btnTwo.BorderColor = System.Drawing.Color.Orange;
             this.btnTwo.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
@@ -444,7 +449,7 @@ namespace valYOU
             // 
             // btnOne
             // 
-            this.btnOne.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOne.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOne.BackColor = System.Drawing.Color.Transparent;
             this.btnOne.BorderColor = System.Drawing.Color.Orange;
             this.btnOne.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));

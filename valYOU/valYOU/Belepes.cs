@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace valYOU
@@ -70,6 +65,7 @@ namespace valYOU
         private void btnClear_Click(object sender, EventArgs e)
         {
             tbPIN.Clear();
+            tbPIN.BackColor = Color.White;
 
             if (cbVisible is CheckBox)
             {
@@ -131,6 +127,8 @@ namespace valYOU
                 e.Cancel = false;
 
                 if (!String.IsNullOrWhiteSpace(tbPIN.Text))
+                    tbPIN.BackColor = Color.LightGreen;
+                else
                     tbPIN.BackColor = Color.White;
             }
 

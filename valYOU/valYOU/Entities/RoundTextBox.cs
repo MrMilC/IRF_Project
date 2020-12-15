@@ -13,12 +13,12 @@ namespace valYOU.Entities
         private static extern IntPtr CreateRoundRectRgn
     (
         int nLeftRect,
-        int nTopRect, 
+        int nTopRect,
         int nRightRect,
         int nBottomRect,
-                        
+
         int nheightRect,
-        int nweightRect 
+        int nweightRect
     );
         protected override void OnResize(EventArgs e)
         {
