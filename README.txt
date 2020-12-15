@@ -67,4 +67,5 @@ Az eddigi felhasználók listáját le lehet tölteni CSV, Excel és PDF formát
 
 - vY_UnitTest.cs -
 
-A
+Itt találhatók meg a Regisztracio.cs Regex függvényeihez tartozó Unit tesztek/tesztfüggvények (37 teszteset).
+Tesztek: E-mail cím (6), jelszó (6), név (5), PIN-kód (8), telefonszám (12).
