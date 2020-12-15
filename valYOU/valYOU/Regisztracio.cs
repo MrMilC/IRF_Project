@@ -3,14 +3,12 @@ using iTextSharp.text.pdf;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using valYOU.Entities;
-using Application = System.Windows.Forms.Application;
 using CheckBox = System.Windows.Forms.CheckBox;
 using TextBox = System.Windows.Forms.TextBox;
 
@@ -31,7 +29,6 @@ namespace valYOU
         private void RegisztracioFormazas()
         {
             dgwUsers.AllowUserToAddRows = false;
-            labelTime.Text = "\uE72C";
             btnRegister.Text = "\uE8FA";
             btnDelete.Text = "\uE74D";
             btnClear.Text = "\uE894";
@@ -685,11 +682,6 @@ namespace valYOU
         private void tbEmail_TextChanged(object sender, EventArgs e)
         {
             this.Validate();
-        }
-
-        private void Regisztracio_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

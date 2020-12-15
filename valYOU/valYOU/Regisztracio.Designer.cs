@@ -35,8 +35,6 @@ namespace valYOU
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.labelCountdown = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,6 +44,10 @@ namespace valYOU
             this.label10 = new System.Windows.Forms.Label();
             this.labelError2 = new System.Windows.Forms.Label();
             this.cbTermsOfUse = new System.Windows.Forms.CheckBox();
+            this.labelEye2 = new System.Windows.Forms.Label();
+            this.cbVisible2 = new System.Windows.Forms.CheckBox();
+            this.labelEye3 = new System.Windows.Forms.Label();
+            this.cbVisible3 = new System.Windows.Forms.CheckBox();
             this.btnInfo = new valYOU.Entities.RoundButton();
             this.btnTest = new valYOU.Entities.RoundButton();
             this.tbPIN = new valYOU.Entities.RoundTextBox();
@@ -61,10 +63,6 @@ namespace valYOU
             this.tbEmail2 = new valYOU.Entities.RoundTextBox();
             this.tbEmail = new valYOU.Entities.RoundTextBox();
             this.tbName = new valYOU.Entities.RoundTextBox();
-            this.labelEye2 = new System.Windows.Forms.Label();
-            this.cbVisible2 = new System.Windows.Forms.CheckBox();
-            this.labelEye3 = new System.Windows.Forms.Label();
-            this.cbVisible3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).BeginInit();
             this.SuspendLayout();
@@ -121,32 +119,6 @@ namespace valYOU
             this.label4.Size = new System.Drawing.Size(105, 23);
             this.label4.TabIndex = 33;
             this.label4.Text = "*Email ismét";
-            // 
-            // labelTime
-            // 
-            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTime.AutoSize = true;
-            this.labelTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelTime.Font = new System.Drawing.Font("Segoe MDL2 Assets", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTime.ForeColor = System.Drawing.Color.Orange;
-            this.labelTime.Location = new System.Drawing.Point(1039, 12);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(18, 20);
-            this.labelTime.TabIndex = 36;
-            this.labelTime.Text = "T";
-            // 
-            // labelCountdown
-            // 
-            this.labelCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelCountdown.AutoSize = true;
-            this.labelCountdown.BackColor = System.Drawing.Color.Transparent;
-            this.labelCountdown.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelCountdown.ForeColor = System.Drawing.Color.Orange;
-            this.labelCountdown.Location = new System.Drawing.Point(1034, 34);
-            this.labelCountdown.Name = "labelCountdown";
-            this.labelCountdown.Size = new System.Drawing.Size(38, 15);
-            this.labelCountdown.TabIndex = 37;
-            this.labelCountdown.Text = "02:00";
             // 
             // label6
             // 
@@ -249,7 +221,7 @@ namespace valYOU
             this.labelError2.BackColor = System.Drawing.Color.Transparent;
             this.labelError2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelError2.ForeColor = System.Drawing.Color.White;
-            this.labelError2.Location = new System.Drawing.Point(1042, 519);
+            this.labelError2.Location = new System.Drawing.Point(1042, 516);
             this.labelError2.Name = "labelError2";
             this.labelError2.Size = new System.Drawing.Size(30, 33);
             this.labelError2.TabIndex = 60;
@@ -267,6 +239,56 @@ namespace valYOU
             this.cbTermsOfUse.TabIndex = 61;
             this.cbTermsOfUse.Text = "*Felhasználási feltételek";
             this.cbTermsOfUse.UseVisualStyleBackColor = false;
+            // 
+            // labelEye2
+            // 
+            this.labelEye2.AutoSize = true;
+            this.labelEye2.BackColor = System.Drawing.Color.Transparent;
+            this.labelEye2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEye2.ForeColor = System.Drawing.Color.White;
+            this.labelEye2.Location = new System.Drawing.Point(1038, 127);
+            this.labelEye2.Name = "labelEye2";
+            this.labelEye2.Size = new System.Drawing.Size(34, 20);
+            this.labelEye2.TabIndex = 64;
+            this.labelEye2.Text = "Eye";
+            // 
+            // cbVisible2
+            // 
+            this.cbVisible2.AutoSize = true;
+            this.cbVisible2.BackColor = System.Drawing.Color.Transparent;
+            this.cbVisible2.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbVisible2.ForeColor = System.Drawing.Color.White;
+            this.cbVisible2.Location = new System.Drawing.Point(1025, 131);
+            this.cbVisible2.Name = "cbVisible2";
+            this.cbVisible2.Size = new System.Drawing.Size(15, 14);
+            this.cbVisible2.TabIndex = 63;
+            this.cbVisible2.UseVisualStyleBackColor = false;
+            this.cbVisible2.CheckedChanged += new System.EventHandler(this.cbVisible2_CheckedChanged);
+            // 
+            // labelEye3
+            // 
+            this.labelEye3.AutoSize = true;
+            this.labelEye3.BackColor = System.Drawing.Color.Transparent;
+            this.labelEye3.Font = new System.Drawing.Font("Segoe MDL2 Assets", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEye3.ForeColor = System.Drawing.Color.White;
+            this.labelEye3.Location = new System.Drawing.Point(988, 197);
+            this.labelEye3.Name = "labelEye3";
+            this.labelEye3.Size = new System.Drawing.Size(34, 20);
+            this.labelEye3.TabIndex = 66;
+            this.labelEye3.Text = "Eye";
+            // 
+            // cbVisible3
+            // 
+            this.cbVisible3.AutoSize = true;
+            this.cbVisible3.BackColor = System.Drawing.Color.Transparent;
+            this.cbVisible3.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbVisible3.ForeColor = System.Drawing.Color.White;
+            this.cbVisible3.Location = new System.Drawing.Point(975, 201);
+            this.cbVisible3.Name = "cbVisible3";
+            this.cbVisible3.Size = new System.Drawing.Size(15, 14);
+            this.cbVisible3.TabIndex = 65;
+            this.cbVisible3.UseVisualStyleBackColor = false;
+            this.cbVisible3.CheckedChanged += new System.EventHandler(this.cbVisible3_CheckedChanged);
             // 
             // btnInfo
             // 
@@ -524,56 +546,6 @@ namespace valYOU
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.tbName_Validating);
             // 
-            // labelEye2
-            // 
-            this.labelEye2.AutoSize = true;
-            this.labelEye2.BackColor = System.Drawing.Color.Transparent;
-            this.labelEye2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEye2.ForeColor = System.Drawing.Color.White;
-            this.labelEye2.Location = new System.Drawing.Point(1038, 127);
-            this.labelEye2.Name = "labelEye2";
-            this.labelEye2.Size = new System.Drawing.Size(34, 20);
-            this.labelEye2.TabIndex = 64;
-            this.labelEye2.Text = "Eye";
-            // 
-            // cbVisible2
-            // 
-            this.cbVisible2.AutoSize = true;
-            this.cbVisible2.BackColor = System.Drawing.Color.Transparent;
-            this.cbVisible2.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbVisible2.ForeColor = System.Drawing.Color.White;
-            this.cbVisible2.Location = new System.Drawing.Point(1025, 131);
-            this.cbVisible2.Name = "cbVisible2";
-            this.cbVisible2.Size = new System.Drawing.Size(15, 14);
-            this.cbVisible2.TabIndex = 63;
-            this.cbVisible2.UseVisualStyleBackColor = false;
-            this.cbVisible2.CheckedChanged += new System.EventHandler(this.cbVisible2_CheckedChanged);
-            // 
-            // labelEye3
-            // 
-            this.labelEye3.AutoSize = true;
-            this.labelEye3.BackColor = System.Drawing.Color.Transparent;
-            this.labelEye3.Font = new System.Drawing.Font("Segoe MDL2 Assets", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEye3.ForeColor = System.Drawing.Color.White;
-            this.labelEye3.Location = new System.Drawing.Point(988, 197);
-            this.labelEye3.Name = "labelEye3";
-            this.labelEye3.Size = new System.Drawing.Size(34, 20);
-            this.labelEye3.TabIndex = 66;
-            this.labelEye3.Text = "Eye";
-            // 
-            // cbVisible3
-            // 
-            this.cbVisible3.AutoSize = true;
-            this.cbVisible3.BackColor = System.Drawing.Color.Transparent;
-            this.cbVisible3.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbVisible3.ForeColor = System.Drawing.Color.White;
-            this.cbVisible3.Location = new System.Drawing.Point(975, 201);
-            this.cbVisible3.Name = "cbVisible3";
-            this.cbVisible3.Size = new System.Drawing.Size(15, 14);
-            this.cbVisible3.TabIndex = 65;
-            this.cbVisible3.UseVisualStyleBackColor = false;
-            this.cbVisible3.CheckedChanged += new System.EventHandler(this.cbVisible3_CheckedChanged);
-            // 
             // Regisztracio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -606,8 +578,6 @@ namespace valYOU
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbEmail2);
             this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.labelCountdown);
-            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -615,7 +585,6 @@ namespace valYOU
             this.Controls.Add(this.dgwUsers);
             this.Name = "Regisztracio";
             this.Text = "Regisztracio";
-            this.Load += new System.EventHandler(this.Regisztracio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProv2)).EndInit();
             this.ResumeLayout(false);
@@ -630,8 +599,6 @@ namespace valYOU
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label labelTime;
-        private System.Windows.Forms.Label labelCountdown;
         private Entities.RoundTextBox tbEmail;
         private Entities.RoundTextBox tbEmail2;
         private Entities.RoundTextBox tbPassword2;

@@ -1,9 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using valYOU;
 
 namespace valYOU_UnitTest
@@ -31,6 +26,7 @@ namespace valYOU_UnitTest
 
         [
             Test,
+            TestCase("12345678", false),
             TestCase("abcdABCD", false),
             TestCase("ABCD1234", false),
             TestCase("abcd1234", false),
