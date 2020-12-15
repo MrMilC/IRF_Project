@@ -1,6 +1,6 @@
---- valYOU ---
+----- valYOU -----
 
-- Alapötlet, cél -
+--- Alapötlet, cél ---
 
 Az program célja, hogy egy weboldalt és telefonos alkalmazást imitáljon, amelyben a felhasználók regisztrálhatnak, amelyet követően megtekinthetik két dátum között az adott pénznem magyar forintban vett árfolyamának alakulását (táblázatos és diagram formában). A regisztrációval és árfolyamokkal kapcsolatos információkat le is lehet tölteni többféle fájlformátumokban.
 Különböző tesztelési funkciók is rendelkezésre állnak, mint például a program indításakor megjelenő PIN-kód beviteli felület, egy teszt felhasználó hozzáadása, vagy egy/több felhasználó táblázatból való törlése, de fontos még kiemelni a regisztrációs felülethez tartozó Unit teszteket is.
@@ -36,7 +36,7 @@ Ez a felület kizárólag a másik két fő menüponthoz való elnavigálást va
 
 
 
-- Arfolyamok.cs (work in progress) -
+- Arfolyamok.cs -
 
 A program ezen szekciójában lehet megtekinteni két dátum között egy adott pénznemet kiválasztva annak árfolyamának forintban vett alakulását.
 Mindez látható DataGridView és Chart formában is.
@@ -48,7 +48,7 @@ A Chart is letölthető PNG, vagy JPG formátumban. Itt is megjegyzi az előző 
 
 
 
-- Regisztracio.cs (work in progress) -
+- Regisztracio.cs -
 
 Felhasználó regisztrálása (név, email, jelszó, telefonszám, stb.) Regex segítségével
 DGW adatainak mentése és kiválasztott egyed törlése
