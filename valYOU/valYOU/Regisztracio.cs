@@ -21,12 +21,12 @@ namespace valYOU
         {
             InitializeComponent();
 
-            RegisztracioFormazas();
+            RegisztracioDesign();
 
             dgwUsers.DataSource = users;
         }
 
-        private void RegisztracioFormazas()
+        private void RegisztracioDesign()
         {
             dgwUsers.AllowUserToAddRows = false;
             dgwUsers.ReadOnly = true;

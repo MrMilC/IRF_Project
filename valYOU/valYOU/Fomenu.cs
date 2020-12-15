@@ -9,10 +9,10 @@ namespace valYOU
         {
             InitializeComponent();
 
-            FomenuFormazas();
+            FomenuDesign();
         }
 
-        private void FomenuFormazas()
+        private void FomenuDesign()
         {
             labelUp1.Text = "\uE70E";
             labelUp2.Text = "\uE70E";

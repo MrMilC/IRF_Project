@@ -27,7 +27,7 @@ namespace valYOU
 
             CurrencyList();
             DataRefresh();
-            ArfolyamokFormazas();
+            ArfolyamokDesign();
         }
 
         private void CurrencyList()
@@ -61,7 +61,7 @@ namespace valYOU
             Calculations();
         }
 
-        private void ArfolyamokFormazas()
+        private void ArfolyamokDesign()
         {
             labelRightArrow.Text = "\uE970";
             labelError.Text = "\uE713";

@@ -12,10 +12,10 @@ namespace valYOU
         {
             InitializeComponent();
 
-            BelepesFormazas();
+            BelepesDesign();
         }
 
-        private void BelepesFormazas()
+        private void BelepesDesign()
         {
             btnClear.Text = "\uE711";
             btnEnter.Text = "\uE73E";
