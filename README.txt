@@ -11,7 +11,7 @@ Különböző tesztelési funkciók is rendelkezésre állnak, mint például a 
 
 --- Tervezett funkciók ---
 
-A program az working directoryban elhelyezkedő ikonnal is elindítható.
+A program a working directoryban elhelyezkedő ikonnal is elindítható.
 
 
 
@@ -38,20 +38,33 @@ Ez a felület kizárólag a másik két fő menüponthoz való elnavigálást va
 
 - Arfolyamok.cs -
 
-A program ezen szekciójában lehet megtekinteni két dátum között egy adott pénznemet kiválasztva annak árfolyamának forintban vett alakulását.
+A program ezen szekciójában lehet megtekinteni két dátum között egy adott pénznemet kiválasztva annak árfolyamának forintban vett alakulását. A program az adatokat az MNB webszolgáltatásából olvassa be. 
 Mindez látható DataGridView és Chart formában is.
 Alapesetben a kiválasztott valuta: EUR, a kiválasztott kezdő és záró dátumok: 2020.01.01. és 2020.01.31.
 A DataGridViewnál az adatokat nem lehet szerkeszteni, illetve nem lehet új sort hozzáadni. Az adott szűrési feltételek mellett a legalacsonyabb értékű forintban vett érték sora zöld színű, míg a legmagasabb értékű pirossal van jelezve. Ez a két érték, és az átlagos érték a DataGridView felett is látható Labelökön. Ha csak 0-ás értékek láthatóak, vagy csak egy sor létezik, akkor fehér marad mindegyik sor. Hibás szűrésnél/üres sorok esetén az említett Labelök mindegyike az "N/A" értéket adja vissza. A hibákat a fogaskerék mellett található piros felkiáltójel mutatja. Az egyik dátumra, vagy a ComboBox-ra való kattintáskor eltűnik a hibakiírás.
 A jobb oldalt lévő Chart megjelenése a bal oldali adatokhoz igazodik.
-A DataGridView adatai letölthetőek CSV, Excel és PDF formátumokban. Minden egyes letöltésnél megjegyzi az előző mentési helyet és ha már létezik ugyanilyen nevű fájl, akkor törli. Nem lehetséges az export, ha: üres a DataGridView, vagy a megadott útvonal nem létezik.
+A DataGridView adatai letölthetőek CSV, Excel és PDF formátumokban. Minden egyes letöltésnél megjegyzi az előző mentési útvonalat és ha már létezik ugyanilyen nevű fájl, akkor törli. Nem lehetséges az export, ha: üres a DataGridView, vagy a megadott útvonal nem létezik.
 A Chart is letölthető PNG, vagy JPG formátumban. Itt is megjegyzi az előző mentési útvonalat és törli az ugyanilyen nevű fájlt, ha létezik. Itt sem lehetséges az export, ha: üres a DataGridView/egy sor áll rendelkezésre, vagy a megadott útvonal nem létezik.
 
 
 
 - Regisztracio.cs -
 
-Felhasználó regisztrálása (név, email, jelszó, telefonszám, stb.) Regex segítségével
-DGW adatainak mentése és kiválasztott egyed törlése
-Mentés csv fájlba
-Timer: 2 perc tétlenséget követően az eddig megadott új regisztrációs adatok törlése (1 perc tétlenség után figyelmeztetés)
-Unit teszt a regisztrációs TextBoxoknál
+Ezen felület segítségével valósíthatók meg a regisztrációs és exportálási folyamatok, illetve a felhasználók törlése és teszt felhasználó hozzáadása. A bal oldalt található DataGridView nem szerkeszthető és nem lehet sort hozzáadni.
+A mezők helyes kitöltését követően az alul lévő "+" ikonra kattinva a felhasználó bekerül a DataGridViewba (a Nemet nem szükséges magadni). Nem kerülhet be user, ha: nincsenek elfogadva a felhasználási feltételek, helytelenek a formátumok, kitöltetlenek a mezők, vagy a két E-mail cím és jelszó mező nem egyezik meg.
+A TextBoxokba való íráskor piros színű az adott mező, ha nem felel meg a megadott formátumnak, és zöld, ha megfelel.
+A jelszó és PIN-kód mezők alapvetően elrejtik a bevitt karaktereket, viszont a mellettük lévő CheckBoxok segítségével láthatóvá lehet tenni az említett mezők karaktereit.
+A név mezőbe csak az ABC betűi kerülhetnek,  míg a PIN-kód és telefonszám mezőkbe csak számok. A PIN-kódhoz tartozó mezőhöz 8 számjegyet lehet írni, a telefonszámhoz 9-et.
+A "?" gombra kattintva további információk találhatók meg a helyes formátumokkal kapcsolatban. Az esetleges hibákról a a jobb alsó sarokban lévő fogaskerék melletti hibaüzenet értesít.
+Bármelyik Controlra kattintva az említett hibaüzenet eltűnik.
+A helyes kitöltést követően a "+" gombra kattintva a DataGridViewba való bekerülés mellett minden Formon lévő Control fehér lesz és tartalmuk kiürül, illetve a bevitt adathoz igazodva változik az oszlopok szélessége.
+Az "X" gomb megnyomása az utóbbiakban említett fehér és üres Controlokat eredményezi, továbbá a hibaüzenet is eltűnik.
+A "szemét" gombbal törölhető egy vagy több felhasználó a DataGridViewból (ehhez azonban ki kell jelölni legalább egy egész sort).
+A "Teszt user" gombbal azonnal felvehető egy személy a táblázatba, amely az egyes funkciók gyors kipróbálását segíti elő.
+Az eddigi felhasználók listáját le lehet tölteni CSV, Excel és PDF formátumokban. Minden egyes letöltésnél megjegyzi az előző mentési útvonalat és ha már létezik ugyanilyen nevű fájl, akkor törli. Nem lehetséges az export, ha: üres a DataGridView, vagy a megadott útvonal nem létezik.
+
+
+
+- vY_UnitTest.cs -
+
+A
