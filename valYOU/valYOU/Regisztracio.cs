@@ -46,7 +46,7 @@ namespace valYOU
             tbPhone.TextAlign = HorizontalAlignment.Center;
         }
 
-        private void dgwUsersFormazas()
+        private void dgwUsersDesign()
         {
             for (int i = 0; i < dgwUsers.Columns.Count; i++)
             {
@@ -180,7 +180,7 @@ namespace valYOU
                             };
                             users.Add(u);
 
-                            dgwUsersFormazas();
+                            dgwUsersDesign();
                             ClearControls();
                             WhiteTextBoxes();
                         }
@@ -213,7 +213,7 @@ namespace valYOU
             };
             users.Add(u);
 
-            dgwUsersFormazas();
+            dgwUsersDesign();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -225,7 +225,7 @@ namespace valYOU
                     dgwUsers.Rows.RemoveAt(row.Index);
                 }
 
-                dgwUsersFormazas();
+                dgwUsersDesign();
             }
             else
             {
