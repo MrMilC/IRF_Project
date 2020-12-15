@@ -69,6 +69,7 @@ namespace valYOU
             dtpTo.Value = new DateTime(2020, 01, 31);
             cbCurrency.SelectedItem = "EUR";
             dgwRates.AllowUserToAddRows = false;
+            dgwRates.ReadOnly = true;
             btnIntoImage.Text="PNG \nJPG";
         }
 
@@ -458,55 +459,64 @@ namespace valYOU
 
         private void btnIntoImage_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
-            sfd.Title = "Diagram mentése képként";
-            sfd.FileName = ".png";
-            sfd.RestoreDirectory = true;
-            bool fileError = false;
-            DialogResult result = sfd.ShowDialog();
-
-            if (result == DialogResult.OK && sfd.FileName != "")
+            if (dgwRates.Rows.Count > 1)
             {
-                if (File.Exists(sfd.FileName))
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PNG Image|*.png|JPeg Image|*.jpg";
+                sfd.Title = "Diagram mentése képként";
+                sfd.FileName = cbCurrency.Text + " árfolyam.png";
+                sfd.RestoreDirectory = true;
+                bool fileError = false;
+                DialogResult result = sfd.ShowDialog();
+
+                if (result == DialogResult.OK && sfd.FileName != "")
                 {
-                    try
+                    if (File.Exists(sfd.FileName))
                     {
-                        File.Delete(sfd.FileName);
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Sikertelen mentés: " + ex.Message);
+                        }
                     }
-                    catch (IOException ex)
+                    if (!fileError)
                     {
-                        fileError = true;
-                        MessageBox.Show("Sikertelen mentés: " + ex.Message);
+                        try
+                        {
+                            if (sfd.CheckPathExists)
+                            {
+                                if (sfd.FilterIndex == 2)
+                                {
+                                    chartRates.SaveImage(sfd.FileName, ChartImageFormat.Jpeg);
+                                    sfd.FileName = cbCurrency.Text + " árfolyam.jpg";
+                                }
+                                else if (sfd.FilterIndex == 1)
+                                {
+                                    chartRates.SaveImage(sfd.FileName, ChartImageFormat.Png);
+                                    sfd.FileName = cbCurrency.Text + " árfolyam.png";
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("A megadott útvonal nem létezik!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Hiba: " + ex.Message);
+                        }
                     }
                 }
-                if (!fileError)
-                {
-                    try
-                    {
-                        if (sfd.CheckPathExists)
-                        {
-                            if (sfd.FilterIndex == 2)
-                            {
-                                chartRates.SaveImage(sfd.FileName, ChartImageFormat.Jpeg);
-                                sfd.FileName = ".jpg";
-                            }
-                            else if (sfd.FilterIndex == 1)
-                            {
-                                chartRates.SaveImage(sfd.FileName, ChartImageFormat.Png);
-                                sfd.FileName = ".png";
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("A megadott útvonal nem létezik!");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Hiba: " + ex.Message);
-                    }
-                } 
+            }
+            else
+            {
+                MessageBox.Show("Nincsenek exportálható adatok!" +
+                    "\nVAGY" +
+                    "\nNem áll rendelkezésre elegendő adat!", "Hiba");
             }
         }
     }

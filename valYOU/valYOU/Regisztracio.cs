@@ -29,6 +29,7 @@ namespace valYOU
         private void RegisztracioFormazas()
         {
             dgwUsers.AllowUserToAddRows = false;
+            dgwUsers.ReadOnly = true;
             btnRegister.Text = "\uE8FA";
             btnDelete.Text = "\uE74D";
             btnClear.Text = "\uE894";
