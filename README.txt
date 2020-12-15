@@ -2,7 +2,8 @@
 
 - Alapötlet, cél -
 
-Az alkalmazás célja, hogy egy weboldalt és telefonos alkalmazást imitáljon, amelyben a felhasználók regisztrálhatnak, amelyhez egy 8 számjegyű PIN-kód megadása is szükséges. A regisztrációt követően a felhasználók megtekinthetik két adott időpont között az adott pénznem árfolyamának alakulását, illetve egy napot kiválasztva a webszolgáltatásban lévő összes pénznem árfolyamát.
+Az program célja, hogy egy weboldalt és telefonos alkalmazást imitáljon, amelyben a felhasználók regisztrálhatnak, amelyet követően megtekinthetik két dátum között az adott pénznem magyar forintban vett árfolyamának alakulását (táblázatos és diagram formában). A regisztrációval és árfolyamokkal kapcsolatos információkat le is lehet tölteni többféle fájlformátumokban.
+Különböző tesztelési funkciók is rendelkezésre állnak, mint például a program indításakor megjelenő PIN-kód beviteli felület, egy teszt felhasználó bevitele, vagy egy/több felhasználó táblázatból való törlése, de fontos még kiemelni a regisztrációs felülethez tartozó Unit teszteket is.
 
 
 
@@ -18,11 +19,12 @@ A program az working directoryban elhelyezkedő ikonnal is elindítható.
 
 PIN-kód: 91827364
 
-Az indítást követően első lépésként meg kell adni a további teszteléshez és használathoz szükséges 8 számjegyű PIN-kódot a jobb oldalt látható számozott gombokkal (ezzel az alapvető PIN-kód beírás is tesztelhető, amit leginkább a felhasználók fognak használni).
-Gombnyomásra kerül be az adott gombon található szám a bal oldali TextBoxba, amely "elrejti" a benne lévő számokat (betűket nem enged beírni). A TextBox mellett található CheckBox segítségével láthatóvá lehet tenni az eddigi számokat, ha esetleg bizonytalan a bevitel. Az alsó "X" gombbal kitörölhető a TextBox teljes tartalma, továbbá ha a láthatósági CheckBox be van pipálva, akkor azt eltávolítja.
+Az indítást követően első lépésként meg kell adni a további teszteléshez és használathoz szükséges 8 számjegyű PIN-kódot a jobb oldalt látható számozott gombok segítségével (ezzel az alapvető PIN-kód beírás is tesztelhető, ami leginkább a felhasználók számára hasznos).
+Gombnyomásra kerül be az adott gombon található szám a bal oldali TextBoxba, amely "elrejti" a benne lévő számokat (betűket nem enged beírni). A TextBox mellett található CheckBox segítségével láthatóvá lehet tenni az eddigi számokat, ha esetleg bizonytalan a bevitel.
 A zöld pipa gombbal tovább lehet lépni a Főmenübe, amennyiben a teszteléshez szánt/helyes kódot adtuk meg. Nem fog tovább engedni, ha: üres a TextBox, nincs meg a 8 számjegy, vagy helytelen a kód.
-A TextBox kezdetben fehér színű, viszont a számok megadása közben halvány pirosra vált, ezzel jelezve, hogy nem felel meg a továbbhaladási kritériumoknak. Halvány piros marad, amíg nincs meg a 8 számjegy és fehérré válik, ha megvan (8 számjegy a maximálisan megengedett). Ez azonban nem jelzi a számsorozat helyességét, csak a fentebb található első két hibánál jelez (üres a TextBox, nincs meg a 8 számjegy).
-A gyorsabb teszteléshez a bal alsó sarokban lévő FastLogin gombra is rá lehet kattintani a Főmenübe való gyors navigáláshoz a gyorsabb tesztelés érdekében.
+A TextBox kezdetben fehér színű, viszont a számok megadása közben pirosra vált, ezzel jelezve, hogy nem felel meg a továbbhaladási kritériumoknak. Piros marad, amíg nincs meg a 8 számjegy és zölddé válik, ha megvan (8 számjegy a maximálisan megengedett). Ez azonban nem jelzi a számsorozat helyességét, csak azt jelzi, hogy nem üres a TextBox és hogy 8 számjegy szerepel benne.
+Az alsó "X" gombra kattintva a TextBox teljes tartalma kiürül, a színe fehérré válik, továbbá ha a CheckBox be van pipálva, akkor azt eltávolítja.
+A gyorsabb teszteléshez a bal alsó sarokban lévő FastLogin gombra is rá lehet kattintani a Főmenü megjelenítéséhez a gyorsabb tesztelés/programhasználat érdekében.
 A jobb felső sarokban lévő X-szel ki lehet lépni a programból a felugró ablak megerősítését követően.
 A helyes kód megadását követően a Főmenü jelenik meg.
 
@@ -30,7 +32,7 @@ A helyes kód megadását követően a Főmenü jelenik meg.
 
 - Fomenu.cs -
 
-Ez a Form kizárólag a másik két fő menüponthoz való elnavigálást valósítja meg. A bal oldali gomb az Árfolyamokat jeleníti meg, a jobb oldali pedig a Regisztrációs felületet.
+Ez a felület kizárólag a másik két fő menüponthoz való elnavigálást valósítja meg. A bal oldali gomb az Árfolyamokat jeleníti meg, a jobb oldali pedig a Regisztrációs felületet.
 
 
 
