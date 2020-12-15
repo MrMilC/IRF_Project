@@ -3,7 +3,7 @@
 - Alapötlet, cél -
 
 Az program célja, hogy egy weboldalt és telefonos alkalmazást imitáljon, amelyben a felhasználók regisztrálhatnak, amelyet követően megtekinthetik két dátum között az adott pénznem magyar forintban vett árfolyamának alakulását (táblázatos és diagram formában). A regisztrációval és árfolyamokkal kapcsolatos információkat le is lehet tölteni többféle fájlformátumokban.
-Különböző tesztelési funkciók is rendelkezésre állnak, mint például a program indításakor megjelenő PIN-kód beviteli felület, egy teszt felhasználó bevitele, vagy egy/több felhasználó táblázatból való törlése, de fontos még kiemelni a regisztrációs felülethez tartozó Unit teszteket is.
+Különböző tesztelési funkciók is rendelkezésre állnak, mint például a program indításakor megjelenő PIN-kód beviteli felület, egy teszt felhasználó hozzáadása, vagy egy/több felhasználó táblázatból való törlése, de fontos még kiemelni a regisztrációs felülethez tartozó Unit teszteket is.
 
 
 
@@ -38,10 +38,13 @@ Ez a felület kizárólag a másik két fő menüponthoz való elnavigálást va
 
 - Arfolyamok.cs (work in progress) -
 
-Az MNB webszolgáltatás beolvasása.
-A fent kiválsztott pénznem árfolyamainak magyar forintban vett értékének megjelenítése az első DataGridView-n, jobb oldalt Charton pedig diagram mutatja az árfolyam alakulását.
-Ez alatt egy napot kiválasztva válik láthatóvá a webszolgáltatásban lévő összes pénznem árfolyama a második DataGridView-n.
-A két DGW által megjelenített adatokat ki lehet exportálni Excel állományba.
+A program ezen szekciójában lehet megtekinteni két dátum között egy adott pénznemet kiválasztva annak árfolyamának forintban vett alakulását.
+Mindez látható DataGridView és Chart formában is.
+Alapesetben a kiválasztott valuta: EUR, a kiválasztott kezdő és záró dátumok: 2020.01.01. és 2020.01.31.
+A DataGridViewnál az adatokat nem lehet szerkeszteni, illetve nem lehet új sort hozzáadni. Az adott szűrési feltételek mellett a legalacsonyabb értékű forintban vett érték sora zöld színű, míg a legmagasabb értékű pirossal van jelezve. Ez a két érték, és az átlagos érték a DataGridView felett is látható Labelökön. Ha csak 0-ás értékek láthatóak, vagy csak egy sor létezik, akkor fehér marad mindegyik sor. Hibás szűrésnél/üres sorok esetén az említett Labelök mindegyike az "N/A" értéket adja vissza. A hibákat a fogaskerék mellett található piros felkiáltójel mutatja. Az egyik dátumra, vagy a ComboBox-ra való kattintáskor eltűnik a hibakiírás.
+A jobb oldalt lévő Chart megjelenése a bal oldali adatokhoz igazodik.
+A DataGridView adatai letölthetőek CSV, Excel és PDF formátumokban. Minden egyes letöltésnél megjegyzi az előző mentési helyet és ha már létezik ugyanilyen nevű fájl, akkor törli. Nem lehetséges az export, ha: üres a DataGridView, vagy a megadott útvonal nem létezik.
+A Chart is letölthető PNG, vagy JPG formátumban. Itt is megjegyzi az előző mentési útvonalat és törli az ugyanilyen nevű fájlt, ha létezik. Itt sem lehetséges az export, ha: üres a DataGridView/egy sor áll rendelkezésre, vagy a megadott útvonal nem létezik.
 
 
 
